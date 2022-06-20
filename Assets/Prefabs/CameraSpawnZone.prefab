@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5706628379575915648}
   - component: {fileID: 6734499411998154975}
+  - component: {fileID: 4074423713275850004}
   - component: {fileID: 1690289852922558160}
   m_Layer: 0
   m_Name: CameraSpawnZone
@@ -58,6 +59,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.625, y: 13}
   m_EdgeRadius: 0
+--- !u!50 &4074423713275850004
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439047129153660455}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1690289852922558160
 MonoBehaviour:
   m_ObjectHideFlags: 0
