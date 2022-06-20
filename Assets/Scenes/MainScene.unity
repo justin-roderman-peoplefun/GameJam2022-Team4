@@ -324,3 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35aaa89f2cdf54dbfbaedc53bc1c07e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 121979192}
+  playerSpeed: 1
+  maxRotationAngle: 10
