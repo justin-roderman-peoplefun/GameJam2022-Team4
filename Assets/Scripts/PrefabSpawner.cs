@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 //Mostly an empty GameObject. When a PrefabSpawner collides with the spawn zone outside the camera, spawn the associated prefab.
@@ -33,7 +35,8 @@ public class PrefabSpawner : MonoBehaviour
         if (other.gameObject.CompareTag("CameraSpawnZone"))
             Instantiate(prefabToSpawn);
     }
-    
+
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (!bounds)
@@ -48,4 +51,5 @@ public class PrefabSpawner : MonoBehaviour
             Handles.Label(transform.position, prefabToSpawn.name, styles); 
         }
     }
+    #endif
 }
