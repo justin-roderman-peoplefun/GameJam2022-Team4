@@ -11,6 +11,7 @@ using UnityEngine;
 public class PrefabSpawner : MonoBehaviour
 {
     private CircleCollider2D bounds;
+    private GameObject spawnedInstance;
     
     public GameObject prefabToSpawn;
 
@@ -19,21 +20,29 @@ public class PrefabSpawner : MonoBehaviour
         bounds = GetComponent<CircleCollider2D>();
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Why isn't this printing");
-        /*Debug.Log("PrefabSpawner <color=green>" + gameObject.name + "</color>");
-        if (other.gameObject.CompareTag("CameraSpawnZone"))
+        if (prefabToSpawn == null)
         {
-            Debug.Log("PrefabSpawner <color=green>" + gameObject.name + "</color>");
-            Instantiate(prefabToSpawn);
-        }*/
+            Debug.Log("PrefabSpawner <color=green>" + gameObject.name + "</color> collided with the spawn zone but had no associated prefab.");
+            return;
+        }
+        if (other.gameObject.CompareTag("CameraSpawnZone") && spawnedInstance == null)
+        {
+            Debug.Log("PrefabSpawner <color=cyan>" + gameObject.name + "</color> collided with spawn zone, instantiating <color=cyan>" + prefabToSpawn.name + "</color>.");
+            spawnedInstance = Instantiate(prefabToSpawn, transform.position, transform.rotation);
+            transform.SetParent(spawnedInstance.transform);
+            transform.localPosition = Vector3.zero;
+            GetComponent<ScrollUpwardsPlain>().enabled = false;
+        }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("CameraSpawnZone"))
-            Instantiate(prefabToSpawn);
+        {
+            Destroy(spawnedInstance);
+        }
     }
 
     #if UNITY_EDITOR
