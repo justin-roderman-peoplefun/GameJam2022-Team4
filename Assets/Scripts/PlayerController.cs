@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 _targetPos;
     private Vector2 _playerVelocity = Vector2.zero;
 
+    private Coroutine _cursorFadeOut;
+
     private float _lastTap = Single.NegativeInfinity;
     private bool _boost;
     private float _lastBoostTime;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
             // Show the cursor and reset the color
             cursor.SetActive(true);
             cursor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            StopCoroutine(_cursorFadeOut);
 
             // Handle boosting
             if (!_boost)
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            StartCoroutine(FadeOutCursor());
+            _cursorFadeOut = StartCoroutine(FadeOutCursor());
         }
     }
 
