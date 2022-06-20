@@ -19,6 +19,7 @@ public class IntervalEnemySpawner : MonoBehaviour
         if (enemyPool.Length < 1) return;
         
         GameObject go = Instantiate(prefabSpawner);
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
         ps.prefabToSpawn = enemyPool[Random.Range(0, enemyPool.Length)];
     }

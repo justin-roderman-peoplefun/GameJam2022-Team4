@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 2402129489819816803}
-  verticalSpeed: 0.2
-  horizontalSpeed: 10
-  horizontalRange: 1
+  verticalSpeed: 0.5
+  horizontalSpeed: 6
+  horizontalRange: 1.5
