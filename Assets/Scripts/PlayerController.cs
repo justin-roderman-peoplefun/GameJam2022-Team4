@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -6,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Camera mainCamera;
+    public GameObject cursor;
 
     public float playerSpeed;
     public float maxPlayerSpeed;
@@ -32,21 +34,35 @@ public class PlayerController : MonoBehaviour
 
     private void InputMovement()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Show the cursor and reset the color
+            cursor.SetActive(true);
+            cursor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+
+            // Handle boosting
+            if (!_boost)
+            {
+                float time = Time.time;
+                if (time - _lastTap <= doubleTapTime)
+                {
+                    _boost = true;
+                    _lastBoostTime = time;
+                    GetComponent<SpriteRenderer>().color = Color.red;
+                }
+                _lastTap = time;                
+            }
+        }
+
         if (Input.GetMouseButton(0))
         {
             _targetPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            cursor.transform.position = _targetPos; // Make the cursor follow the mouse
         }
 
-        if (Input.GetMouseButtonDown(0) && !_boost)
+        if (Input.GetMouseButtonUp(0))
         {
-            float time = Time.time;
-            if (time - _lastTap <= doubleTapTime)
-            {
-                _boost = true;
-                _lastBoostTime = time;
-                GetComponent<SpriteRenderer>().color = Color.red;
-            }
-            _lastTap = time;
+            StartCoroutine(FadeOutCursor());
         }
     }
 
@@ -77,5 +93,18 @@ public class PlayerController : MonoBehaviour
         Move();
         
         UpdateBoostTime();
+    }
+
+    private IEnumerator FadeOutCursor()
+    {
+        Color cursorColor;
+        do
+        {
+            cursorColor = cursor.GetComponent<SpriteRenderer>().color;
+            cursorColor.a -= Time.deltaTime;
+            cursor.GetComponent<SpriteRenderer>().color = cursorColor;
+            yield return null;
+        } while (cursorColor.a > 0);
+        cursor.SetActive(false);
     }
 }
