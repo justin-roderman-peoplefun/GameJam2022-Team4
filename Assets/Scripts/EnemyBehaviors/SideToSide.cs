@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class SideToSide : MonoBehaviour
 {
@@ -12,7 +11,12 @@ public class SideToSide : MonoBehaviour
     public float horizontalRange = 1;
     
     Vector3 Position => transform.position;
-    
+
+    private void Start()
+    {
+        t = UnityEngine.Random.Range(0f, 2 * Mathf.PI);
+    }
+
     void FixedUpdate()
     {
         transform.position = new Vector3(Position.x, Position.y + (verticalSpeed / 10f), Position.z);

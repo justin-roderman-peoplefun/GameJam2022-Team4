@@ -24,12 +24,12 @@ public class PrefabSpawner : MonoBehaviour
     {
         if (prefabToSpawn == null)
         {
-            Debug.Log("PrefabSpawner <color=green>" + gameObject.name + "</color> collided with the spawn zone but had no associated prefab.");
+            //Debug.Log("PrefabSpawner <color=green>" + gameObject.name + "</color> collided with the spawn zone but had no associated prefab.");
             return;
         }
         if (other.gameObject.CompareTag("CameraSpawnZone") && spawnedInstance == null)
         {
-            Debug.Log("PrefabSpawner <color=cyan>" + gameObject.name + "</color> collided with spawn zone, instantiating <color=cyan>" + prefabToSpawn.name + "</color>.");
+            //Debug.Log("PrefabSpawner <color=cyan>" + gameObject.name + "</color> collided with spawn zone, instantiating <color=cyan>" + prefabToSpawn.name + "</color>.");
             spawnedInstance = Instantiate(prefabToSpawn, transform.position, transform.rotation);
             transform.SetParent(spawnedInstance.transform);
             transform.localPosition = Vector3.zero;
