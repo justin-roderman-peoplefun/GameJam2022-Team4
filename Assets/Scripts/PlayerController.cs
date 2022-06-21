@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             // Show the cursor and reset the color
             cursor.SetActive(true);
             cursor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-            StopCoroutine(_cursorFadeOut);
+            if(_cursorFadeOut != null) StopCoroutine(_cursorFadeOut);
 
             // Handle boosting
             if (!_boost)
