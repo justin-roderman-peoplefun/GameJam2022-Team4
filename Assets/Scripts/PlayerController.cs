@@ -126,4 +126,9 @@ public class PlayerController : MonoBehaviour
         } while (cursorColor.a > 0);
         cursor.SetActive(false);
     }
+
+    void TakeDamage()
+    {
+        
+    }
 }
