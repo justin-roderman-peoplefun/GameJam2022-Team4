@@ -34,7 +34,7 @@ public class DashAttack : MonoBehaviour
         Vector2 unitVectorToPlayer = (PlayerPosition - (Vector2)transform.position).normalized;
 
         _targetPos = PlayerPosition + (unitVectorToPlayer * overshootAmount);
-        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        //GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
         StartCoroutine(Dash());
     }
@@ -55,7 +55,7 @@ public class DashAttack : MonoBehaviour
         }
 
         float waitForNextDashTimer = 0f;
-        GetComponentInChildren<SpriteRenderer>().color = new Color(240, 250, 152);
+        //GetComponentInChildren<SpriteRenderer>().color = new Color(240, 250, 152);
         while (waitForNextDashTimer < timeBetweenDashes)
         {
             Vector2 targetPos = _targetPos + new Vector2(0.05f, 0);

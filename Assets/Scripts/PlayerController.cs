@@ -28,6 +28,16 @@ public class PlayerController : MonoBehaviour
     private bool _boost;
     private float _lastBoostTime;
 
+    private int life;
+
+    bool CanAcceptInput
+    {
+        get
+        {
+            return (StageManager.IsStagePlaying && life > 0);
+        }
+    }
+    
     public static PlayerController Instance { get; private set; }
     private void Awake() 
     { 
@@ -48,6 +58,16 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _targetPos = _rb.position;
+        life = 3;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            PlayerController.Instance.TakeDamage();
+            Destroy(other.transform.parent.gameObject);
+        }
     }
 
     private void InputMovement()
@@ -67,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _boost = true;
                     _lastBoostTime = time;
-                    GetComponent<SpriteRenderer>().color = Color.red;
+                    //GetComponent<SpriteRenderer>().color = Color.red;
                 }
                 _lastTap = time;                
             }
@@ -101,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_boost && Time.time - _lastBoostTime >= boostTime)
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            //GetComponent<SpriteRenderer>().color = Color.white;
             _boost = false;
         }
     }
@@ -114,6 +134,20 @@ public class PlayerController : MonoBehaviour
         UpdateBoostTime();
     }
 
+    IEnumerator DeathAnimation()
+    {
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+        float timer = 0f;
+        float animationLength = 2f;
+        while (timer < animationLength)
+        {
+            timer += Time.deltaTime;
+            playerSprite.material.SetFloat("_GrayscaleAmount", Mathf.Lerp(0f, 1f, (timer / animationLength)));
+            yield return null;
+        }
+        yield return null;
+    }
+    
     private IEnumerator FadeOutCursor()
     {
         Color cursorColor;
@@ -127,8 +161,14 @@ public class PlayerController : MonoBehaviour
         cursor.SetActive(false);
     }
 
-    void TakeDamage()
+    public void TakeDamage()
     {
-        
+        life--;
+        Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
+        if (life <= 0)
+        {
+            Debug.Log("Player has died! <color=red>Game Over</color>");
+            StartCoroutine(DeathAnimation());
+        }
     }
 }
