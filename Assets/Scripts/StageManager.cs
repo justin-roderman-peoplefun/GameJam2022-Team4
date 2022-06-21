@@ -96,6 +96,8 @@ public class StageManager : MonoBehaviour
             m_currentStageTime += Time.deltaTime;
         }
         
+        //TODO: Tell enemies to swim off the screen.
+        
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].scene.name + "]</color> is finished.");
         
         if ((currStageIndex + 1) >= stages.Length)
