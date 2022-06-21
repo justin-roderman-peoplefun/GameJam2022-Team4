@@ -129,5 +129,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 2402129489819816803}
   verticalSpeed: 0.5
-  horizontalSpeed: 6
+  horizontalSpeed: 2
   horizontalRange: 1.5

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d8e1141db7840fcbddd7c31a0a7697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenDashes: 4
-  dashSpeed: 5
+  timeBetweenDashes: 1
+  dashSpeed: 2.5
   maxSpeed: 2
   overshootAmount: 1
   maxRotationAngle: 15
