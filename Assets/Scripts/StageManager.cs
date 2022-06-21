@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class Stage
 {
-    public SceneAsset scene;
+    public string sceneName;
     public float maxTime = 60f;
     public int maxHearts = 10;
 }
@@ -56,14 +56,14 @@ public class StageManager : MonoBehaviour
 
         if (currStageIndex != -1)
         {
-            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].scene.name);
+            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
             while (!asyncUnload.isDone)
                 yield return null;
         }
 
         currStageIndex = index;
         
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stages[index].scene.name, LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stages[index].sceneName, LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
             yield return null;
 
@@ -72,7 +72,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator UnloadCurrentStage()
     {
-        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].scene.name);
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
         while (!asyncUnload.isDone)
             yield return null;
     }
@@ -85,7 +85,7 @@ public class StageManager : MonoBehaviour
         StartCoroutine(WaitForStageToFinish());
         
         m_isStagePlaying = true;
-        Debug.Log("Stage <color=green>[" + stages[currStageIndex].scene.name + "]</color> has begun.");
+        Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> has begun.");
     }
 
     IEnumerator WaitForStageToFinish()
@@ -98,7 +98,7 @@ public class StageManager : MonoBehaviour
         
         //TODO: Tell enemies to swim off the screen.
         
-        Debug.Log("Stage <color=green>[" + stages[currStageIndex].scene.name + "]</color> is finished.");
+        Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
         
         if ((currStageIndex + 1) >= stages.Length)
         {

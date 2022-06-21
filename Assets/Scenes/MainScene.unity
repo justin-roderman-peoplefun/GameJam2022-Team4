@@ -944,7 +944,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stages:
-  - scene: {fileID: 102900000, guid: 760dcef47a76b431f9729e6aec576a2e, type: 3}
+  - sceneName: Stage1
+    maxTime: 10
+    maxHearts: 5
+  - sceneName: Stage2
     maxTime: 10
     maxHearts: 5
 --- !u!4 &1547141339
@@ -1018,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6734499411998154975, guid: c7f6056796f67458b87263582f21efca, type: 3}
       propertyPath: m_Size.x
-      value: 8.625
+      value: 8.622047
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7f6056796f67458b87263582f21efca, type: 3}
