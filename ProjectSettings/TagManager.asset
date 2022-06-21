@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraSpawnZone
+  - Enemy
   layers:
   - Default
   - TransparentFX
