@@ -1,0 +1,169 @@
+{
+    "title": "Ghost Captain Octavian Tidebreaker ",
+    "data": {
+        "stitches": {
+            "arrghWhoDareBoar": {
+                "content": [
+                    "\"Arrgh! Who dare board me ship without me permission?!\"",
+                    {
+                        "option": "Answer him with a friendly remark",
+                        "linkPath": "theGhostlyPirate",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Answer him with a witty remark ",
+                        "linkPath": "theGhostlyPirate1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    },
+                    {
+                        "pageLabel": "Date 1"
+                    }
+                ]
+            },
+            "theGhostlyPirate": {
+                "content": [
+                    "The ghostly pirate stares you down, gliding effortlessly to close the distance between you. He seemed saddened, or perhaps this was pity for you. ",
+                    {
+                        "option": "...",
+                        "linkPath": "seemsAsThoughWeH",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "theGhostlyPirate1": {
+                "content": [
+                    "The ghostly pirate stares you down then suddenly erupts into a roar of laughter, jets of bubbles appearing around him, his tentacles wriggling with apparent glee at your wit. ",
+                    {
+                        "option": "Wait for him and the crew to quiet down",
+                        "linkPath": "oyWeAveALiveOneE",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "seemsAsThoughWeH": {
+                "content": [
+                    "\"Seems as though we have us a stowaway, mates. A living one at that.\"",
+                    {
+                        "option": "Who are you? Where am I?",
+                        "linkPath": "yarrrAboardMeShi",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "oyWeAveALiveOneE": {
+                "content": [
+                    "\"Oy, we 'ave a live one 'ere, mates! An they appear to be living too...\"",
+                    {
+                        "option": "Who are you? Where am I?",
+                        "linkPath": "yarrrAboardMeShi",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "yarrrAboardMeShi": {
+                "content": [
+                    "\"Yarrr aboard me ship, the Dream Stealer, and I be her cap'n, Octavian Tidebreaker!\"",
+                    {
+                        "option": "[Good] Make fun of his name",
+                        "linkPath": "captainOctavians",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ask about the songs of the abyss ",
+                        "linkPath": "aTwinkleSeemsToA",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "captainOctavians": {
+                "content": [
+                    "Captain Octavian's bearded tentacles curled in restrained annoyance. ",
+                    {
+                        "option": "...",
+                        "linkPath": "takeemToMeQuarte",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": -1
+                    }
+                ]
+            },
+            "aTwinkleSeemsToA": {
+                "content": [
+                    "A twinkle seems to appear in the Captain's inky black eyes, you could have sworn his ghostly features stretched into a smile, though any appearance of a mouth was obstructed by the thick beard of tentacles.  ",
+                    {
+                        "option": "...",
+                        "linkPath": "ohIDontBelieveYe",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "takeemToMeQuarte": {
+                "content": [
+                    "\"Take'em to me quarters, I'll deal with this bilge rat later!\"",
+                    {
+                        "option": "...",
+                        "linkPath": "aChorusOfYesCapn",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "ohIDontBelieveYe": {
+                "content": [
+                    "\"Oh, I don't believe ye be ready ta hear of such tales, but if ye be brave enough, I might be willin ta indulge...\"",
+                    {
+                        "option": "You nod at him as best you can in your heavy divers suit",
+                        "linkPath": "firstMateBarnesT",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "aChorusOfYesCapn": {
+                "content": [
+                    "A chorus of 'Yes Cap'n!'s ring out from the crew all around you and you are escorted down below deck to await the cap'n's will"
+                ]
+            },
+            "firstMateBarnesT": {
+                "content": [
+                    "\"First mate, Barnes! Take'em ta me quarters. All hands, claw, and fin, we 'ave fathoms bellow to venture!\"",
+                    {
+                        "option": "...",
+                        "linkPath": "aPortlyManDresse",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "aPortlyManDresse": {
+                "content": [
+                    "A portly man, dressed in stripes with barnacles spotting all over his face, arms, and legs shouts a \"Yes Cap'n!\" then dutifully he shuffles you below deck to await Captain Octavian in his quarters. "
+                ]
+            }
+        },
+        "initial": "arrghWhoDareBoar",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "yarrrAboardMeShi",
+            "libraryVisible": true,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 119838
+}

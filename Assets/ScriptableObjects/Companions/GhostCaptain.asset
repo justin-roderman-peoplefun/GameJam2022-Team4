@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73a780dee9ad4486a4952039cb710bd, type: 3}
-  m_Name: Data
+  m_Name: GhostCaptain
   m_EditorClassIdentifier: 
-  companionName: 
-  image: {fileID: 0}
+  companionName: Captain Octavian Tidebreaker
+  image: {fileID: 21300000, guid: 3f37079be438b4c88b5c79de3b15d5f5, type: 3}
+  dateDialogueTexts:
+  - {fileID: 4900000, guid: 37126402fca814e52b39d25b782b2b9c, type: 3}
