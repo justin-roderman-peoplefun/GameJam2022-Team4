@@ -1,6 +1,3 @@
-
-using System.Collections.Generic;
-
 public class Constants
 {
     public enum Companion
