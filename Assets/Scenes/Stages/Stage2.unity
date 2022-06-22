@@ -208,6 +208,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 917904315957437580, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
+      propertyPath: heartSpawnRate
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 917904315957437580, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
       propertyPath: maxResourcesOnScreen
       value: 5
       objectReference: {fileID: 0}

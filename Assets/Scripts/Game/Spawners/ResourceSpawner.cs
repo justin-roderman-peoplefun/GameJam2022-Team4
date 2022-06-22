@@ -21,12 +21,12 @@ public class ResourceSpawner : MonoBehaviour
 
     private float timeSinceLastSpawn;
     private int totalResourcesSpawned;
-    private List<GameObject> spawnedResources;
+    private List<PrefabSpawner> spawnedResources;
     private bool goalHasSpawned;
 
     private void Awake()
     {
-        spawnedResources = new List<GameObject>();
+        spawnedResources = new List<PrefabSpawner>();
         timeSinceLastSpawn = 0f;
         totalResourcesSpawned = 0;
         goalHasSpawned = false;
@@ -51,9 +51,9 @@ public class ResourceSpawner : MonoBehaviour
                 transform.position.y, 0f);
             PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
             bool shieldsOnScreen = false;
-            foreach (GameObject obj in spawnedResources)
+            foreach (PrefabSpawner obj in spawnedResources)
             {
-                if (obj.name == "ShieldResource(Clone)")
+                if (obj.prefabToSpawn.name == "ShieldResource")
                 {
                     shieldsOnScreen = true;
                     break;
@@ -65,7 +65,7 @@ public class ResourceSpawner : MonoBehaviour
             {
                 ps.prefabToSpawn = UnityEngine.Random.Range(0f, 1f) > heartSpawnRate ? shieldPrefab : heartPrefab;
             }
-            spawnedResources.Add(go);
+            spawnedResources.Add(ps);
             timeSinceLastSpawn = 0;
             totalResourcesSpawned++;
         }
@@ -75,7 +75,7 @@ public class ResourceSpawner : MonoBehaviour
             go.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
             PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
             ps.prefabToSpawn = stageEndPrefab;
-            spawnedResources.Add(go);
+            spawnedResources.Add(ps);
             timeSinceLastSpawn = 0;
             goalHasSpawned = true;
         }
@@ -83,8 +83,14 @@ public class ResourceSpawner : MonoBehaviour
     
     private void OnDestroy()
     {
-        foreach(GameObject go in spawnedResources)
-            Destroy(go);
+        foreach (PrefabSpawner obj in spawnedResources)
+        {
+            if(obj == null) continue;
+            Transform t = obj.transform;
+            while (t.parent != null)
+                t = t.parent;
+            Destroy(t.gameObject);
+        }
     }
     
 #if UNITY_EDITOR

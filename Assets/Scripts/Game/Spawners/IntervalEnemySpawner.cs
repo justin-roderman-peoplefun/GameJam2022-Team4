@@ -13,15 +13,24 @@ public class IntervalEnemySpawner : MonoBehaviour
     
     [SerializeField] private int maxEnemiesOnScreen = 3;
     [SerializeField] private float minimumTimeBetweenSpawns = 1f;
-    
+    [SerializeField] private float timeUntilFirstSpawn = 5f;
+
+    private bool spawnerActivated = false;
     private float timeSinceLastSpawn;
     private List<GameObject> spawnedEnemies;
 
     void Start()
     {
         spawnedEnemies = new List<GameObject>();
+        Invoke(nameof(ActivateSpawner), timeUntilFirstSpawn);
     }
 
+    void ActivateSpawner()
+    {
+        spawnerActivated = true;
+        timeSinceLastSpawn = minimumTimeBetweenSpawns;
+    }
+    
     void SpawnEnemy()
     {
         if (enemyPool.Length < 1) return;
@@ -36,6 +45,8 @@ public class IntervalEnemySpawner : MonoBehaviour
     
     void Update()
     {
+        if (!spawnerActivated) return;
+        
         timeSinceLastSpawn += Time.deltaTime;
         
         if (!StageManager.IsStagePlaying || timeSinceLastSpawn < minimumTimeBetweenSpawns)

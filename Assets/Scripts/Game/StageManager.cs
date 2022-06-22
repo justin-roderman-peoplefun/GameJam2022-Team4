@@ -70,13 +70,6 @@ public class StageManager : MonoBehaviour
     {
         m_isStagePlaying = false;
 
-        if (currStageIndex != -1)
-        {
-            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
-            while (!asyncUnload.isDone)
-                yield return null;
-        }
-
         currStageIndex = index;
         
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stages[index].sceneName, LoadSceneMode.Additive);
