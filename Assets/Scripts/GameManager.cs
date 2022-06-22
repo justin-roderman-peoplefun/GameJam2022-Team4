@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
         AsyncUnload
     }
 
-    private int _heartsCollected = 0;
+    public static GameManager Instance;
+
+    public bool inBubbleTransition;
+
+    private int _heartsCollected;
     private Constants.Companion _companion = Constants.Companion.Pirate;
 
     public CanvasGroup canvas;
@@ -24,7 +28,6 @@ public class GameManager : MonoBehaviour
 
     public int HeartsCollected => _heartsCollected;
 
-    public static GameManager Instance;
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
@@ -63,11 +66,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator BubbleTransitionSceneInternal(string sceneTo, AsyncTransition async)
     {
+        inBubbleTransition = true;
         GetComponentInChildren<ParticleSystem>().Stop();
         GetComponentInChildren<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeScreen(sceneTo, async));
         yield return new WaitForSeconds(1);
+        inBubbleTransition = false;
     }
 
     private IEnumerator FadeScreen(string sceneTo, AsyncTransition async)

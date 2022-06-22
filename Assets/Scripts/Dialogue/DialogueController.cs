@@ -62,10 +62,9 @@ namespace Dialogue
 
         private void Update()
         {
-            if (_currNode.FinalNode && Input.GetMouseButtonDown(0))
+            if (_currNode.FinalNode && Input.GetMouseButtonDown(0) && !GameManager.Instance.inBubbleTransition)
             {
-                StageManager.Instance.AdvanceStage();
-                GameManager.Instance.BubbleTransitionScene("DialogueScene", GameManager.AsyncTransition.AsyncUnload);
+                GameManager.Instance.BubbleTransitionScene("DialogueEndScene", GameManager.AsyncTransition.AsyncLoad);
             }
         }
 
