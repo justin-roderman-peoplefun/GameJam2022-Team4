@@ -63,7 +63,7 @@ namespace Dialogue
             if (_currNode.FinalNode)
             {
                 StageManager.Instance.AdvanceStage();
-                GameManager.Instance.BubbleTransitionScene("GameScene", true);
+                GameManager.Instance.BubbleTransitionScene("DialogueScene", GameManager.AsyncTransition.AsyncUnload);
             }
             else
             {

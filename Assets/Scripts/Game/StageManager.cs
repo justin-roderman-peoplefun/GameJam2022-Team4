@@ -118,7 +118,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.BubbleTransitionScene("DialogueScene", true);
+            GameManager.Instance.BubbleTransitionScene("DialogueScene", GameManager.AsyncTransition.AsyncLoad);
         }
     }
     

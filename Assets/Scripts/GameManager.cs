@@ -2,12 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public enum AsyncTransition
+    {
+        Sync,
+        AsyncLoad,
+        AsyncUnload
+    }
+
     private int heartsCollected = 0;
 
     public CanvasGroup canvas;
@@ -37,17 +45,17 @@ public class GameManager : MonoBehaviour
         return companions.Find(info => info.key == companion.ToString().ToLower());
     }
 
-    public void TransitionScene(string sceneTo)
+    public void TransitionScene(string sceneTo, AsyncTransition async=AsyncTransition.Sync)
     {
-        StartCoroutine(FadeScreen(sceneTo));
+        StartCoroutine(FadeScreen(sceneTo, async));
     }
 
-    public void BubbleTransitionScene(string sceneTo, bool async=false)
+    public void BubbleTransitionScene(string sceneTo, AsyncTransition async=AsyncTransition.Sync)
     {
         StartCoroutine(BubbleTransitionSceneInternal(sceneTo, async));
     }
 
-    private IEnumerator BubbleTransitionSceneInternal(string sceneTo, bool async)
+    private IEnumerator BubbleTransitionSceneInternal(string sceneTo, AsyncTransition async)
     {
         GetComponentInChildren<ParticleSystem>().Stop();
         GetComponentInChildren<ParticleSystem>().Play();
@@ -56,7 +64,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    private IEnumerator FadeScreen(string sceneTo, bool async=false)
+    private IEnumerator FadeScreen(string sceneTo, AsyncTransition async)
     {
         canvas.gameObject.SetActive(true);
         canvas.alpha = 0;
@@ -66,24 +74,20 @@ public class GameManager : MonoBehaviour
             yield return null;
         } while (canvas.alpha < 1);
 
-        // Load the scene, then wait for a sec to finish loading
-        if (async)
+        switch (async)
         {
-            for (int i = 0; i < SceneManager.sceneCount; i++)
-            {
-                if (SceneManager.GetSceneAt(i).name == sceneTo)
-                {
-                    SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-                    break;
-                }
-            }
-            SceneManager.LoadSceneAsync(sceneTo, LoadSceneMode.Additive);
+            case AsyncTransition.Sync:
+                SceneManager.LoadScene(sceneTo);
+                yield return new WaitForSeconds(0.1f);
+                break;
+            case AsyncTransition.AsyncLoad:
+                SceneManager.LoadSceneAsync(sceneTo, LoadSceneMode.Additive);
+                yield return new WaitForSeconds(0.1f);
+                break;
+            case AsyncTransition.AsyncUnload:
+                SceneManager.UnloadSceneAsync(sceneTo);
+                break;
         }
-        else
-        {
-            SceneManager.LoadScene(sceneTo);
-        }
-        yield return new WaitForSeconds(0.1f);
   
         do
         {
