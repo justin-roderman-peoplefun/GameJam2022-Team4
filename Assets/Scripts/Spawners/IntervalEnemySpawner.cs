@@ -40,10 +40,8 @@ public class IntervalEnemySpawner : MonoBehaviour
         
         if (!StageManager.IsStagePlaying || timeSinceLastSpawn < minimumTimeBetweenSpawns)
             return;
-
-        Debug.Log("SpawnedResources length before pruning: <color=magenta>" + spawnedEnemies.Count + "</color>");
+        
         spawnedEnemies = spawnedEnemies.Where(o => o != null).ToList();
-        Debug.Log("SpawnedResources length AFTER pruning: <color=magenta>" + spawnedEnemies.Count + "</color>");
 
         if (spawnedEnemies.Count >= maxEnemiesOnScreen)
             return;

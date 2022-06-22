@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 917904315957437580, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
+      propertyPath: minimumTimeBetweenSpawns
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 917904315957437581, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
       propertyPath: m_RootOrder
       value: 1

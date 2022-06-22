@@ -106,6 +106,8 @@ public class StageManager : MonoBehaviour
     {
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
         m_isStagePlaying = false;
+
+        StartCoroutine(UnloadCurrentStage());
         
         if ((currStageIndex + 1) >= stages.Length)
         {
