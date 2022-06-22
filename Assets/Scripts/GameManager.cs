@@ -16,12 +16,13 @@ public class GameManager : MonoBehaviour
         AsyncUnload
     }
 
-    private int heartsCollected = 0;
+    private int _heartsCollected = 0;
+    private Constants.Companion _companion = Constants.Companion.Pirate;
 
     public CanvasGroup canvas;
     public List<CompanionInfo> companions;
 
-    public int HeartsCollected => heartsCollected;
+    public int HeartsCollected => _heartsCollected;
 
     public static GameManager Instance;
     private void Awake()
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
         }
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad (gameObject);
+    }
+
+    public CompanionInfo GetSelectedCompanionInfo()
+    {
+        return GetCompanionInfo(_companion);
     }
 
     public CompanionInfo GetCompanionInfo(Constants.Companion companion)
@@ -99,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public void EarnHearts(int numHearts)
     {
-        heartsCollected += numHearts;
-        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + heartsCollected + "</color>");
+        _heartsCollected += numHearts;
+        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + _heartsCollected + "</color>");
     }
 }
