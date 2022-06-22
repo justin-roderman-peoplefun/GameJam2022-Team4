@@ -38,9 +38,9 @@ public class ResourceSpawner : MonoBehaviour
         if (!StageManager.IsStagePlaying || timeSinceLastSpawn < minimumTimeBetweenSpawns || goalHasSpawned)
             return;
 
-        Debug.Log("SpawnedResources length before pruning: <color=magenta>" + spawnedResources.Count + "</color>");
+        //Debug.Log("SpawnedResources length before pruning: <color=magenta>" + spawnedResources.Count + "</color>");
         spawnedResources = spawnedResources.Where(o => o != null).ToList();
-        Debug.Log("SpawnedResources length AFTER pruning: <color=magenta>" + spawnedResources.Count + "</color>");
+        //Debug.Log("SpawnedResources length AFTER pruning: <color=magenta>" + spawnedResources.Count + "</color>");
 
         if (spawnedResources.Count >= maxResourcesOnScreen)
             return;
@@ -66,6 +66,12 @@ public class ResourceSpawner : MonoBehaviour
             timeSinceLastSpawn = 0;
             goalHasSpawned = true;
         }
+    }
+    
+    private void OnDestroy()
+    {
+        foreach(GameObject go in spawnedResources)
+            Destroy(go);
     }
     
 #if UNITY_EDITOR

@@ -995,6 +995,9 @@ MonoBehaviour:
   - sceneName: Stage2
     maxTime: 10
     maxHearts: 5
+  - sceneName: Stage3
+    maxTime: 10
+    maxHearts: 5
 --- !u!4 &1547141339
 Transform:
   m_ObjectHideFlags: 0
