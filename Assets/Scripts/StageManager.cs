@@ -61,7 +61,7 @@ public class StageManager : MonoBehaviour
             StartCoroutine(LoadStage(0));
     }
 
-    void AdvanceStage()
+    public void AdvanceStage()
     {
         StartCoroutine(LoadStage(currStageIndex + 1));
     }
@@ -102,32 +102,6 @@ public class StageManager : MonoBehaviour
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> has begun.");
     }
 
-    /*IEnumerator WaitForStageToFinish()
-    {
-        while (m_currentStageTime < stages[currStageIndex].maxTime && m_heartsCollectedInCurrentStage < stages[currStageIndex].maxHearts)
-        {
-            yield return null;
-            m_currentStageTime += Time.deltaTime;
-        }
-        
-        //TODO: Tell enemies to swim off the screen.
-        
-        Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
-        
-        if ((currStageIndex + 1) >= stages.Length)
-        {
-            StartCoroutine(UnloadCurrentStage());
-            Debug.Log("<color=cyan>Final stage complete!</color>");
-            
-            //TODO: Show ending?
-        }
-        else
-        {
-            //TODO: Show dialog/date scene.
-            AdvanceStage();
-        }
-    }*/
-
     public void StageComplete()
     {
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
@@ -137,14 +111,12 @@ public class StageManager : MonoBehaviour
         {
             StartCoroutine(UnloadCurrentStage());
             Debug.Log("<color=cyan>Final stage complete!</color>");
-            
-            //TODO: Show ending?
+            //TODO Replace this with ending
+            GameManager.Instance.BubbleTransitionScene("MainMenuScene");
         }
         else
         {
-            //TODO: Show dialog/date scene.
-            
-            AdvanceStage(); //This will load AND begin the next stage. Don't call till after dialogue.
+            GameManager.Instance.BubbleTransitionScene("DialogueScene", true);
         }
     }
     

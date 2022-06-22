@@ -60,9 +60,17 @@ namespace Dialogue
     
         public void ChooseResponse(int responseIndex)
         {
-            var nextNode = _currNode.Responses[responseIndex].Destination;
-            _currNode = _dialogueNodes[nextNode];
-            UpdateDialogueUI();
+            if (_currNode.FinalNode)
+            {
+                StageManager.Instance.AdvanceStage();
+                GameManager.Instance.BubbleTransitionScene("GameScene", true);
+            }
+            else
+            {
+                var nextNode = _currNode.Responses[responseIndex].Destination;
+                _currNode = _dialogueNodes[nextNode];
+                UpdateDialogueUI();
+            }
         }
     
         private void UpdateDialogueUI()

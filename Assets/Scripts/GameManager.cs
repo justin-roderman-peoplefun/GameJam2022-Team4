@@ -42,21 +42,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FadeScreen(sceneTo));
     }
 
-    public void BubbleTransitionScene(string sceneTo)
+    public void BubbleTransitionScene(string sceneTo, bool async=false)
     {
-        StartCoroutine(BubbleTransitionSceneInternal(sceneTo));
+        StartCoroutine(BubbleTransitionSceneInternal(sceneTo, async));
     }
 
-    private IEnumerator BubbleTransitionSceneInternal(string sceneTo)
+    private IEnumerator BubbleTransitionSceneInternal(string sceneTo, bool async)
     {
         GetComponentInChildren<ParticleSystem>().Stop();
         GetComponentInChildren<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FadeScreen(sceneTo));
+        StartCoroutine(FadeScreen(sceneTo, async));
         yield return new WaitForSeconds(1);
     }
 
-    private IEnumerator FadeScreen(string sceneTo)
+    private IEnumerator FadeScreen(string sceneTo, bool async=false)
     {
         canvas.gameObject.SetActive(true);
         canvas.alpha = 0;
@@ -67,7 +67,22 @@ public class GameManager : MonoBehaviour
         } while (canvas.alpha < 1);
 
         // Load the scene, then wait for a sec to finish loading
-        SceneManager.LoadScene(sceneTo);
+        if (async)
+        {
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                if (SceneManager.GetSceneAt(i).name == sceneTo)
+                {
+                    SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+                    break;
+                }
+            }
+            SceneManager.LoadSceneAsync(sceneTo, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneTo);
+        }
         yield return new WaitForSeconds(0.1f);
   
         do
