@@ -35,36 +35,44 @@ public class GameManager : MonoBehaviour
         return companions.Find(info => info.key == companion.ToString().ToLower());
     }
 
-    public void BubbleTransitionScene(string sceneTo)
+    public void TransitionScene(string sceneTo)
     {
-        StartCoroutine(TransitionScene(sceneTo));
+        StartCoroutine(FadeScreen(sceneTo));
     }
 
-    private IEnumerator TransitionScene(string sceneTo)
+    public void BubbleTransitionScene(string sceneTo)
+    {
+        StartCoroutine(BubbleTransitionSceneInternal(sceneTo));
+    }
+
+    private IEnumerator BubbleTransitionSceneInternal(string sceneTo)
     {
         GetComponentInChildren<ParticleSystem>().Stop();
         GetComponentInChildren<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FadeScreen(true));
+        StartCoroutine(FadeScreen(sceneTo));
         yield return new WaitForSeconds(1);
-        StartCoroutine(FadeScreen(false));
-        SceneManager.LoadScene(sceneTo);
     }
 
-    private IEnumerator FadeScreen(bool fadeIn)
+    private IEnumerator FadeScreen(string sceneTo)
     {
-        if (fadeIn)
-        {
-            canvas.gameObject.SetActive(true);
-        }
+        canvas.gameObject.SetActive(true);
+        canvas.alpha = 0;
         do
         {
-            canvas.alpha += Time.deltaTime * (fadeIn ? 1 : -1);
+            canvas.alpha += Time.deltaTime;
             yield return null;
-        } while ((fadeIn && canvas.alpha < 1) || (!fadeIn && canvas.alpha > 0));
-        if (!fadeIn)
+        } while (canvas.alpha < 1);
+
+        // Load the scene, then wait for a sec to finish loading
+        SceneManager.LoadScene(sceneTo);
+        yield return new WaitForSeconds(0.1f);
+  
+        do
         {
-            canvas.gameObject.SetActive(false);
-        }
+            canvas.alpha -= Time.deltaTime;
+            yield return null;
+        } while (canvas.alpha > 0);
+        canvas.gameObject.SetActive(false);
     }
 }
