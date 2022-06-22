@@ -68,7 +68,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && life > 0)
         {
-            Instance.TakeDamage();
+            StageManager.Instance.StageComplete();
+            // Instance.TakeDamage();
             Destroy(other.transform.parent.gameObject);
         }
         else if (other.gameObject.CompareTag("HeartResource") && life > 0)
