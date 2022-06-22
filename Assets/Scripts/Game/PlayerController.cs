@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     
         if (Instance != null && Instance != this) 
         { 
-            Debug.LogError("There was more than one player controller in the scene. Deleting the player named: <color=cyan>" + gameObject.name + "</cyan>.");
+            Debug.LogError("There was more than one player controller in the scene. Deleting the player named: <color=cyan>" + gameObject.name + "</color>.");
             Destroy(gameObject); 
         } 
         else 
@@ -82,6 +82,12 @@ public class PlayerController : MonoBehaviour
         {
             if(StageManager.Instance != null)
                 StageManager.Instance.StageComplete();
+            
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("ShieldResource") && life > 0)
+        {
+            ShieldPlayer();
             
             Destroy(other.gameObject);
         }
@@ -204,6 +210,13 @@ public class PlayerController : MonoBehaviour
     {
         if (life <= 0)
             return;
+
+        if (isShielded)
+        {
+            Debug.Log("Player was hit, but had a shield! Life remaining: <color=red>" + life + "</color>");
+            isShielded = false;
+            return;
+        }
         
         life--;
         Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
@@ -214,6 +227,12 @@ public class PlayerController : MonoBehaviour
             // TODO Replace with death screen
             StartCoroutine(ReturnToMainMenu());
         }
+    }
+
+    public void ShieldPlayer()
+    {
+        Debug.Log("Player has gained a shield!");
+        isShielded = true;
     }
 
     private IEnumerator ReturnToMainMenu()
