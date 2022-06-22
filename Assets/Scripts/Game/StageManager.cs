@@ -83,6 +83,9 @@ public class StageManager : MonoBehaviour
 
     IEnumerator UnloadCurrentStage()
     {
+        if (currStageIndex < 0 || currStageIndex >= stages.Length)
+            yield break;
+        
         if (SceneManager.GetSceneByName(stages[currStageIndex].sceneName).IsValid())
         {
             AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
