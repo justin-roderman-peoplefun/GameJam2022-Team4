@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -39,7 +40,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(FadeOutCanvasGroup(mainMenuUI));
+        GameManager.Instance.BubbleTransitionScene("CompanionScene");
     }
 
     private void Update()
@@ -52,6 +53,11 @@ public class MainMenuController : MonoBehaviour
 
     private void NextIntroStep()
     {
+        if (_introStep >= _introTextParent.childCount)
+        {
+            return;
+        }
+
         var currIntroText = _introTextParent.GetChild(_introStep++).GetComponent<TMP_Text>();
         StartCoroutine(FadeOutText(currIntroText));
 

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CompanionSelectController : MonoBehaviour
 {
-    public CanvasGroup canvas;
     public GameObject promptTextParent;
     public TMP_Text companionNameText;
     public TMP_Text companionQuoteText;
@@ -49,18 +49,6 @@ public class CompanionSelectController : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(HideCanvas());
-        // TODO Start game
-        Debug.Log("Start game");
-    }
-    
-
-    private IEnumerator HideCanvas()
-    {
-        do
-        {
-            canvas.alpha -= Time.deltaTime;
-            yield return null;
-        } while (canvas.alpha > 0);
+        GameManager.Instance.BubbleTransitionScene("GameScene");
     }
 }
