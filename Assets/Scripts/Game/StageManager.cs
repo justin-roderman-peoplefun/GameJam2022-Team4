@@ -69,6 +69,8 @@ public class StageManager : MonoBehaviour
     IEnumerator LoadStage(int index)
     {
         m_isStagePlaying = false;
+        
+        StartCoroutine(UnloadCurrentStage());
 
         currStageIndex = index;
         
@@ -81,9 +83,12 @@ public class StageManager : MonoBehaviour
 
     IEnumerator UnloadCurrentStage()
     {
-        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
-        while (!asyncUnload.isDone)
-            yield return null;
+        if (SceneManager.GetSceneByName(stages[currStageIndex].sceneName).IsValid())
+        {
+            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(stages[currStageIndex].sceneName);
+            while (!asyncUnload.isDone)
+                yield return null;
+        }
     }
 
     void StartStage()
@@ -100,8 +105,6 @@ public class StageManager : MonoBehaviour
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
         m_isStagePlaying = false;
 
-        StartCoroutine(UnloadCurrentStage());
-        
         if ((currStageIndex + 1) >= stages.Length)
         {
             StartCoroutine(UnloadCurrentStage());
