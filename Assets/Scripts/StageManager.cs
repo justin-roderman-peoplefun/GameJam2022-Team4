@@ -31,6 +31,22 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    public static StageManager Instance { get; private set; }
+    private void Awake() 
+    { 
+        // If there is an instance, and it's not me, delete myself.
+    
+        if (Instance != null && Instance != this) 
+        { 
+            Debug.LogError("There was more than one StageManager in the scene. Deleting the player named: <color=cyan>" + gameObject.name + "</cyan>.");
+            Destroy(gameObject); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
+    
     private void Start()
     {
         if (stages.Length <= 0)

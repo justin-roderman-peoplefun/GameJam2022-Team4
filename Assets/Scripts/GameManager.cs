@@ -8,12 +8,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    private int heartsCollected = 0;
 
     public CanvasGroup canvas;
     public List<CompanionInfo> companions;
 
-    // Initialize the singleton instance.
+    public int HeartsCollected => heartsCollected;
+
+    public static GameManager Instance;
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
@@ -74,5 +76,11 @@ public class GameManager : MonoBehaviour
             yield return null;
         } while (canvas.alpha > 0);
         canvas.gameObject.SetActive(false);
+    }
+
+    public void EarnHearts(int numHearts)
+    {
+        heartsCollected += numHearts;
+        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + heartsCollected + "</color>");
     }
 }

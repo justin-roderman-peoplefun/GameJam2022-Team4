@@ -4,6 +4,8 @@ public class EnemyHitbox : MonoBehaviour
 {
     private CircleCollider2D circleCollider;
     private BoxCollider2D boxCollider;
+    
+    public Color hitboxColor = Color.red;
 
     private void Awake()
     {
@@ -16,7 +18,7 @@ public class EnemyHitbox : MonoBehaviour
     {
         if (circleCollider != null)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = hitboxColor;
             Gizmos.DrawWireSphere(transform.position, circleCollider.radius);
         }
         else
@@ -26,7 +28,7 @@ public class EnemyHitbox : MonoBehaviour
         
         if (boxCollider != null)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = hitboxColor;
             Gizmos.DrawWireCube(transform.position, boxCollider.bounds.size);
         }
         else

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraSpawnZone
   - Enemy
+  - HeartResource
   layers:
   - Default
   - TransparentFX
