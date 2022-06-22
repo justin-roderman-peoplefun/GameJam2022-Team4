@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabSpawner: {fileID: 5253195293910417470, guid: 7d346c16ec27240349c9eb32b7f482f8, type: 3}
   heartPrefab: {fileID: 877748134767738845, guid: 31cd93a5c2d68448b819273b3b73aca7, type: 3}
-  shieldPrefab: {fileID: 0}
+  shieldPrefab: {fileID: 8208077813698678917, guid: d1ff367f2d8a14015a07594f0a55b4aa, type: 3}
   stageEndPrefab: {fileID: 2340567231534871120, guid: e9f4d39bf9573431ca372a04dc4f7a49, type: 3}
   poolSize: 10
   maxResourcesOnScreen: 3
   resourceSpawnRate: 0.7
   minimumTimeBetweenSpawns: 1
+  heartSpawnRate: 0.7

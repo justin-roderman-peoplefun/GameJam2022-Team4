@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
     
         if (Instance != null && Instance != this) 
         { 
-            Debug.LogError("There was more than one StageManager in the scene. Deleting the player named: <color=cyan>" + gameObject.name + "</cyan>.");
+            Debug.LogError("There was more than one StageManager in the scene. Deleting the one named: <color=cyan>" + gameObject.name + "</color>.");
             Destroy(gameObject); 
         } 
         else 

@@ -17,6 +17,7 @@ public class ResourceSpawner : MonoBehaviour
     [SerializeField] private int maxResourcesOnScreen = 3;
     [SerializeField] private float resourceSpawnRate = 0.7f;
     [SerializeField] private float minimumTimeBetweenSpawns = 1f;
+    [SerializeField] private float heartSpawnRate = 0.7f;
 
     private float timeSinceLastSpawn;
     private int totalResourcesSpawned;
@@ -49,7 +50,21 @@ public class ResourceSpawner : MonoBehaviour
             go.transform.position = new Vector3(transform.position.x + UnityEngine.Random.Range(-2, 3),
                 transform.position.y, 0f);
             PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
-            ps.prefabToSpawn = heartPrefab;
+            bool shieldsOnScreen = false;
+            foreach (GameObject obj in spawnedResources)
+            {
+                if (obj.name == "ShieldResource(Clone)")
+                {
+                    shieldsOnScreen = true;
+                    break;
+                }
+            }
+            if(PlayerController.Instance.IsShielded || shieldsOnScreen)
+                ps.prefabToSpawn = heartPrefab;
+            else
+            {
+                ps.prefabToSpawn = UnityEngine.Random.Range(0f, 1f) > heartSpawnRate ? shieldPrefab : heartPrefab;
+            }
             spawnedResources.Add(go);
             timeSinceLastSpawn = 0;
             totalResourcesSpawned++;
