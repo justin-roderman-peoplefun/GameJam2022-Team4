@@ -68,14 +68,14 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && life > 0)
         {
-            PlayerController.Instance.TakeDamage();
+            Instance.TakeDamage();
             Destroy(other.transform.parent.gameObject);
         }
         else if (other.gameObject.CompareTag("HeartResource") && life > 0)
         {
             if(GameManager.Instance != null)
                 GameManager.Instance.EarnHearts(1);
-            
+
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("StageEnd") && life > 0)
@@ -211,6 +211,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player has died! <color=red>Game Over</color>");
             StartCoroutine(DeathAnimation());
+            // TODO Replace with death screen
+            StartCoroutine(ReturnToMainMenu());
         }
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(5);
+        GameManager.Instance.BubbleTransitionScene("MainMenuScene");
     }
 }
