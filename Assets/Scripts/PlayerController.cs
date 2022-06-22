@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && life > 0)
         {
             PlayerController.Instance.TakeDamage();
             Destroy(other.transform.parent.gameObject);
@@ -128,21 +128,43 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        InputMovement();
-        Move();
+        if (CanAcceptInput)
+        {
+            InputMovement();
+            Move();
         
-        UpdateBoostTime();
+            UpdateBoostTime(); 
+        }
     }
 
     IEnumerator DeathAnimation()
     {
         SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
         float timer = 0f;
+        float cosTimer = (Mathf.PI / 2);
+        float originalXPos = transform.position.x;
         float animationLength = 2f;
+
+        Vector3 startRotation = transform.eulerAngles;
+        Vector3 endRotation = new Vector3(0f, 0f, 180f);
+
+        gameObject.AddComponent<ScrollUpwardsPlain>().speed = 0.1f;
+        
         while (timer < animationLength)
         {
             timer += Time.deltaTime;
             playerSprite.material.SetFloat("_GrayscaleAmount", Mathf.Lerp(0f, 1f, (timer / animationLength)));
+            transform.eulerAngles = Vector3.Lerp(startRotation, endRotation, (timer / animationLength));
+            
+            cosTimer += Time.deltaTime * 2.5f;
+            transform.position = new Vector3(originalXPos + (Mathf.Cos(cosTimer) * 0.15f), transform.position.y, transform.position.z);
+            yield return null;
+        }
+
+        while (true)
+        {
+            cosTimer += Time.deltaTime * 2.5f;
+            transform.position = new Vector3(originalXPos + (Mathf.Cos(cosTimer) * 0.15f), transform.position.y, transform.position.z);
             yield return null;
         }
         yield return null;
@@ -163,6 +185,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (life <= 0)
+            return;
+        
         life--;
         Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
         if (life <= 0)
