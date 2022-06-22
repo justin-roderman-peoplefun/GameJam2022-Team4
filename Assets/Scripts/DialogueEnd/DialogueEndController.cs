@@ -63,8 +63,8 @@ public class DialogueEndController : MonoBehaviour
     {
         if (_timeElapsed > waitTime && Input.GetMouseButtonDown(0) && !GameManager.Instance.inBubbleTransition)
         {
+            GameManager.Instance.BubbleTransitionScene("DialogueEndScene", GameManager.AsyncTransition.AsyncUnload);
             StageManager.Instance.AdvanceStage();
-            GameManager.Instance.BubbleTransitionScene("EndDialogueScene", GameManager.AsyncTransition.AsyncUnload);
         }
         _timeElapsed += Time.deltaTime;
     }

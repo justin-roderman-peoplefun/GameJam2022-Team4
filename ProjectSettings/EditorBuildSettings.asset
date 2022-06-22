@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueScene.unity
     guid: 22295ecd9fe83492f9ecf8043f2915fe
+  - enabled: 1
+    path: Assets/Scenes/DialogueEndScene.unity
+    guid: 9a3615e2647db4e4c9a771be9f90845d
   m_configObjects: {}
