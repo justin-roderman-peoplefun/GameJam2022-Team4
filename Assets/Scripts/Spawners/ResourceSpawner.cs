@@ -11,6 +11,7 @@ public class ResourceSpawner : MonoBehaviour
     [SerializeField] private GameObject prefabSpawner;
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private GameObject shieldPrefab;
+    [SerializeField] private GameObject stageEndPrefab;
 
     [SerializeField] private int poolSize = 10;
     [SerializeField] private int maxResourcesOnScreen = 3;
@@ -18,19 +19,23 @@ public class ResourceSpawner : MonoBehaviour
     [SerializeField] private float minimumTimeBetweenSpawns = 1f;
 
     private float timeSinceLastSpawn;
+    private int totalResourcesSpawned;
     private List<GameObject> spawnedResources;
+    private bool goalHasSpawned;
 
     private void Awake()
     {
         spawnedResources = new List<GameObject>();
         timeSinceLastSpawn = 0f;
+        totalResourcesSpawned = 0;
+        goalHasSpawned = false;
     }
 
     void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
         
-        if (!StageManager.IsStagePlaying || timeSinceLastSpawn < minimumTimeBetweenSpawns)
+        if (!StageManager.IsStagePlaying || timeSinceLastSpawn < minimumTimeBetweenSpawns || goalHasSpawned)
             return;
 
         Debug.Log("SpawnedResources length before pruning: <color=magenta>" + spawnedResources.Count + "</color>");
@@ -40,12 +45,27 @@ public class ResourceSpawner : MonoBehaviour
         if (spawnedResources.Count >= maxResourcesOnScreen)
             return;
 
-        GameObject go = Instantiate(prefabSpawner);
-        go.transform.position = new Vector3(transform.position.x + UnityEngine.Random.Range(-2, 3), transform.position.y, 0f);
-        PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
-        ps.prefabToSpawn = heartPrefab;
-        spawnedResources.Add(go);
-        timeSinceLastSpawn = 0;
+        if (totalResourcesSpawned < poolSize)
+        {
+            GameObject go = Instantiate(prefabSpawner);
+            go.transform.position = new Vector3(transform.position.x + UnityEngine.Random.Range(-2, 3),
+                transform.position.y, 0f);
+            PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
+            ps.prefabToSpawn = heartPrefab;
+            spawnedResources.Add(go);
+            timeSinceLastSpawn = 0;
+            totalResourcesSpawned++;
+        }
+        else
+        {
+            GameObject go = Instantiate(prefabSpawner);
+            go.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+            PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
+            ps.prefabToSpawn = stageEndPrefab;
+            spawnedResources.Add(go);
+            timeSinceLastSpawn = 0;
+            goalHasSpawned = true;
+        }
     }
     
 #if UNITY_EDITOR

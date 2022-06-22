@@ -78,6 +78,13 @@ public class PlayerController : MonoBehaviour
             
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("StageEnd") && life > 0)
+        {
+            if(StageManager.Instance != null)
+                StageManager.Instance.StageComplete();
+            
+            Destroy(other.gameObject);
+        }
     }
 
     private void InputMovement()

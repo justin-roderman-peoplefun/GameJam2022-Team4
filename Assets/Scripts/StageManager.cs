@@ -98,13 +98,11 @@ public class StageManager : MonoBehaviour
         m_heartsCollectedInCurrentStage = 0;
         m_currentStageTime = 0;
 
-        StartCoroutine(WaitForStageToFinish());
-        
         m_isStagePlaying = true;
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> has begun.");
     }
 
-    IEnumerator WaitForStageToFinish()
+    /*IEnumerator WaitForStageToFinish()
     {
         while (m_currentStageTime < stages[currStageIndex].maxTime && m_heartsCollectedInCurrentStage < stages[currStageIndex].maxHearts)
         {
@@ -128,10 +126,28 @@ public class StageManager : MonoBehaviour
             //TODO: Show dialog/date scene.
             AdvanceStage();
         }
-        
-        
-    }
+    }*/
 
+    public void StageComplete()
+    {
+        Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
+        m_isStagePlaying = false;
+        
+        if ((currStageIndex + 1) >= stages.Length)
+        {
+            StartCoroutine(UnloadCurrentStage());
+            Debug.Log("<color=cyan>Final stage complete!</color>");
+            
+            //TODO: Show ending?
+        }
+        else
+        {
+            //TODO: Show dialog/date scene.
+            
+            AdvanceStage(); //This will load AND begin the next stage. Don't call till after dialogue.
+        }
+    }
+    
     public static void CollectHeart()
     {
         m_heartsCollectedInCurrentStage++;
