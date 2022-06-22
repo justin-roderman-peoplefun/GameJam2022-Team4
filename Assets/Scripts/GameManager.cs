@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-
+    private int heartsCollected = 0;
+    
     public List<CompanionInfo> Companions;
 
-    // Initialize the singleton instance.
+    public int HeartsCollected => heartsCollected;
+
+    public static GameManager Instance;
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
@@ -28,5 +30,11 @@ public class GameManager : MonoBehaviour
     public CompanionInfo GetCompanionInfo(Constants.Companion companion)
     {
         return Companions.Find(info => info.key == companion.ToString().ToLower());
+    }
+
+    public void EarnHearts(int numHearts)
+    {
+        heartsCollected += numHearts;
+        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + heartsCollected + "</color>");
     }
 }

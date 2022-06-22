@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float _lastBoostTime;
 
     private int life;
+    private bool isShielded;
 
     bool CanAcceptInput
     {
@@ -37,7 +38,9 @@ public class PlayerController : MonoBehaviour
             return (StageManager.IsStagePlaying && life > 0);
         }
     }
-    
+
+    public bool IsShielded => isShielded;
+
     public static PlayerController Instance { get; private set; }
     private void Awake() 
     { 
@@ -67,6 +70,13 @@ public class PlayerController : MonoBehaviour
         {
             PlayerController.Instance.TakeDamage();
             Destroy(other.transform.parent.gameObject);
+        }
+        else if (other.gameObject.CompareTag("HeartResource") && life > 0)
+        {
+            if(GameManager.Instance != null)
+                GameManager.Instance.EarnHearts(1);
+            
+            Destroy(other.gameObject);
         }
     }
 
