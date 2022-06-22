@@ -1,51 +1,38 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuController : MonoBehaviour
+public class IntroController : MonoBehaviour
 {
-    public CanvasGroup mainMenuUI;
-    public CanvasGroup introUI;
+    public CanvasGroup canvas;
 
     private Transform _introTextParent;
-
     private IDictionary<string, Coroutine> _fadeInCoroutines;
-
-    private bool _inIntro;
     private int _introStep;
 
     private void Start()
     {
-        _introTextParent = introUI.transform.GetComponentInChildren<VerticalLayoutGroup>().transform;
+        _introTextParent = canvas.transform.GetComponentInChildren<VerticalLayoutGroup>().transform;
         _fadeInCoroutines = new Dictionary<string, Coroutine>();
-
         StartIntro();
     }
 
     private void StartIntro()
     {
-        StartCoroutine(FadeInCanvasGroup(introUI));
+        StartCoroutine(FadeInCanvas());
 
         foreach (var childText in _introTextParent.GetComponentsInChildren<TMP_Text>())
         {
             childText.alpha = 0;
         }
         _introTextParent.GetComponentsInChildren<TMP_Text>()[0].alpha = 1; // Make sure the first one is visible
-        _inIntro = true;
-    }
-
-    public void StartGame()
-    {
-        GameManager.Instance.BubbleTransitionScene("CompanionScene");
     }
 
     private void Update()
     {
-        if (_inIntro && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             NextIntroStep();
         }
@@ -68,36 +55,17 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FadeOutCanvasGroup(introUI));
-            StartCoroutine(FadeInCanvasGroup(mainMenuUI));
+            GameManager.Instance.TransitionScene("MainMenuScene");
         }
     }
 
-    private static IEnumerator FadeInCanvasGroup(CanvasGroup fadeGroup)
+    private IEnumerator FadeInCanvas()
     {
-        return FadeCanvasGroup(true, fadeGroup);
-    }
-
-    private static IEnumerator FadeOutCanvasGroup(CanvasGroup fadeGroup)
-    {
-        return FadeCanvasGroup(false, fadeGroup);
-    }
-
-    private static IEnumerator FadeCanvasGroup(bool fadeIn, CanvasGroup fadeGroup)
-    {
-        if (fadeIn)
-        {
-            fadeGroup.gameObject.SetActive(true);
-        }
         do
         {
-            fadeGroup.alpha += Time.deltaTime * (fadeIn ? 1 : -1);
+            canvas.alpha += Time.deltaTime;
             yield return null;
-        } while ((fadeIn && fadeGroup.alpha < 1) || (!fadeIn && fadeGroup.alpha > 0));
-        if (!fadeIn)
-        {
-            fadeGroup.gameObject.SetActive(false);
-        }
+        } while (canvas.alpha < 1);
     }
 
     private IEnumerator FadeInText(TMP_Text fadeText)
@@ -123,4 +91,5 @@ public class MainMenuController : MonoBehaviour
             yield return null;
         } while ((fadeIn && fadeText.alpha < 1) || (!fadeIn && fadeText.alpha > 0));
     }
+
 }
