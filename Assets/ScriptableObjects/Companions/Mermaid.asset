@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73a780dee9ad4486a4952039cb710bd, type: 3}
   m_Name: Mermaid
   m_EditorClassIdentifier: 
-  companionName: 
+  key: mermaid
+  companionName: Ariel
+  companionQuote: I thought you might have been a sea-witch, as you've rendered me
+    speechless
   image: {fileID: 0}
+  dateDialogueTexts: []

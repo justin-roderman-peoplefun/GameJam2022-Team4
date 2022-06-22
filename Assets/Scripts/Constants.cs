@@ -2,7 +2,7 @@ public class Constants
 {
     public enum Companion
     {
-        GhostCaptain,
+        Pirate,
         Mermaid,
         Shark,
         Leviathan
