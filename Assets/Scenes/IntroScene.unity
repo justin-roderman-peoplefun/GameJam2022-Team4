@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 33092610}
   - component: {fileID: 33092612}
   - component: {fileID: 33092611}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BubblesParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5719,7 +5719,7 @@ GameObject:
   - component: {fileID: 1273031206}
   - component: {fileID: 1273031205}
   - component: {fileID: 1273031204}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6337,7 +6337,7 @@ GameObject:
   - component: {fileID: 1845185260}
   - component: {fileID: 1845185262}
   - component: {fileID: 1845185261}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
