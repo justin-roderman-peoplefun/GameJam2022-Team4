@@ -1,8 +1,12 @@
+using System.Collections.Generic;
+using ScriptableObjects;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public List<CompanionInfo> Companions;
 
     // Initialize the singleton instance.
     private void Awake()
@@ -19,5 +23,10 @@ public class GameManager : MonoBehaviour
         }
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad (gameObject);
+    }
+
+    public CompanionInfo GetCompanionInfo(Constants.Companion companion)
+    {
+        return Companions.Find(info => info.key == companion.ToString().ToLower());
     }
 }

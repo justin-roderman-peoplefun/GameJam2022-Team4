@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73a780dee9ad4486a4952039cb710bd, type: 3}
   m_Name: Leviathan
   m_EditorClassIdentifier: 
-  companionName: 
-  image: {fileID: 0}
+  key: leviathan
+  companionName: Thane
+  companionQuote: I have slumbered for a millennia, you are the most pleasant dream
+    by far
+  image: {fileID: 21300000, guid: b4357ce79649c4c5d80bf1b7d8658345, type: 3}
+  dateDialogueTexts: []
