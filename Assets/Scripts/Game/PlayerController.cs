@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
     private int maxLife;
     private bool isShielded;
 
+    [SerializeField] private SpriteRenderer healthAura;
+
+    [SerializeField] private Sprite maxHealthSprite;
+    [SerializeField] private Sprite mediumHealthSprite;
+    [SerializeField] private Sprite lowHealthSprite;
+
     bool CanAcceptInput
     {
         get
@@ -186,6 +192,10 @@ public class PlayerController : MonoBehaviour
             
             cosTimer += Time.deltaTime * 2.5f;
             transform.position = new Vector3(originalXPos + (Mathf.Cos(cosTimer) * 0.15f), transform.position.y, transform.position.z);
+
+            if (healthAura)
+                healthAura.color = Color.Lerp(new Color(1f, 0.5f, 0.5f), Color.clear, (timer / animationLength));
+            
             yield return null;
         }
 
@@ -224,6 +234,7 @@ public class PlayerController : MonoBehaviour
         }
         
         life--;
+        RefreshHealthAuraColor();
         Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
         if (life <= 0)
         {
@@ -231,6 +242,33 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DeathAnimation());
             StartCoroutine(StageManager.Instance.GameOver());
         }
+        else
+        {
+            StartCoroutine(TakeDamageAnimation());
+        }
+    }
+
+    IEnumerator TakeDamageAnimation()
+    {
+        float timer = 0;
+        float flashTimer = 0f;
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+        while (timer < 0.75f)
+        {
+            timer += Time.deltaTime;
+            flashTimer += Time.deltaTime;
+            //float foo = (int) (timer * 100f);
+            //bool spriteEnabled = ((int)(timer * 100f) % 2 == 0);
+            //playerSprite.enabled = spriteEnabled;
+            if (flashTimer > 0.05f)
+            {
+                playerSprite.enabled = !playerSprite.enabled;
+                flashTimer = 0f;
+            }
+
+            yield return null;
+        }
+        playerSprite.enabled = true;
     }
 
     public void IncrementMaxLife()
@@ -242,11 +280,40 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
         life = maxLife;
+        RefreshHealthAuraColor();
     }
 
     public void ShieldPlayer()
     {
         Debug.Log("Player has gained a shield!");
         isShielded = true;
+    }
+
+    public void RefreshHealthAuraColor()
+    {
+        if (!healthAura)
+            return;
+
+        if (life <= 1)
+        {
+            healthAura.color = new Color(1f, 0.5f, 0.5f);
+            GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
+        }
+        else if (life == 2)
+        {
+            healthAura.color = new Color(0.8f, 1f, 0.5f);
+            GetComponent<SpriteRenderer>().sprite = mediumHealthSprite;
+        }
+        else if (life >= 3)
+        {
+            healthAura.color = new Color(1f, 1f, 0.5f);
+            GetComponent<SpriteRenderer>().sprite = maxHealthSprite;
+        }
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(5);
+        GameManager.Instance.BubbleTransitionScene("MainMenuScene");
     }
 }
