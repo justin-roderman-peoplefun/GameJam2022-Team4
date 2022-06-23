@@ -16,6 +16,7 @@ MonoBehaviour:
   companionName: Cyrina
   companionQuote: I thought you might have been a sea-witch, as you've rendered me
     speechless
+  zoomInXOffset: -150
   image: {fileID: 21300000, guid: 08e40e31d58aa4e0b952ac7355981094, type: 3}
   angryImage: {fileID: 21300000, guid: 18381ddd1ef764b27858473f364e80a6, type: 3}
   sadImage: {fileID: 21300000, guid: cf92e3f6e790a4287aa92da5fc2eb530, type: 3}

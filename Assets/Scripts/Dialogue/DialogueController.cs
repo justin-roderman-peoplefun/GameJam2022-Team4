@@ -31,6 +31,10 @@ namespace Dialogue
         private void InitializeDialogueUI()
         {
             companionAvatar.sprite = _companionInfo.image;
+            // Initialize zoomed in
+            var pos = companionAvatar.transform.localPosition;
+            pos.x = _companionInfo.zoomInXOffset;
+            companionAvatar.transform.localPosition = pos;
         }
     
         private void InitializeDialogue()
@@ -58,7 +62,9 @@ namespace Dialogue
             {
                 var emotion = "";
                 var sound = "";
-                var action = "";
+                var onscreen = "";
+                var shadow = "";
+                var zoomIn = "";
 
                 var dialogueText = entry.Value.Content[0].ToString();
                 // I could make this a regex, but I don't feel like it
@@ -79,8 +85,14 @@ namespace Dialogue
                             case "sound":
                                 sound = tagElems[1];
                                 break;
-                            case "action":
-                                action = tagElems[1];
+                            case "onscreen":
+                                onscreen = tagElems[1];
+                                break;
+                            case "shadow":
+                                shadow = tagElems[1];
+                                break;
+                            case "zoomin":
+                                zoomIn = tagElems[1];
                                 break;
                             default:
                                 Debug.LogError("Parsing error, invalid tag: '" + tagElems[0] + "'");
@@ -109,7 +121,7 @@ namespace Dialogue
                     }
                 }
 
-                _dialogueNodes[entry.Key] = new DialogueNode(dialogueText.Trim(), responses, emotion, sound, action);
+                _dialogueNodes[entry.Key] = new DialogueNode(dialogueText.Trim(), responses, emotion, sound, onscreen, shadow, zoomIn);
             }
     
             _currNode = _dialogueNodes[rootModel.Data.Initial];
@@ -178,6 +190,42 @@ namespace Dialogue
                 dialogueOption2.transform.parent.gameObject.SetActive(false);
                 tapToContinue.SetActive(true);
             }
+
+            var avatarColor = companionAvatar.color;
+            if (_currNode.Actions.Shadow == DialogueNode.DialogueActionValue.True)
+            {
+                avatarColor.r = 0;
+                avatarColor.g = 0;
+                avatarColor.b = 0;
+            }
+            else if (_currNode.Actions.Shadow == DialogueNode.DialogueActionValue.False)
+            {
+                avatarColor.r = 1;
+                avatarColor.g = 1;
+                avatarColor.b = 1;
+            }
+            if (_currNode.Actions.Onscreen == DialogueNode.DialogueActionValue.True)
+            {
+                avatarColor.a = 1;
+            }
+            else if (_currNode.Actions.Onscreen == DialogueNode.DialogueActionValue.False)
+            {
+                avatarColor.a = 0;
+            }
+            companionAvatar.color = avatarColor;
+
+            var avatarPos = companionAvatar.transform.localPosition;
+            if (_currNode.Actions.ZoomIn == DialogueNode.DialogueActionValue.True)
+            {
+                companionAvatar.transform.localScale = new Vector3(3, 3, 1);
+                avatarPos.x = _companionInfo.zoomInXOffset;
+            }
+            else if (_currNode.Actions.ZoomIn == DialogueNode.DialogueActionValue.False)
+            {
+                companionAvatar.transform.localScale = new Vector3(1, 1, 1);
+                avatarPos.x = 0;
+            }
+            companionAvatar.transform.localPosition = avatarPos;
 
             switch (_currNode.Emotion)
             {

@@ -9,6 +9,7 @@ namespace ScriptableObjects
         public string key;
         public string companionName;
         public string companionQuote;
+        public float zoomInXOffset;
         public Sprite image;
         public Sprite angryImage;
         public Sprite sadImage;
