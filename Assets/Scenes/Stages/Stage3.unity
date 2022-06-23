@@ -145,11 +145,11 @@ PrefabInstance:
     - target: {fileID: 3876135546814409980, guid: 62048f69629ec4318b8338b0249e528e, type: 3}
       propertyPath: enemyPool.Array.data[0]
       value: 
-      objectReference: {fileID: 3317204769487463667, guid: 714487e708fcf4c29877e7a3a1901a41, type: 3}
+      objectReference: {fileID: 8404547252646476602, guid: 244254f2d12ad4ce7b639c40f1de6348, type: 3}
     - target: {fileID: 3876135546814409980, guid: 62048f69629ec4318b8338b0249e528e, type: 3}
       propertyPath: enemyPool.Array.data[1]
       value: 
-      objectReference: {fileID: 8404547252646476602, guid: 244254f2d12ad4ce7b639c40f1de6348, type: 3}
+      objectReference: {fileID: 3317204769487463667, guid: 714487e708fcf4c29877e7a3a1901a41, type: 3}
     - target: {fileID: 3876135546814409980, guid: 62048f69629ec4318b8338b0249e528e, type: 3}
       propertyPath: minimumTimeBetweenSpawns
       value: 2
@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917904315957437581, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 917904315957437581, guid: 2b518dbc410dc4db995971725df7d15c, type: 3}
       propertyPath: m_LocalPosition.x
