@@ -19,6 +19,8 @@ public class TutorialController : MonoBehaviour
     
     [SerializeField] private TextMeshPro enemyTutorialText;
     [SerializeField] private SpriteRenderer[] enemyTutorialSprites;
+
+    [SerializeField] private TextMeshPro finalWarningText;
     
     public static TutorialController Instance { get; private set; }
     private void Awake() 
@@ -172,6 +174,9 @@ public class TutorialController : MonoBehaviour
         goalTutorialText.gameObject.SetActive(false);
 
         CompleteTutorial();
+
+        StartCoroutine(PlayerController.Instance.ResetPlayerLocationRoutine());
+        StartCoroutine(FinalWarningRoutine());
     }
     
     public IEnumerator HideEnemyTutorialRoutine()
@@ -212,7 +217,36 @@ public class TutorialController : MonoBehaviour
 
         goalTutorialText.gameObject.SetActive(true);
     }
-    
+
+    IEnumerator FinalWarningRoutine()
+    {
+        float timer = 0f;
+
+        finalWarningText.color = Color.clear;
+        finalWarningText.gameObject.SetActive(true);
+
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            finalWarningText.color = Color.Lerp(Color.clear, Color.white, timer / 1f);
+            yield return null;
+        }
+        
+        finalWarningText.color = Color.white;
+
+        yield return new WaitForSeconds(1f);
+
+        timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            finalWarningText.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
+            yield return null;
+        }
+        
+        finalWarningText.color = Color.clear;
+    }
+
     public void CompleteTutorial()
     {
         tutorialCompleted = true;
