@@ -29,7 +29,7 @@ public class CompanionSelectController : MonoBehaviour
         }
 
         var companion = _companionMapping[companionButton.name];
-        Debug.Log(companion);
+        GameManager.Instance.SetSelectedCompanion(companion);
 
         companionButton.image.color = Color.white;
         companionButton.transform.GetChild(0).gameObject.SetActive(true);

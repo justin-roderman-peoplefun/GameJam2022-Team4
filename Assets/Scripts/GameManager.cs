@@ -65,6 +65,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
+    public void SetSelectedCompanion(Constants.Companion companion)
+    {
+        _companion = companion;
+    }
+
     public CompanionInfo GetSelectedCompanionInfo()
     {
         return GetCompanionInfo(_companion);
