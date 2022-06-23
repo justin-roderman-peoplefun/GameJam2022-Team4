@@ -49,7 +49,7 @@ public class CompanionSelectController : MonoBehaviour
         companionQuoteText.SetText(companionInfo.companionQuote);
 
         NotImplementedText.gameObject.SetActive(!companionInfo.complete);
-        DescendButton.enabled = companionInfo.complete;
+        DescendButton.interactable = companionInfo.complete;
     }
 
     public void Descend()
