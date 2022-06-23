@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: pirate
   complete: 1
-  companionName: Captain Octavian Tidebreaker
+  companionName: Captain Tidebreaker
   companionQuote: Deadmen tell no tales, but I'll make an exception for you
   zoomInXOffset: -50
   image: {fileID: 21300000, guid: 023024426e8db4de99bb2f89f8046d8b, type: 3}
