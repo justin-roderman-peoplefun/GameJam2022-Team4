@@ -30,7 +30,7 @@ public class ActionOnDoubleTap : MonoBehaviour
 
     public void PerformAction()
     {
-        if (!activated)
+        if (!activated && !TutorialController.tutorialCompleted)
         {
             activated = true;
             Instance.onDoubleTap.Invoke();
