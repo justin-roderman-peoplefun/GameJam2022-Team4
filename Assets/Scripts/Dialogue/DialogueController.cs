@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using ScriptableObjects;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -41,7 +42,40 @@ namespace Dialogue
             Assert.IsNotNull(rootModel);
             foreach(var entry in rootModel.Data.Stitches)
             {
+                var emotion = "";
+                var sound = "";
+                var action = "";
+
                 var dialogueText = entry.Value.Content[0].ToString();
+                // I could make this a regex, but I don't feel like it
+                if (dialogueText.Contains("[") && dialogueText.Contains("]"))
+                {
+                    var tagStart = dialogueText.IndexOf("[");
+                    var tagLength = dialogueText.IndexOf("]") - tagStart + 1;
+                    var tagsStr = dialogueText.Substring(tagStart + 1, tagLength - 2);
+                    var tags = tagsStr.Split('|');
+                    foreach (var tagStr in tags)
+                    {
+                        var tagElems = tagStr.Split(':');
+                        switch (tagElems[0])
+                        {
+                            case "emotion":
+                                emotion = tagElems[1];
+                                break;
+                            case "sound":
+                                sound = tagElems[1];
+                                break;
+                            case "action":
+                                action = tagElems[1];
+                                break;
+                            default:
+                                Debug.LogError("Parsing error, invalid tag: '" + tagElems[0] + "'");
+                                break;
+                        }
+                    }
+                    dialogueText = dialogueText.Substring(0, tagStart) + dialogueText.Substring(tagStart + tagLength);
+                }
+
                 var responses = new List<DialogueResponse>();
                 for (var i = 1; i < entry.Value.Content.Count; i++)
                 {
@@ -49,11 +83,19 @@ namespace Dialogue
                     var option = JsonConvert.DeserializeObject<DialogueOptionModel>(optionStr);
                     if (option?.Option != null)
                     {
-                        responses.Add(new DialogueResponse(option.Option, option.LinkPath));
+                        var sentiment = "";
+                        if (option.Option.Contains("[") && option.Option.Contains("]"))
+                        {
+                            var tagStart = option.Option.IndexOf("[");
+                            var tagLength = option.Option.IndexOf("]") - tagStart + 1;
+                            sentiment = option.Option.Substring(tagStart + 1, tagLength - 2);
+                            option.Option = option.Option.Substring(0, tagStart) + option.Option.Substring(tagStart + tagLength);
+                        }
+                        responses.Add(new DialogueResponse(option.Option.Trim(), option.LinkPath.Trim(), sentiment));
                     }
                 }
-    
-                _dialogueNodes[entry.Key] = new DialogueNode(dialogueText, responses);
+
+                _dialogueNodes[entry.Key] = new DialogueNode(dialogueText.Trim(), responses, emotion, sound, action);
             }
     
             _currNode = _dialogueNodes[rootModel.Data.Initial];

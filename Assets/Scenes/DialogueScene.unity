@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f63db8c54b643fcb7b3cda04916f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inBubbleTransition: 0
   canvas: {fileID: 722435800}
   companions:
   - {fileID: 11400000, guid: 34d508cdea78e4eecaaa2ad858deaa73, type: 2}
