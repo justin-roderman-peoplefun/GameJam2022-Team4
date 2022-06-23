@@ -15,6 +15,9 @@ MonoBehaviour:
   key: pirate
   companionName: Captain Octavian Tidebreaker
   companionQuote: Deadmen tell no tales, but I'll make an exception for you
-  image: {fileID: 21300000, guid: 3f37079be438b4c88b5c79de3b15d5f5, type: 3}
+  image: {fileID: 21300000, guid: 023024426e8db4de99bb2f89f8046d8b, type: 3}
+  angryImage: {fileID: 21300000, guid: 6bec56224d2c74956ae3ef45706c1658, type: 3}
+  sadImage: {fileID: 21300000, guid: 39b077db0cf474f0984b14c6a97d3f0f, type: 3}
+  happyImage: {fileID: 21300000, guid: 4bafe1f3a7501410b9fff70d55d7fdad, type: 3}
   dateDialogueTexts:
   - {fileID: 4900000, guid: 37126402fca814e52b39d25b782b2b9c, type: 3}

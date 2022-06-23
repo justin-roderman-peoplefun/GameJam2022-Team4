@@ -10,6 +10,9 @@ namespace ScriptableObjects
         public string companionName;
         public string companionQuote;
         public Sprite image;
+        public Sprite angryImage;
+        public Sprite sadImage;
+        public Sprite happyImage;
         public List<TextAsset> dateDialogueTexts;
     }
 }

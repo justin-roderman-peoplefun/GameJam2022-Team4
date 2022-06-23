@@ -145,6 +145,22 @@ namespace Dialogue
                 dialogueOption2.transform.parent.gameObject.SetActive(false);
                 tapToContinue.SetActive(true);
             }
+
+            switch (_currNode.Emotion)
+            {
+                case DialogueNode.DialogueEmotion.Angry:
+                    companionAvatar.sprite = _companionInfo.angryImage;
+                    break;
+                case DialogueNode.DialogueEmotion.Happy:
+                    companionAvatar.sprite = _companionInfo.happyImage;
+                    break;
+                case DialogueNode.DialogueEmotion.Sad:
+                    companionAvatar.sprite = _companionInfo.sadImage;
+                    break;
+                default:
+                    companionAvatar.sprite = _companionInfo.image;
+                    break;
+            }
         }
     }   
 }

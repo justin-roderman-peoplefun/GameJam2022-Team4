@@ -39,8 +39,6 @@ public class DialogueEndController : MonoBehaviour
 
     private void InitializeUI()
     {
-        companionImage.sprite = GameManager.Instance.GetSelectedCompanionInfo().image;
-
         var lifeRefilled = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.RefillLifeRequirement;
         lifeResult.color = lifeRefilled ? rewardColor : noRewardColor;
         var lifeResultText = lifeResult.gameObject.GetComponentInChildren<TMP_Text>();
@@ -53,7 +51,22 @@ public class DialogueEndController : MonoBehaviour
         maxLifeText.text = "+" + (maxLifeIncreased ? 1 : 0) + " " + maxLifeIncreaseText;
         maxLifeText.color = maxLifeIncreased ? rewardTextColor : noRewardTextColor;
 
-        dialogueResult.text = maxLifeIncreased ? goodResultText : lifeRefilled ? okayResultText : badResultText;
+        var companionInfo = GameManager.Instance.GetSelectedCompanionInfo();
+        if (maxLifeIncreased)
+        {
+            companionImage.sprite = companionInfo.happyImage;
+            dialogueResult.text = goodResultText;
+        }
+        else if (lifeRefilled)
+        {
+            companionImage.sprite = companionInfo.image;
+            dialogueResult.text = okayResultText;
+        }
+        else
+        {
+            companionImage.sprite = companionInfo.sadImage;
+            dialogueResult.text = badResultText;
+        }
     }
 
     private void Update()
