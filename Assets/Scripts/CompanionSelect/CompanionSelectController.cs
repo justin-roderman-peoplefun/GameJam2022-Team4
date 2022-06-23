@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,6 +32,10 @@ public class CompanionSelectController : MonoBehaviour
         }
 
         var companion = _companionMapping[companionButton.name];
+        if (GameManager.Instance.Companion == companion)
+        {
+            return;
+        }
         GameManager.Instance.SetSelectedCompanion(companion);
 
         companionButton.image.color = Color.white;
@@ -50,6 +55,11 @@ public class CompanionSelectController : MonoBehaviour
 
         NotImplementedText.gameObject.SetActive(!companionInfo.complete);
         DescendButton.interactable = companionInfo.complete;
+
+        if (companionInfo.introSoundClip != null)
+        {
+            SoundManager.Instance.Play(companionInfo.introSoundClip);
+        }
     }
 
     public void Descend()

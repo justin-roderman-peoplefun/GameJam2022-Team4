@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -20,5 +21,11 @@ namespace ScriptableObjects
         public List<TextAsset> stageDialogues;
         public TextAsset goodEndingDialogue;
         public TextAsset badEndingDialogue;
+        public AudioClip introSoundClip;
+        [SerializeField]
+        private List<AudioClip> soundClips;
+
+        public IDictionary<string, AudioClip> SoundClips => soundClips.ToDictionary(clip => clip.name.Substring(
+            (key + "_").Length).Replace("_", ""), clip => clip);
     }
 }

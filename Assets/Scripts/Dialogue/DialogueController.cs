@@ -245,6 +245,11 @@ namespace Dialogue
                     companionAvatar.sprite = _companionInfo.image;
                     break;
             }
+
+            if (_currNode.Sound != null)
+            {
+                SoundManager.Instance.Play(_currNode.Sound);
+            }
         }
     }   
 }

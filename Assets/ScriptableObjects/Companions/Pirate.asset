@@ -28,3 +28,20 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 978700e31c5714f8195dfef61024227b, type: 3}
   goodEndingDialogue: {fileID: 4900000, guid: f525cfcc734ac422eaa7ddffc4276f64, type: 3}
   badEndingDialogue: {fileID: 4900000, guid: afccdf7b5e0cc40bd9accb9c3f9e09e1, type: 3}
+  introSoundClip: {fileID: 8300000, guid: be309dbdc04ba40ea9bdc858ddd4ff61, type: 3}
+  soundClips:
+  - {fileID: 8300000, guid: 78d81f93edb984653b0a2a8fe786ad97, type: 3}
+  - {fileID: 8300000, guid: 2232b752b3a694c8998b0afc799f8c5b, type: 3}
+  - {fileID: 8300000, guid: 4c63203dcf04149ba860c8d4b609fde0, type: 3}
+  - {fileID: 8300000, guid: 1e0410d7c8b594324bfba79bd021f835, type: 3}
+  - {fileID: 8300000, guid: a6982406172b3458a866c14739b86b7a, type: 3}
+  - {fileID: 8300000, guid: 974a2af09b4da4236b9f149ad5ed0a20, type: 3}
+  - {fileID: 8300000, guid: dae1a43c082514e788d53c03c14db114, type: 3}
+  - {fileID: 8300000, guid: bd3c1372739ca473cb5d4a5677dfd928, type: 3}
+  - {fileID: 8300000, guid: 3e84aed50da0a46bdb2d6833dbaeb6c2, type: 3}
+  - {fileID: 8300000, guid: 64442c56b5e464f3c87cb8cde7ea277a, type: 3}
+  - {fileID: 8300000, guid: a43f26f8af99647449cc248f121c8b02, type: 3}
+  - {fileID: 8300000, guid: 3cb36cfdab959471ab41acbc5aa7377a, type: 3}
+  - {fileID: 8300000, guid: 88968e4e43f694690ab230dc13683774, type: 3}
+  - {fileID: 8300000, guid: fe41617dd2ce64fc0bd575c33d78d4f8, type: 3}
+  - {fileID: 8300000, guid: 4a288f23acf084cb29ef136f7de1c008, type: 3}
