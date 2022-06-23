@@ -11,6 +11,7 @@ TagManager:
   - ShieldResource
   - TutorialHeart
   - TutorialGoal
+  - TutorialShield
   layers:
   - Default
   - TransparentFX

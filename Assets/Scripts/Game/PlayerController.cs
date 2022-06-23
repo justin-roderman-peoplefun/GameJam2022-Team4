@@ -114,6 +114,14 @@ public class PlayerController : MonoBehaviour
             other.enabled = false;
             other.GetComponent<SpriteRenderer>().enabled = false;
         }
+        else if (other.gameObject.CompareTag("TutorialShield") && life > 0)
+        {
+            ShieldPlayer();
+            TutorialController.Instance.HideShieldTutorial();
+
+            other.enabled = false;
+            other.GetComponent<SpriteRenderer>().enabled = false;
+        }
         else if (other.gameObject.CompareTag("TutorialGoal") && life > 0)
         {
             TutorialController.Instance.HideGoalTutorial();
@@ -371,6 +379,15 @@ public class PlayerController : MonoBehaviour
         _targetPos = transform.position;
         _boost = false;
         canMove = true;
+    }
+
+    public void TruePlayerReset()
+    {
+        shieldAura.enabled = false;
+        isShielded = false;
+        maxLife = 3;
+        life = 3;
+        StartCoroutine(ResetPlayerLocationRoutine());
     }
 
     private IEnumerator ReturnToMainMenu()

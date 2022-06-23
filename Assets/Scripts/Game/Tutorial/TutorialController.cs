@@ -14,6 +14,9 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private TextMeshPro collectHeartText;
     [SerializeField] private SpriteRenderer tutorialHeart;
     
+    [SerializeField] private TextMeshPro collectShieldText;
+    [SerializeField] private SpriteRenderer tutorialShield;
+    
     [SerializeField] private TextMeshPro goalTutorialText;
     [SerializeField] private SpriteRenderer[] goalTutorialSprites;
     
@@ -116,6 +119,75 @@ public class TutorialController : MonoBehaviour
         StartCoroutine(HideEnemyTutorialRoutine());
     }
     
+    public void ShowShieldTutorial()
+    {
+        StartCoroutine(ShowShieldTutorialRoutine());
+    }
+
+    public IEnumerator ShowShieldTutorialRoutine()
+    {
+        float timer = 0f;
+        TextMeshPro text = GetComponent<TextMeshPro>();
+        
+        collectShieldText.color = Color.clear;
+        if(tutorialShield) tutorialShield.color = Color.clear;
+        collectShieldText.gameObject.SetActive(true);
+        if (tutorialShield)
+        {
+            tutorialShield.gameObject.SetActive(true);
+            tutorialShield.GetComponent<CircleCollider2D>().enabled = false;
+        }
+        
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            collectShieldText.color = Color.Lerp(Color.clear, Color.white, timer / 1f);
+            if(tutorialShield) tutorialShield.color = Color.Lerp(Color.clear, Color.white, timer / 1f);
+            yield return null;
+        }
+        
+        collectShieldText.color = Color.white;
+        if(tutorialShield) tutorialShield.color = Color.white;
+
+        yield return new WaitForSeconds(1f);
+        
+        if (tutorialShield)
+        {
+            tutorialShield.GetComponent<CircleCollider2D>().enabled = true;
+        }
+    }
+    
+    public void HideShieldTutorial()
+    {
+        StartCoroutine(HideShieldTutorialRoutine());
+    }
+
+    public IEnumerator HideShieldTutorialRoutine()
+    {
+        float timer = 0f;
+        TextMeshPro text = GetComponent<TextMeshPro>();
+        
+        collectShieldText.color = Color.white;
+        if(tutorialShield) tutorialShield.color = Color.white;
+        collectShieldText.gameObject.SetActive(true);
+        if(tutorialShield) tutorialShield.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            collectShieldText.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
+            if(tutorialShield) tutorialShield.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
+            yield return null;
+        }
+        
+        collectShieldText.gameObject.SetActive(false);
+        if(tutorialShield) tutorialShield.gameObject.SetActive(false);
+        
+        goalTutorialText.gameObject.SetActive(true);
+    }
+    
     public void HideGoalTutorial()
     {
         StartCoroutine(HideGoalTutorialRoutine());
@@ -175,7 +247,7 @@ public class TutorialController : MonoBehaviour
 
         CompleteTutorial();
 
-        StartCoroutine(PlayerController.Instance.ResetPlayerLocationRoutine());
+        PlayerController.Instance.TruePlayerReset();
         StartCoroutine(FinalWarningRoutine());
     }
     
@@ -215,7 +287,7 @@ public class TutorialController : MonoBehaviour
             if(spr) spr.gameObject.SetActive(false);
         }
 
-        goalTutorialText.gameObject.SetActive(true);
+        ShowShieldTutorial();
     }
 
     IEnumerator FinalWarningRoutine()
