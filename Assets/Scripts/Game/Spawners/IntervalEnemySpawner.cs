@@ -14,14 +14,31 @@ public class IntervalEnemySpawner : MonoBehaviour
     [SerializeField] private int maxEnemiesOnScreen = 3;
     [SerializeField] private float minimumTimeBetweenSpawns = 1f;
     [SerializeField] private float timeUntilFirstSpawn = 5f;
+    [SerializeField] private int maxSquidsAtOnce = 1;
 
     private bool spawnerActivated = false;
     private float timeSinceLastSpawn;
-    private List<GameObject> spawnedEnemies;
+    private List<PrefabSpawner> spawnedEnemies;
 
+    int CurrNumberOfSquids
+    {
+        get
+        {
+            int squidsFound = 0;
+            foreach (PrefabSpawner obj in spawnedEnemies)
+            {
+                if (obj.prefabToSpawn.name == "DashAttackEnemy")
+                {
+                    squidsFound++;
+                }
+            }
+            return squidsFound;
+        }
+    }
+    
     void Start()
     {
-        spawnedEnemies = new List<GameObject>();
+        spawnedEnemies = new List<PrefabSpawner>();
         Invoke(nameof(ActivateSpawner), timeUntilFirstSpawn);
     }
 
@@ -38,8 +55,12 @@ public class IntervalEnemySpawner : MonoBehaviour
         GameObject go = Instantiate(prefabSpawner);
         go.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         PrefabSpawner ps = go.GetComponent<PrefabSpawner>();
-        ps.prefabToSpawn = enemyPool[Random.Range(0, enemyPool.Length)];
-        spawnedEnemies.Add(go);
+        if(CurrNumberOfSquids >= maxSquidsAtOnce)
+            ps.prefabToSpawn = enemyPool[0];    //Index 0 must not be a squid for obvious reasons.
+        else
+            ps.prefabToSpawn = enemyPool[Random.Range(0, enemyPool.Length)];
+
+        spawnedEnemies.Add(ps);
         timeSinceLastSpawn = 0;
     }
     
@@ -62,8 +83,14 @@ public class IntervalEnemySpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach(GameObject go in spawnedEnemies)
-            Destroy(go);
+        foreach (PrefabSpawner obj in spawnedEnemies)
+        {
+            if(obj == null) continue;
+            Transform t = obj.transform;
+            while (t.parent != null)
+                t = t.parent;
+            Destroy(t.gameObject);
+        }
     }
 
 #if UNITY_EDITOR

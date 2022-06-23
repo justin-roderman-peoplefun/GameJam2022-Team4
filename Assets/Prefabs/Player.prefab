@@ -102,12 +102,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   cursor: {fileID: 0}
-  playerSpeed: 1
-  maxPlayerSpeed: 2
+  playerSpeed: 5
+  maxPlayerSpeed: 5
   maxRotationAngle: 15
   doubleTapTime: 0.2
   boostTime: 0.4
-  boostFactor: 4
+  boostFactor: 1.5
+  canMove: 1
   healthAura: {fileID: 9076227608319464557}
   shieldAura: {fileID: 9076227606814882742}
   maxHealthSprite: {fileID: 21300000, guid: d78d79d0df385491b95bca1372c26119, type: 3}
