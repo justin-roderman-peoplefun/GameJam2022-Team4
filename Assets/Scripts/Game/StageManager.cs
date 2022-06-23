@@ -86,7 +86,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator UnloadCurrentStage()
     {
-        if (currStageIndex < 0 || currStageIndex >= stages.Length)
+        if (currStageIndex < 0 || currStageIndex >= GameManager.Instance.numStages)
             yield break;
         
         if (SceneManager.GetSceneByName(stages[currStageIndex].sceneName).IsValid())
@@ -111,17 +111,12 @@ public class StageManager : MonoBehaviour
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> is finished.");
         m_isStagePlaying = false;
 
-        if ((currStageIndex + 1) >= stages.Length)
+        if ((currStageIndex + 1) >= GameManager.Instance.numStages)
         {
             StartCoroutine(UnloadCurrentStage());
             Debug.Log("<color=cyan>Final stage complete!</color>");
-            //TODO Replace this with ending
-            GameManager.Instance.BubbleTransitionScene("MainMenuScene");
         }
-        else
-        {
-            GameManager.Instance.BubbleTransitionScene("DialogueScene", GameManager.AsyncTransition.AsyncLoad);
-        }
+        GameManager.Instance.BubbleTransitionScene("DialogueScene", GameManager.AsyncTransition.AsyncLoad);
     }
     
     public static void CollectHeart()
@@ -138,5 +133,15 @@ public class StageManager : MonoBehaviour
             gameOverUI.alpha += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void RetryButtonCallback()
+    {
+        GameManager.Instance.RetryStage();
+    }
+
+    public void MainMenuButtonCallback()
+    {
+        GameManager.Instance.BackToMainMenu();
     }
 }

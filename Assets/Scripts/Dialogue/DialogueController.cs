@@ -136,8 +136,7 @@ namespace Dialogue
             }
             else
             {
-                // TODO Switch to end credits scene
-                GameManager.Instance.BubbleTransitionScene("MainMenuScene");
+                GameManager.Instance.BubbleTransitionScene("CreditsScene");
             }
         }
 

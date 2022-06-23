@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
         _currHeartsCollected = 0;
         _totalHeartsCollected = 0;
         _currStage = 0;
-        TransitionScene("MainMenuScene");
+        BubbleTransitionScene("MainMenuScene");
     }
 
     public void AdvanceStage()
