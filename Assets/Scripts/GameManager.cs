@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public CanvasGroup canvas;
     public List<CompanionInfo> companions;
 
+    public int numStages;
     public int heartsGoodResponse;
     public int heartsBadResponse;
     [SerializeField]

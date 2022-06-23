@@ -23,6 +23,7 @@ namespace Dialogue
         private void Start()
         {
             _companionInfo = GameManager.Instance.GetSelectedCompanionInfo();
+            _dialogueNodes = new Dictionary<string, DialogueNode>();
             InitializeDialogueUI();
             InitializeDialogue();
         }
@@ -34,10 +35,24 @@ namespace Dialogue
     
         private void InitializeDialogue()
         {
-            _dialogueNodes = new Dictionary<string, DialogueNode>();
-
-            var dialogueIdx = GameManager.Instance.CurrStage + (GameManager.Instance.introPlayed ? 1 : 0);
-            var rootModel = JsonConvert.DeserializeObject<DialogueRootModel>(_companionInfo.dialogueTexts[dialogueIdx].text);
+            string dialogText;
+            if (!GameManager.Instance.introPlayed)
+            {
+                dialogText = _companionInfo.introDialogue.text;
+            }
+            else if (GameManager.Instance.CurrStage < (GameManager.Instance.numStages - 1))
+            {
+                dialogText = _companionInfo.stageDialogues[GameManager.Instance.CurrStage].text;
+            }
+            else if ((GameManager.Instance.TotalHeartsCollected + GameManager.Instance.CurrHeartsCollected) >= GameManager.Instance.goodEndingHeartRequirement)
+            {
+                dialogText = _companionInfo.goodEndingDialogue.text;
+            }
+            else
+            {
+                dialogText = _companionInfo.badEndingDialogue.text;
+            }
+            var rootModel = JsonConvert.DeserializeObject<DialogueRootModel>(dialogText);
             Assert.IsNotNull(rootModel);
             foreach(var entry in rootModel.Data.Stitches)
             {
@@ -111,13 +126,18 @@ namespace Dialogue
 
         private void EndDialogue()
         {
-            if (GameManager.Instance.introPlayed)
+            if (!GameManager.Instance.introPlayed)
+            {
+                GameManager.Instance.StartGame();
+            }
+            else if (GameManager.Instance.CurrStage < (GameManager.Instance.numStages - 1))
             {
                 GameManager.Instance.BubbleTransitionScene("DialogueEndScene", GameManager.AsyncTransition.AsyncLoad);
             }
             else
             {
-                GameManager.Instance.StartGame();
+                // TODO Switch to end credits scene
+                GameManager.Instance.BubbleTransitionScene("MainMenuScene");
             }
         }
 

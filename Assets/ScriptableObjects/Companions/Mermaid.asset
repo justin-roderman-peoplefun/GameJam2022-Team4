@@ -20,6 +20,10 @@ MonoBehaviour:
   angryImage: {fileID: 21300000, guid: 18381ddd1ef764b27858473f364e80a6, type: 3}
   sadImage: {fileID: 21300000, guid: cf92e3f6e790a4287aa92da5fc2eb530, type: 3}
   happyImage: {fileID: 21300000, guid: 55058804f103647ef9d57290e139c5a2, type: 3}
-  dialogueTexts:
-  - {fileID: 4900000, guid: 6a7cef38ea2144960bf921528b2440f6, type: 3}
-  - {fileID: 0}
+  blushImage: {fileID: 21300000, guid: 0f2c56a1234f24f69948ecb5a6988aa6, type: 3}
+  introDialogue: {fileID: 4900000, guid: 6a7cef38ea2144960bf921528b2440f6, type: 3}
+  stageDialogues:
+  - {fileID: 4900000, guid: 173045e221a8d4d65a0824d15b2cfa7c, type: 3}
+  - {fileID: 4900000, guid: 65c9fc759fe52437faab8a2a7a1f08f8, type: 3}
+  goodEndingDialogue: {fileID: 4900000, guid: a787da56b12a24c07978bd279ef6c6ed, type: 3}
+  badEndingDialogue: {fileID: 4900000, guid: 81f2bc7d7e893450ebf054ca7f78477d, type: 3}
