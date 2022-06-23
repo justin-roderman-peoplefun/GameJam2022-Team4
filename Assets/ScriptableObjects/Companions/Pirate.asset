@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: pirate
   complete: 1
-  companionName: Captain Octavian Tidebreaker
+  companionName: Captain Tidebreaker
   companionQuote: Deadmen tell no tales, but I'll make an exception for you
   zoomInXOffset: -50
   image: {fileID: 21300000, guid: 023024426e8db4de99bb2f89f8046d8b, type: 3}
@@ -25,7 +25,7 @@ MonoBehaviour:
   introDialogue: {fileID: 4900000, guid: 717f2d472fb074397909a6eca5fcf7f8, type: 3}
   stageDialogues:
   - {fileID: 4900000, guid: 4631ae01942c84edfbc8f9bb8c71b7e1, type: 3}
-  - {fileID: 4900000, guid: 978700e31c5714f8195dfef61024227b, type: 3}
+  - {fileID: 4900000, guid: a325d0b57eba74c60ab9e980982d4b93, type: 3}
   goodEndingDialogue: {fileID: 4900000, guid: f525cfcc734ac422eaa7ddffc4276f64, type: 3}
   badEndingDialogue: {fileID: 4900000, guid: afccdf7b5e0cc40bd9accb9c3f9e09e1, type: 3}
   introSoundClip: {fileID: 8300000, guid: be309dbdc04ba40ea9bdc858ddd4ff61, type: 3}

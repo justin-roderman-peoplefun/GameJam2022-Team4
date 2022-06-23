@@ -1,0 +1,190 @@
+{
+    "title": "Octavian Tidebreaker - Date 2",
+    "data": {
+        "stitches": {
+            "onscreenfalsePus": {
+                "content": [
+                    "[onscreen:false]Pushing yourself, you finally reach where Octavian Tidebreaker dropped anchor, though you don't see him anywhere on or near the ship...",
+                    {
+                        "option": "\"Maybe he's not on board?...\"",
+                        "linkPath": "onscreenfalseYou",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "onscreenfalseYou": {
+                "content": [
+                    "[onscreen:false]You swim to the surface of the ship deck, surprised to find that you're able to walk with ease across the aged wooden planks...",
+                    {
+                        "option": "[bad] Venture below deck",
+                        "linkPath": "onscreenfalseDes",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] Enter the Captain's Cabin",
+                        "linkPath": "onscreenfalseYou1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreenfalseDes": {
+                "content": [
+                    "[onscreen:false]Descending the steps below deck, you can hear the distant melody, though it sounded... different... distorted...",
+                    {
+                        "option": "...",
+                        "linkPath": "onscreenfalseYou2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreenfalseYou1": {
+                "content": [
+                    "[onscreen:false]You carefully open the large wooden door to the Captain's Cabin. The room is mostly dark, a single ethereal blue flame dances in a lantern upon the massive desk...",
+                    {
+                        "option": "...",
+                        "linkPath": "onscreentrueshad",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreenfalseYou2": {
+                "content": [
+                    "[onscreen:false]You press on, feeling your heart rate speed up as the melody abruptly stopped. As if whatever was down here knew you were here...",
+                    {
+                        "option": "[bad] \"Hello?\"",
+                        "linkPath": "onscreenfalseThe",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] Return to the ship deck",
+                        "linkPath": "onscreenfalseYou3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreentrueshad": {
+                "content": [
+                    "[onscreen:true|shadow:true|zoomin:false]The gentle song of your dreams seem to fill the cabin...",
+                    {
+                        "option": "Open the glowing cabinet doors",
+                        "linkPath": "soundavastemotio",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreenfalseThe": {
+                "content": [
+                    "[onscreen:false]There was a guttural growl. With shaky hands you unclip your dive knife, holding it in a vice and taking the last few steps into the lower decks...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundannoyedemot",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundavastemotio": {
+                "content": [
+                    "[sound:avast01|emotion:neutral|onscreen:true|shadow:false|zoomin:false]As you reach out for the cabinet door, a gloved hand stops you. You can feel Captain Tidebreaker's presence at your back...",
+                    {
+                        "option": "\"I heard the music again...\"",
+                        "linkPath": "soundarremotions",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onscreenfalseYou3": {
+                "content": [
+                    "[onscreen:false] You scramble back up the stairs, your heart beating in your ears. You could have sworn something was chasing you...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundarremotions1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundannoyedemot": {
+                "content": [
+                    "[sound:annoyed03|emotion:angry|onscreen:true|shadow:false|zoomin:true] Suddenly, strong arms loop around your waist, pulling you back towards the stairs. \"This is nye the place fer bein brave, Abysswalker...\" Octavian says in a low voice...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundyarremotion",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundarremotions": {
+                "content": [
+                    "[sound:arr02|emotion:sad|onscreen:true|shadow:false|zoomin:true]You look up at him and he nods. \"Aye, ye 'eard it... it be the song of the sea.. me beauty of a ship...\" He frowns and his shoulders droop.",
+                    {
+                        "option": "\"Your ship is the sea?\"",
+                        "linkPath": "soundchuckleemot",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundarremotions1": {
+                "content": [
+                    "[sound:arr02|emotion:sad|onscreen:true|shadow:false|zoomin:true] You collide into a solid object, rattling you in your diving suit. You look up to see a disappointed Captain Octavian...",
+                    {
+                        "option": "\"I... went looking for you..\"",
+                        "linkPath": "soundannoyedemot1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundyarremotion": {
+                "content": [
+                    "[sound:yarr03|emotion:sad|onscreen:true|shadow:false|zoomin:false]He brings you back above deck. Almost reluctantly he releases you, taking a step back. \"Since ye be so curious, I'll share with ye the truth\" He frowns..."
+                ]
+            },
+            "soundchuckleemot": {
+                "content": [
+                    "[sound:chuckle02|emotion:happy|onscreen:true|shadow:false|zoomin:true]He chuckles and shakes his head. \"I think I should show ye the truth...\""
+                ]
+            },
+            "soundannoyedemot1": {
+                "content": [
+                    "[sound:annoyed01|emotion:sad|onscreen:true|shadow:false|zoomin:true]\"Aye... ye found me...\" He frowns and places a hand on your shoulder, directing you away from the entrance of the lower decks...",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]\"I think it be best I show ye the truth now, Abysswalker...\" "
+                ]
+            }
+        },
+        "initial": "onscreenfalsePus",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "soundannoyedemot",
+            "libraryVisible": true,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120079
+}
