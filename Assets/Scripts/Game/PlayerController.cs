@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float boostTime;
     public float boostFactor;
 
+    public bool canMove = true;
+    
     private Rigidbody2D _rb;
 
     private Vector2 _targetPos;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private int life;
     private int maxLife;
     private bool isShielded;
+    private bool invincible;
 
     [SerializeField] private SpriteRenderer healthAura;
     [SerializeField] private SpriteRenderer shieldAura;
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return (StageManager.IsStagePlaying && life > 0);
+            return (canMove && StageManager.IsStagePlaying && life > 0);
         }
     }
 
@@ -71,6 +74,7 @@ public class PlayerController : MonoBehaviour
         _targetPos = _rb.position;
         life = 3;
         maxLife = 3;
+        invincible = false;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,7 +82,7 @@ public class PlayerController : MonoBehaviour
         if(!StageManager.IsStagePlaying)
             return;
         
-        if (other.gameObject.CompareTag("Enemy") && life > 0)
+        if (other.gameObject.CompareTag("Enemy") && life > 0 && !invincible)
         {
             Instance.TakeDamage();
             Destroy(other.transform.parent.gameObject);
@@ -269,6 +273,7 @@ public class PlayerController : MonoBehaviour
         float timer = 0;
         float flashTimer = 0f;
         SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+        invincible = true;
         while (timer < 0.75f)
         {
             timer += Time.deltaTime;
@@ -284,6 +289,8 @@ public class PlayerController : MonoBehaviour
 
             yield return null;
         }
+
+        invincible = false;
         playerSprite.enabled = true;
     }
 
@@ -337,6 +344,33 @@ public class PlayerController : MonoBehaviour
             healthAura.color = lowHealthColor;
             GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
         }
+    }
+    
+    public IEnumerator ResetPlayerLocationRoutine()
+    {
+        canMove = false;
+        
+        float timer = 0f;
+        Transform playerTransform = PlayerController.Instance.transform;
+        Vector3 startLoc = playerTransform.position;
+        Vector3 endLoc = new Vector3(0, 4, 0);
+        Vector3 startRot = playerTransform.eulerAngles;
+        Vector3 endRot = new Vector3(0, 0, 0);
+        
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            playerTransform.position = Vector3.Lerp(startLoc, endLoc, timer / 1f);
+            playerTransform.eulerAngles = Vector3.Lerp(startRot, endRot, timer / 1f);
+            yield return null;
+        }
+
+        while (GameManager.Instance.inBubbleTransition)
+            yield return null;
+
+        _targetPos = transform.position;
+        _boost = false;
+        canMove = true;
     }
 
     private IEnumerator ReturnToMainMenu()

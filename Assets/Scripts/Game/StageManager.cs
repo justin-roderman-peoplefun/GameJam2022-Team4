@@ -81,6 +81,7 @@ public class StageManager : MonoBehaviour
         while (!asyncLoad.isDone)
             yield return null;
 
+        StartCoroutine(PlayerController.Instance.ResetPlayerLocationRoutine());
         StartStage();
     }
 
