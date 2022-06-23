@@ -103,6 +103,19 @@ public class PlayerController : MonoBehaviour
             
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("TutorialHeart") && life > 0)
+        {
+            TutorialController.Instance.HideHeartTutorial();
+
+            other.enabled = false;
+            other.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else if (other.gameObject.CompareTag("TutorialGoal") && life > 0)
+        {
+            TutorialController.Instance.HideGoalTutorial();
+
+            other.enabled = false;
+        }
     }
 
     private void InputMovement()
