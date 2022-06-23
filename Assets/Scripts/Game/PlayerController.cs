@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float _lastBoostTime;
 
     private int life;
+    private int maxLife;
     private bool isShielded;
 
     bool CanAcceptInput
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _targetPos = _rb.position;
         life = 3;
+        maxLife = 3;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -230,6 +232,17 @@ public class PlayerController : MonoBehaviour
             // TODO Replace with death screen
             StartCoroutine(ReturnToMainMenu());
         }
+    }
+
+    public void IncrementMaxLife()
+    {
+        maxLife++;
+    }
+
+    public void RefillLife()
+    {
+        Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");
+        life = maxLife;
     }
 
     public void ShieldPlayer()

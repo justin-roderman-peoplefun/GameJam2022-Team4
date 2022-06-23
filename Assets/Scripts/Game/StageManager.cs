@@ -10,8 +10,6 @@ using UnityEngine.SceneManagement;
 public class Stage
 {
     public string sceneName;
-    public float maxTime = 60f;
-    public int maxHearts = 10;
 }
 
 public class StageManager : MonoBehaviour
@@ -65,7 +63,8 @@ public class StageManager : MonoBehaviour
     {
         var lifeRefilled = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.RefillLifeRequirement;
         var maxLifeIncreased = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.MaxLifeRequirement;
-        // TODO Refill life and increase max life
+        if(maxLifeIncreased) PlayerController.Instance.IncrementMaxLife();
+        if(lifeRefilled) PlayerController.Instance.RefillLife();
         StartCoroutine(LoadStage(currStageIndex + 1));
     }
     
