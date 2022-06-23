@@ -17,6 +17,9 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private TextMeshPro goalTutorialText;
     [SerializeField] private SpriteRenderer[] goalTutorialSprites;
     
+    [SerializeField] private TextMeshPro enemyTutorialText;
+    [SerializeField] private SpriteRenderer[] enemyTutorialSprites;
+    
     public static TutorialController Instance { get; private set; }
     private void Awake() 
     { 
@@ -107,7 +110,8 @@ public class TutorialController : MonoBehaviour
         collectHeartText.gameObject.SetActive(false);
         if(tutorialHeart) tutorialHeart.gameObject.SetActive(false);
         
-        goalTutorialText.gameObject.SetActive(true);
+        enemyTutorialText.gameObject.SetActive(true);
+        StartCoroutine(HideEnemyTutorialRoutine());
     }
     
     public void HideGoalTutorial()
@@ -168,6 +172,45 @@ public class TutorialController : MonoBehaviour
         goalTutorialText.gameObject.SetActive(false);
 
         CompleteTutorial();
+    }
+    
+    public IEnumerator HideEnemyTutorialRoutine()
+    {
+        float timer = 0f;
+        TextMeshPro text = GetComponent<TextMeshPro>();
+        Color originalEnemyColor = enemyTutorialSprites[0].color;
+        
+        enemyTutorialText.color = Color.white;
+        enemyTutorialText.gameObject.SetActive(true);
+        foreach (SpriteRenderer spr in enemyTutorialSprites)
+        {
+            if(spr) spr.color = originalEnemyColor;
+            if (spr) spr.gameObject.SetActive(true);
+        }
+
+        while (enemyTutorialText.transform.position.y < 0)
+        {
+            yield return null;
+        }
+        
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            enemyTutorialText.color = Color.Lerp(originalEnemyColor, Color.clear, timer / 1f);
+            foreach (SpriteRenderer spr in enemyTutorialSprites)
+            {
+                if(spr) spr.color = Color.Lerp(originalEnemyColor, Color.clear, timer / 1f);
+            }
+            yield return null;
+        }
+        
+        enemyTutorialText.gameObject.SetActive(false);
+        foreach (SpriteRenderer spr in enemyTutorialSprites)
+        {
+            if(spr) spr.gameObject.SetActive(false);
+        }
+
+        goalTutorialText.gameObject.SetActive(true);
     }
     
     public void CompleteTutorial()
