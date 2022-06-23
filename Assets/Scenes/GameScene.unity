@@ -148,7 +148,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121979190}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &121979192
 Camera:
   m_ObjectHideFlags: 0
@@ -850,7 +850,6 @@ MonoBehaviour:
   - sceneName: Stage3
     maxTime: 10
     maxHearts: 5
-  mainCamera: {fileID: 121979192}
 --- !u!4 &1547141339
 Transform:
   m_ObjectHideFlags: 0

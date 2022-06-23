@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inBubbleTransition: 0
+  introPlayed: 0
   _currHeartsCollected: 0
   canvas: {fileID: 0}
   companions: []
@@ -986,7 +987,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008830620}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1008830622
 Camera:
   m_ObjectHideFlags: 0
