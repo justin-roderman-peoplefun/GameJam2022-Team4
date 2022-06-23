@@ -18,8 +18,9 @@ public class StageManager : MonoBehaviour
     private static int m_heartsCollectedInCurrentStage;
     private static float m_currentStageTime;
     private int currStageIndex = -1;
-    
+
     public Stage[] stages;
+    public CanvasGroup gameOverUI;
 
     public static bool IsStagePlaying
     {
@@ -68,7 +69,7 @@ public class StageManager : MonoBehaviour
         StartCoroutine(LoadStage(currStageIndex + 1));
     }
     
-    IEnumerator LoadStage(int index)
+    public IEnumerator LoadStage(int index)
     {
         m_isStagePlaying = false;
         
@@ -126,5 +127,16 @@ public class StageManager : MonoBehaviour
     public static void CollectHeart()
     {
         m_heartsCollectedInCurrentStage++;
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(1);
+        gameOverUI.gameObject.SetActive(true);
+        while (gameOverUI.alpha < 1)
+        {
+            gameOverUI.alpha += Time.deltaTime;
+            yield return null;
+        }
     }
 }

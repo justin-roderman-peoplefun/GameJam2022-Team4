@@ -229,8 +229,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player has died! <color=red>Game Over</color>");
             StartCoroutine(DeathAnimation());
-            // TODO Replace with death screen
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(StageManager.Instance.GameOver());
         }
     }
 
@@ -249,11 +248,5 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player has gained a shield!");
         isShielded = true;
-    }
-
-    private IEnumerator ReturnToMainMenu()
-    {
-        yield return new WaitForSeconds(5);
-        GameManager.Instance.BubbleTransitionScene("MainMenuScene");
     }
 }
