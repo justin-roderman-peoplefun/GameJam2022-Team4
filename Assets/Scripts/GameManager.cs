@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
     private int _currHeartsCollected;
     private int _totalHeartsCollected;
     private int _currStage;
-    private Constants.Companion _companion = Constants.Companion.Pirate;
+    private Constants.Companion? _companion;
+    public Constants.Companion? Companion => _companion;
 
     public CanvasGroup canvas;
     public List<CompanionInfo> companions;
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     public CompanionInfo GetSelectedCompanionInfo()
     {
-        return GetCompanionInfo(_companion);
+        return _companion == null ? null : GetCompanionInfo(_companion.Value);
     }
 
     public CompanionInfo GetCompanionInfo(Constants.Companion companion)

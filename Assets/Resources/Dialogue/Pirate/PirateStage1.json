@@ -2,12 +2,12 @@
     "title": "Captain Octavian Tidebreaker",
     "data": {
         "stitches": {
-            "youveTravelledSo": {
+            "onscreenfalseYou": {
                 "content": [
-                    "You've travelled so far and yet there seems to be no end to this abyss...",
+                    "[onscreen:false] You've travelled so far and yet there seems to be no end to this abyss...",
                     {
                         "option": "...",
-                        "linkPath": "asYouTakeABreakT",
+                        "linkPath": "onscreenfalseAsY",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
@@ -16,48 +16,48 @@
                     }
                 ]
             },
-            "asYouTakeABreakT": {
+            "onscreenfalseAsY": {
                 "content": [
-                    "As you take a break to check your gear, you hear that familiar song from your dreams clearer than ever before...",
+                    "[onscreen:false] As you take a break to check your gear, you hear that familiar song from your dreams clearer than ever before...",
                     {
                         "option": "...",
-                        "linkPath": "anEtherealGreenG",
+                        "linkPath": "onscreenfalseAnE",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "anEtherealGreenG": {
+            "onscreenfalseAnE": {
                 "content": [
-                    "An ethereal green glow illuminates the darkness, the sound of the haunting tune becoming louder as it approaches...",
+                    "[onscreen:false] An ethereal green glow illuminates the darkness, the sound of the haunting tune becoming louder as it approaches...",
                     {
                         "option": "...",
-                        "linkPath": "theMassiveHullOf",
+                        "linkPath": "onscreenfalseThe",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "theMassiveHullOf": {
+            "onscreenfalseThe": {
                 "content": [
-                    "The massive hull of a ghost ship slows to a stop next to you, there seems to be no crew on deck, the song stops playing...",
+                    "[onscreen:false]The massive hull of a ghost ship slows to a stop next to you, there seems to be no crew on deck, the song stops playing...",
                     {
                         "option": "[bad] Swim aboard ",
-                        "linkPath": "asYouSwimUpYouSe",
+                        "linkPath": "onscreentrueshad",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
                     {
                         "option": "[good] \"Hellooo? Is anyone there?\" ",
-                        "linkPath": "arrNeutralEnterO",
+                        "linkPath": "soundarremotionn",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "asYouSwimUpYouSe": {
+            "onscreentrueshad": {
                 "content": [
-                    "As you swim up you see the intimidating figure securing a large iron padlock on the scuttle hatch of the deck...",
+                    "[onscreen:true|shadow:true|zoomin:false]As you swim up you see the intimidating figure securing a large iron padlock on the scuttle hatch of the deck...",
                     {
                         "option": "\"E-excuse me... did you hear that music?\"",
                         "linkPath": "soundavastemotio",
@@ -66,18 +66,18 @@
                     }
                 ]
             },
-            "arrNeutralEnterO": {
+            "soundarremotionn": {
                 "content": [
-                    "[sound:arr|emotion:neutral|action:enter] A glowing figure peers over the starboard side, locking gazes with you. He is a terrifying figure, yet there's a comforting familiarity to him...",
+                    "[sound:arr02|emotion:neutral|onscreen:true|shadow:false|zoomin:false] A glowing figure peers over the starboard side, locking gazes with you. He is a terrifying figure, yet there's a comforting familiarity to him...",
                     {
                         "option": "[bad] \"Can I board to sit and rest a while?\" ",
-                        "linkPath": "annoyedAngryALow",
+                        "linkPath": "soundannoyedemot",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
                     {
                         "option": "[good] \"Was that you playing that music?\"",
-                        "linkPath": "happyYouCouldHav",
+                        "linkPath": "emotionhappyYouC",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
@@ -85,201 +85,201 @@
             },
             "soundavastemotio": {
                 "content": [
-                    "[sound:avast|emotion:angry|action:enter] The glowing figure whirls around to face you, clearly surprised by your appearance. You flounder in your diving suit in shock as this figure had a beard of tentacles and inky black eyes...",
+                    "[sound:avast02|emotion:angry|onscreen:true|shadow:false|zoomin:false] The glowing figure whirls around to face you, clearly surprised by your appearance. You flounder in your diving suit in shock as this figure had a beard of tentacles and inky black eyes...",
                     {
                         "option": "...",
-                        "linkPath": "arrAngryArrgAnJu",
+                        "linkPath": "soundarremotiona",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "annoyedAngryALow": {
+            "soundannoyedemot": {
                 "content": [
-                    "[sound:annoyed|emotion:angry] A low growl comes from him, the tentacles that make up his beard curl slightly in frustration. Yet, from where you stood you could see a sadness in his dark eyes..",
+                    "[sound:annoyed01|emotion:angry|onscreen:true|shadow:false|zoomin:false] A low growl comes from him, the tentacles that make up his beard curl slightly in frustration. Yet, from where you stood you could see a sadness in his dark eyes..",
                     {
                         "option": "...",
-                        "linkPath": "angryBeOnYerWayA",
+                        "linkPath": "emotionangryBeOn",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "happyYouCouldHav": {
+            "emotionhappyYouC": {
                 "content": [
                     "[emotion:happy] You could have sworn his ghostly features seemed pleased with you, making your heart skip a beat...",
                     {
                         "option": "...",
-                        "linkPath": "happyYeCanEarThe",
+                        "linkPath": "emotionhappyYeCa",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "arrAngryArrgAnJu": {
+            "soundarremotiona": {
                 "content": [
-                    "[sound:arr|emotion:angry] \"Arrg! An just who might ye be?\" He moved away from the hatch closing the distance between you with surprising speed, his cutlass drawn and pointed at you...",
+                    "[sound:arr02|emotion:angry|onscreen:true|shadow:false|zoomin:true] \"Arrg! An just who might ye be?\" He moved away from the hatch closing the distance between you with surprising speed, his cutlass drawn and pointed at you...",
                     {
                         "option": "[bad] Try to see what he was locking away under the hatch ",
-                        "linkPath": "angryYouMoveInTh",
+                        "linkPath": "emotionangryonsc",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
                     {
                         "option": "[good] Raise your hands and apologize for intruding ",
-                        "linkPath": "annoyedNeutralHe",
+                        "linkPath": "soundannoyedemot1",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "angryBeOnYerWayA": {
+            "emotionangryBeOn": {
                 "content": [
                     "[emotion:angry] \"Be on yer way, Abysswalker... Ye 'ave no business 'ere on me ship...\" He turns his shoulder to you...",
                     {
                         "option": "\"Can I at least get your name?\"",
-                        "linkPath": "neutralCaptainOc",
+                        "linkPath": "emotionneutralCa",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "happyYeCanEarThe": {
+            "emotionhappyYeCa": {
                 "content": [
                     "[emotion:happy] \"Ye can 'ear the song of the sea, ye must be truly special, Abysswalker.\" He chuckles and the sound of it was melodic on its own. ",
                     {
                         "option": "\"The song of the sea?\"",
-                        "linkPath": "neutralAyeWhyDon",
+                        "linkPath": "emotionneutralAy",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "angryYouMoveInTh": {
+            "emotionangryonsc": {
                 "content": [
-                    "[emotion:angry] You move in the water to peer around him, distant cries of hundreds of voices can be heard from below the hatch... ",
+                    "[emotion:angry|onscreen:true|shadow:false|zoomin:true] You move in the water to peer around him, distant cries of hundreds of voices can be heard from below the hatch... ",
                     {
                         "option": "...",
-                        "linkPath": "angrySuddenlyYou",
+                        "linkPath": "emotionangryonsc1",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "neutralCaptainOc": {
+            "emotionneutralCa": {
                 "content": [
                     "[emotion:neutral] \"Captain Octavian Tidebreaker...\" With that he made his way to the helm and with the creak of the hull the great ship turned, the current filling it's ghostly sails...",
                     {
                         "option": "\"Abysswalker?...\"",
-                        "linkPath": "neutralYouWatchA",
+                        "linkPath": "emotionneutralYo",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "annoyedNeutralHe": {
+            "soundannoyedemot1": {
                 "content": [
-                    "[sound:annoyed|emotion:neutral] He stares you down, not quite sure if he can trust you yet...",
+                    "[sound:annoyed03|emotion:neutral|onscreen:true|shadow:false|zoomin:true] He stares you down, not quite sure if he can trust you yet...",
                     {
                         "option": "...",
-                        "linkPath": "sadYeBeTreadingD",
+                        "linkPath": "emotionsadonscre",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "neutralAyeWhyDon": {
+            "emotionneutralAy": {
                 "content": [
                     "[emotion:neutral] \"Aye... Why don't ye meet with me again and I can tell ye more about it...\" He looks over his shoulder at something...",
                     {
                         "option": "\"Meet you where?\"",
-                        "linkPath": "neutralSuddenlyA",
+                        "linkPath": "emotionneutralSu",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "angrySuddenlyYou": {
+            "emotionangryonsc1": {
                 "content": [
-                    "[emotion:angry] Suddenly your vision blurs and the next thing you know, you're back adrift above the abyss, that distant glow of the ghostly sails descending...",
+                    "[emotion:angry|onscreen:true|shadow:false|zoomin:false] Suddenly your vision blurs and the next thing you know, you're back adrift above the abyss, that distant glow of the ghostly sails descending...",
                     {
                         "option": "\"He's hiding something. I'm going to find out what...\"",
-                        "linkPath": "angryYouFollowHi",
+                        "linkPath": "onscreenfalseYou1",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "sadYeBeTreadingD": {
+            "emotionsadonscre": {
                 "content": [
-                    "[emotion:sad] \"Ye be treading dangerous waters, Abysswalker... Best ye keep on yer way and make the journey home.\" He escorts you off the ship, you can't help feeling like you've disappointed him...",
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true] \"Ye be treading dangerous waters, Abysswalker... Best ye keep on yer way and make the journey home.\" He escorts you off the ship, you can't help feeling like you've disappointed him...",
                     {
                         "option": "I can't go home, not until I find the song from my dreams...",
-                        "linkPath": "sadThenYeBeBestP",
+                        "linkPath": "emotionsadonscre1",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "neutralYouWatchA": {
+            "emotionneutralYo": {
                 "content": [
                     "[emotion:neutral] You watch as the glow of his ship becomes shrouded in the darkness below"
                 ]
             },
-            "neutralSuddenlyA": {
+            "emotionneutralSu": {
                 "content": [
                     "[emotion:neutral] Suddenly a loud rumbling could be heard from the fathoms below and he swam away from the edge of the ship, the tattered sails unfurling seemingly on their own...",
                     {
                         "option": "...",
-                        "linkPath": "happyIfYeStayAli",
+                        "linkPath": "emotionhappyIfYe",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "angryYouFollowHi": {
+            "onscreenfalseYou1": {
                 "content": [
-                    "[emotion:angry] You follow his ship into the darkness, the glow of his ship acting as your guiding light..."
+                    "[onscreen:false] You follow his ship into the darkness, the glow of his ship acting as your guiding light..."
                 ]
             },
-            "sadThenYeBeBestP": {
+            "emotionsadonscre1": {
                 "content": [
-                    "[emotion:sad] \"Then ye be best prepared to face the infernal wretchedness of the fathoms below...\" He squeezes your shoulder through the diving suit.",
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true] \"Then ye be best prepared to face the infernal wretchedness of the fathoms below...\" He squeezes your shoulder through the diving suit.",
                     {
                         "option": "...",
-                        "linkPath": "neutralItOnlyGro",
+                        "linkPath": "emotionneutralon",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "happyIfYeStayAli": {
+            "emotionhappyIfYe": {
                 "content": [
                     "[emotion:happy] \"If ye stay alive I'll be sure to find ye, love!\" His smokey chuckle carried on the current, he gave the helm a spin, the creak of the hull is deafening as it turns...",
                     {
                         "option": "\"I don't even know your name!\"",
-                        "linkPath": "octavianHeLetsOu",
+                        "linkPath": "soundchuckleemot",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
                 ]
             },
-            "neutralItOnlyGro": {
+            "emotionneutralon": {
                 "content": [
-                    "[emotion:neutral] \"It only grows more perilous from 'ere, ye been warned, Abysswalker...\" He turns from you and you watch as he sails his ship further below."
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:false] \"It only grows more perilous from 'ere, ye been warned, Abysswalker...\" He turns from you and you watch as he sails his ship further below."
                 ]
             },
-            "octavianHeLetsOu": {
+            "soundchuckleemot": {
                 "content": [
-                    "\"Octavian!\" He lets out a bellowing laugh as the glow of his ship recedes into the depths. That haunting music beginning to play once again."
+                    "[sound:chuckle01|emotion:happy]\"Octavian!\" He lets out a bellowing laugh as the glow of his ship recedes into the depths. That haunting music beginning to play once again."
                 ]
             }
         },
-        "initial": "youveTravelledSo",
+        "initial": "onscreenfalseYou",
         "optionMirroring": true,
         "allowCheckpoints": false,
         "editorData": {
-            "playPoint": "soundavastemotio",
+            "playPoint": "soundannoyedemot",
             "libraryVisible": false,
             "authorName": "sabrajusanicsta",
             "textSize": 1

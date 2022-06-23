@@ -71,7 +71,7 @@ namespace Dialogue
         public readonly string Text;
         public readonly List<DialogueResponse> Responses;
         public readonly DialogueEmotion Emotion;
-        public readonly string Sound;
+        public readonly AudioClip Sound;
         public readonly DialogueActions Actions;
         public readonly bool FinalNode;
 
@@ -92,7 +92,21 @@ namespace Dialogue
                     Debug.LogError("Parsing error, invalid emotion: '" + dialogueEmotion + "'");
                 }
             }
-            Sound = dialogueSound;
+
+            Sound = null;
+            if (dialogueSound != "")
+            {
+                var companionSoundClips = GameManager.Instance.GetSelectedCompanionInfo().SoundClips;
+                if (companionSoundClips.ContainsKey(dialogueSound))
+                {
+                    Sound = companionSoundClips[dialogueSound];
+                }
+                else
+                {
+                    Debug.LogError("Parsing error, invalid sound: '" + dialogueSound + "'");
+                }
+            }
+
             Actions = new DialogueActions();
             if (_actionValueMapping.ContainsKey(onscreen))
             {
