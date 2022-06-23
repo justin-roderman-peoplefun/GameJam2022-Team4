@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
         _currHeartsCollected = 0;
         StageManager.Instance.gameOverUI.alpha = 0;
         StageManager.Instance.gameOverUI.gameObject.SetActive(false);
+        PlayerController.Instance.TruePlayerReset();
         StartCoroutine(StageManager.Instance.LoadStage(_currStage));
     }
 

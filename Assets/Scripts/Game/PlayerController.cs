@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private int maxLife;
     private bool isShielded;
     private bool invincible;
+    private bool currentlyResetting;
 
     [SerializeField] private SpriteRenderer healthAura;
     [SerializeField] private SpriteRenderer shieldAura;
@@ -286,9 +287,7 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             flashTimer += Time.deltaTime;
-            //float foo = (int) (timer * 100f);
-            //bool spriteEnabled = ((int)(timer * 100f) % 2 == 0);
-            //playerSprite.enabled = spriteEnabled;
+            
             if (flashTimer > 0.05f)
             {
                 playerSprite.enabled = !playerSprite.enabled;
@@ -356,6 +355,9 @@ public class PlayerController : MonoBehaviour
     
     public IEnumerator ResetPlayerLocationRoutine()
     {
+        if (currentlyResetting) yield break;    //We're already doing this.
+        
+        currentlyResetting = true;
         canMove = false;
         
         float timer = 0f;
@@ -379,14 +381,22 @@ public class PlayerController : MonoBehaviour
         _targetPos = transform.position;
         _boost = false;
         canMove = true;
+        currentlyResetting = false;
     }
 
     public void TruePlayerReset()
     {
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+        ScrollUpwardsPlain scr = GetComponent<ScrollUpwardsPlain>();
+        if(scr) Destroy(scr);
+        
+        StopAllCoroutines();
         shieldAura.enabled = false;
         isShielded = false;
         maxLife = 3;
         life = 3;
+        playerSprite.color = Color.white;
+        playerSprite.material.SetFloat("_GrayscaleAmount", 0f);
         StartCoroutine(ResetPlayerLocationRoutine());
     }
 
