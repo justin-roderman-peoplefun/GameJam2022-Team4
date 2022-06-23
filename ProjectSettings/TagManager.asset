@@ -9,6 +9,8 @@ TagManager:
   - HeartResource
   - StageEnd
   - ShieldResource
+  - TutorialHeart
+  - TutorialGoal
   layers:
   - Default
   - TransparentFX
