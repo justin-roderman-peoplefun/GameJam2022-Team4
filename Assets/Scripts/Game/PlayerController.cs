@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     private bool isShielded;
 
     [SerializeField] private SpriteRenderer healthAura;
-
+    [SerializeField] private SpriteRenderer shieldAura;
+    
     [SerializeField] private Sprite maxHealthSprite;
     [SerializeField] private Sprite mediumHealthSprite;
     [SerializeField] private Sprite lowHealthSprite;
@@ -230,6 +231,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player was hit, but had a shield! Life remaining: <color=red>" + life + "</color>");
             isShielded = false;
+            shieldAura.enabled = false;
             return;
         }
         
@@ -287,6 +289,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player has gained a shield!");
         isShielded = true;
+        shieldAura.enabled = true;
     }
 
     public void RefreshHealthAuraColor()
@@ -294,7 +297,41 @@ public class PlayerController : MonoBehaviour
         if (!healthAura)
             return;
 
-        if (life <= 1)
+        Color maxHealthColor = new Color(1f, 1f, 0.5f);
+        Color medHealthColor = new Color(0.8f, 1f, 0.5f);
+        Color lowHealthColor = new Color(1f, 0.5f, 0.5f);
+
+        float healthPercent = (float) life / (float) maxLife;
+        /*if (healthPercent > 0.5f)
+        {
+            healthAura.color = Color.Lerp(maxHealthColor, medHealthColor, (1f - healthPercent) / 0.5f);
+        }
+        else if (healthPercent <= 0.5f)
+        {
+            healthAura.color = Color.Lerp(medHealthColor, lowHealthColor, (0.5f - healthPercent) / 0.5f);
+        }*/
+        if (healthPercent > 0.99f)
+        {
+            healthAura.color = maxHealthColor;
+            GetComponent<SpriteRenderer>().sprite = maxHealthSprite;
+        }
+        else if (healthPercent > 0.67f && healthPercent <= 0.99f)
+        {
+            healthAura.color = Color.Lerp(maxHealthColor, medHealthColor, (1f - healthPercent) / (1f - 0.67f));
+            GetComponent<SpriteRenderer>().sprite = mediumHealthSprite;
+        }
+        else if (healthPercent <= 0.67f && healthPercent >= 0.35f)
+        {
+            healthAura.color = Color.Lerp(medHealthColor, lowHealthColor, (0.67f - healthPercent) / (0.67f - 0.35f));
+            GetComponent<SpriteRenderer>().sprite = mediumHealthSprite;
+        }
+        else
+        {
+            healthAura.color = lowHealthColor;
+            GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
+        }
+        
+        /*if (life <= 1)
         {
             healthAura.color = new Color(1f, 0.5f, 0.5f);
             GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
@@ -308,7 +345,7 @@ public class PlayerController : MonoBehaviour
         {
             healthAura.color = new Color(1f, 1f, 0.5f);
             GetComponent<SpriteRenderer>().sprite = maxHealthSprite;
-        }
+        }*/
     }
 
     private IEnumerator ReturnToMainMenu()
