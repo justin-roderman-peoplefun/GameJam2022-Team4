@@ -37,14 +37,16 @@ namespace Dialogue
             Neutral,
             Angry,
             Happy,
-            Sad
+            Sad,
+            Blush
         }
         private readonly IDictionary<string, DialogueEmotion> _emotionsMapping = new Dictionary<string, DialogueEmotion>()
         {
             {"neutral", DialogueEmotion.Neutral},
             {"angry", DialogueEmotion.Angry},
             {"happy", DialogueEmotion.Happy},
-            {"sad", DialogueEmotion.Sad}
+            {"sad", DialogueEmotion.Sad},
+            {"blush", DialogueEmotion.Blush}
         };
 
         public enum DialogueAction
