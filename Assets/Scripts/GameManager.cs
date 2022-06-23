@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        _companion = null;
         introPlayed = false;
         _currHeartsCollected = 0;
         _totalHeartsCollected = 0;
