@@ -49,25 +49,34 @@ namespace Dialogue
             {"blush", DialogueEmotion.Blush}
         };
 
-        public enum DialogueAction
+        public enum DialogueActionValue
         {
-            None,
-            Enter
+            NotSpecified,
+            False,
+            True
         }
-        private readonly IDictionary<string, DialogueAction> _actionsMapping = new Dictionary<string, DialogueAction>()
+        private readonly IDictionary<string, DialogueActionValue> _actionValueMapping = new Dictionary<string, DialogueActionValue>()
         {
-            {"none", DialogueAction.None},
-            {"enter", DialogueAction.Enter},
+            {"", DialogueActionValue.NotSpecified},
+            {"false", DialogueActionValue.False},
+            {"true", DialogueActionValue.True},
         };
+        public struct DialogueActions
+        {
+            public DialogueActionValue Onscreen;
+            public DialogueActionValue Shadow;
+            public DialogueActionValue ZoomIn;
+        }
 
-        public string Text { get; }
-        public List<DialogueResponse> Responses { get; }
-        public DialogueEmotion Emotion { get; }
-        public string Sound { get; }
-        public DialogueAction Action { get; }
-        public bool FinalNode { get; }
+        public readonly string Text;
+        public readonly List<DialogueResponse> Responses;
+        public readonly DialogueEmotion Emotion;
+        public readonly string Sound;
+        public readonly DialogueActions Actions;
+        public readonly bool FinalNode;
 
-        public DialogueNode(string dialogueText, List<DialogueResponse> dialogueResponses, string dialogueEmotion="", string dialogueSound="", string dialogueAction="")
+        public DialogueNode(string dialogueText, List<DialogueResponse> dialogueResponses, string dialogueEmotion="",
+            string dialogueSound="", string onscreen="", string shadow="", string zoomIn="")
         {
             Text = dialogueText;
             Responses = dialogueResponses;
@@ -84,17 +93,30 @@ namespace Dialogue
                 }
             }
             Sound = dialogueSound;
-            Action = DialogueAction.None;
-            if (dialogueAction != "")
+            Actions = new DialogueActions();
+            if (_actionValueMapping.ContainsKey(onscreen))
             {
-                if (_actionsMapping.ContainsKey(dialogueAction))
-                {
-                    Action = _actionsMapping[dialogueAction];
-                }
-                else
-                {
-                    Debug.LogError("Parsing error, invalid emotion: '" + dialogueAction + "'");
-                }
+                Actions.Onscreen = _actionValueMapping[onscreen];
+            }
+            else
+            {
+                Debug.LogError("Parsing error, invalid onscreen action: '" + onscreen + "'");
+            }
+            if (_actionValueMapping.ContainsKey(shadow))
+            {
+                Actions.Shadow = _actionValueMapping[shadow];
+            }
+            else
+            {
+                Debug.LogError("Parsing error, invalid shadow action: '" + shadow + "'");
+            }
+            if (_actionValueMapping.ContainsKey(zoomIn))
+            {
+                Actions.ZoomIn = _actionValueMapping[zoomIn];
+            }
+            else
+            {
+                Debug.LogError("Parsing error, invalid zoom in action: '" + zoomIn + "'");
             }
             FinalNode = dialogueResponses.Count == 0;
         }
