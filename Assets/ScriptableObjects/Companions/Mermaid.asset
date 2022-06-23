@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mermaid
   m_EditorClassIdentifier: 
   key: mermaid
+  complete: 1
   companionName: Cyrina
   companionQuote: I thought you might have been a sea-witch, as you've rendered me
     speechless
