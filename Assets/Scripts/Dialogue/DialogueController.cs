@@ -112,8 +112,16 @@ namespace Dialogue
 
         public void ChooseResponse(int responseIndex)
         {
-            var nextNode = _currNode.Responses[responseIndex].Destination;
-            _currNode = _dialogueNodes[nextNode];
+            var response = _currNode.Responses[responseIndex];
+            if (response.Sentiment == DialogueResponse.ResponseSentiment.Good)
+            {
+                GameManager.Instance.EarnHearts(GameManager.Instance.heartsGoodResponse);
+            }
+            else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
+            {
+                GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse);
+            }
+            _currNode = _dialogueNodes[response.Destination];
             UpdateDialogueUI();
         }
     

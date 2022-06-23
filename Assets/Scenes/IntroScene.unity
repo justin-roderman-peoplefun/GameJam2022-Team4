@@ -6632,12 +6632,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f63db8c54b643fcb7b3cda04916f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inBubbleTransition: 0
   canvas: {fileID: 1273031204}
   companions:
   - {fileID: 11400000, guid: 34d508cdea78e4eecaaa2ad858deaa73, type: 2}
   - {fileID: 11400000, guid: e644a13f9a3564975a7413bd5c036728, type: 2}
   - {fileID: 11400000, guid: e7581f1c9d7de4c6aaf1fa1b8eb28025, type: 2}
   - {fileID: 11400000, guid: aef504f9977ac444ba9eccedd68e1489, type: 2}
+  heartsGoodResponse: 5
+  heartsBadResponse: 1
+  maxStageHearts: 180000001e00000023000000
+  refillLifeRequirements: 0c0000000f00000012000000
+  maxLifeRequirements: 110000001500000018000000
+  totalMaxHearts: 180000003600000059000000
+  goodEndingHeartRequirement: 37
 --- !u!4 &2100606442
 Transform:
   m_ObjectHideFlags: 0

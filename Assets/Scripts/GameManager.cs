@@ -18,15 +18,37 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    [HideInInspector]
     public bool inBubbleTransition;
 
-    private int _heartsCollected;
+    [SerializeField]
+    private int _currHeartsCollected;
+    private int _totalHeartsCollected;
+    private int _currStage;
     private Constants.Companion _companion = Constants.Companion.Pirate;
 
     public CanvasGroup canvas;
     public List<CompanionInfo> companions;
 
-    public int HeartsCollected => _heartsCollected;
+    public int heartsGoodResponse;
+    public int heartsBadResponse;
+    [SerializeField]
+    private List<int> maxStageHearts;
+    public int MaxStageHeart => maxStageHearts[_currStage];
+    [SerializeField]
+    private List<int> refillLifeRequirements;
+    public int RefillLifeRequirement => refillLifeRequirements[_currStage];
+    [SerializeField]
+    private List<int> maxLifeRequirements;
+    public int MaxLifeRequirement => maxLifeRequirements[_currStage];
+    [SerializeField]
+    private List<int> totalMaxHearts;
+    public int TotalMaxHeart => totalMaxHearts[_currStage];
+    public int goodEndingHeartRequirement;
+
+    public int CurrHeartsCollected => _currHeartsCollected;
+    public int TotalHeartsCollected => _totalHeartsCollected;
+    public int CurrStage => _currStage;
 
     private void Awake()
     {
@@ -108,9 +130,21 @@ public class GameManager : MonoBehaviour
         canvas.gameObject.SetActive(false);
     }
 
+    public void AdvanceStage()
+    {
+        _totalHeartsCollected += _currHeartsCollected;
+        StageManager.Instance.AdvanceStage();
+        _currHeartsCollected = 0;
+        _currStage++;
+    }
+
     public void EarnHearts(int numHearts)
     {
-        _heartsCollected += numHearts;
-        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + _heartsCollected + "</color>");
+        _currHeartsCollected += numHearts;
+        if (_currHeartsCollected > MaxStageHeart)
+        {
+            _currHeartsCollected = MaxStageHeart;
+        }
+        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + _currHeartsCollected + "</color>");
     }
 }

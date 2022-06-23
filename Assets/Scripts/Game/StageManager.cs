@@ -63,6 +63,9 @@ public class StageManager : MonoBehaviour
 
     public void AdvanceStage()
     {
+        var lifeRefilled = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.RefillLifeRequirement;
+        var maxLifeIncreased = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.MaxLifeRequirement;
+        // TODO Refill life and increase max life
         StartCoroutine(LoadStage(currStageIndex + 1));
     }
     

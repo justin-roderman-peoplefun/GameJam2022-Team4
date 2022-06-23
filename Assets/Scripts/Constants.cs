@@ -7,11 +7,4 @@ public class Constants
         Shark,
         Leviathan
     }
-
-    public enum DialogueResult
-    {
-        Bad,
-        Okay,
-        Good
-    };
 }

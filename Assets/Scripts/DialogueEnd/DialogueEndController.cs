@@ -40,23 +40,20 @@ public class DialogueEndController : MonoBehaviour
     private void InitializeUI()
     {
         companionImage.sprite = GameManager.Instance.GetSelectedCompanionInfo().image;
-        
-        // TODO Abstract out
-        var res = Constants.DialogueResult.Good;
-        dialogueResult.text = res == Constants.DialogueResult.Good ? goodResultText :
-            res == Constants.DialogueResult.Okay ? okayResultText : badResultText;
 
-        var lifeRefilled = res != Constants.DialogueResult.Bad;
+        var lifeRefilled = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.RefillLifeRequirement;
         lifeResult.color = lifeRefilled ? rewardColor : noRewardColor;
         var lifeResultText = lifeResult.gameObject.GetComponentInChildren<TMP_Text>();
         lifeResultText.text = lifeRefilled ? lifeRefilledText : lifeNotRefilledText;
         lifeResultText.color = lifeRefilled ? rewardTextColor : noRewardTextColor;
 
-        var numMaxLifeIncreased = 1;
-        maxLifeResult.color = numMaxLifeIncreased > 0 ? rewardColor : noRewardColor;
+        var maxLifeIncreased = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.MaxLifeRequirement;
+        maxLifeResult.color = maxLifeIncreased ? rewardColor : noRewardColor;
         var maxLifeText = maxLifeResult.gameObject.GetComponentInChildren<TMP_Text>();
-        maxLifeText.text = "+" + numMaxLifeIncreased + " " + maxLifeIncreaseText;
-        maxLifeText.color = numMaxLifeIncreased > 0 ? rewardTextColor : noRewardTextColor;
+        maxLifeText.text = "+" + (maxLifeIncreased ? 1 : 0) + " " + maxLifeIncreaseText;
+        maxLifeText.color = maxLifeIncreased ? rewardTextColor : noRewardTextColor;
+
+        dialogueResult.text = maxLifeIncreased ? goodResultText : lifeRefilled ? okayResultText : badResultText;
     }
 
     private void Update()
@@ -64,7 +61,7 @@ public class DialogueEndController : MonoBehaviour
         if (_timeElapsed > waitTime && Input.GetMouseButtonDown(0) && !GameManager.Instance.inBubbleTransition)
         {
             GameManager.Instance.BubbleTransitionScene("DialogueEndScene", GameManager.AsyncTransition.AsyncUnload);
-            StageManager.Instance.AdvanceStage();
+            GameManager.Instance.AdvanceStage();
         }
         _timeElapsed += Time.deltaTime;
     }
