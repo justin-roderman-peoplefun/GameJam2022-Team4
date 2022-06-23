@@ -171,6 +171,9 @@ namespace Dialogue
                 case DialogueNode.DialogueEmotion.Sad:
                     companionAvatar.sprite = _companionInfo.sadImage;
                     break;
+                case DialogueNode.DialogueEmotion.Blush:
+                    companionAvatar.sprite = _companionInfo.blushImage;
+                    break;
                 default:
                     companionAvatar.sprite = _companionInfo.image;
                     break;
