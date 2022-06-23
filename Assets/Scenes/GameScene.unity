@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RetryStage
+      - m_Target: {fileID: 1547141338}
+        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
+        m_MethodName: RetryButtonCallback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -339,9 +339,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BackToMainMenu
+      - m_Target: {fileID: 1547141338}
+        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
+        m_MethodName: MainMenuButtonCallback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
