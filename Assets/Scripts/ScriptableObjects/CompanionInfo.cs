@@ -7,6 +7,7 @@ namespace ScriptableObjects
     public class CompanionInfo : ScriptableObject
     {
         public string key;
+        public bool complete;
         public string companionName;
         public string companionQuote;
         public float zoomInXOffset;

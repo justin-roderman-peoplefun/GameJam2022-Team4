@@ -10,6 +10,8 @@ public class CompanionSelectController : MonoBehaviour
     public GameObject promptTextParent;
     public TMP_Text companionNameText;
     public TMP_Text companionQuoteText;
+    public TMP_Text NotImplementedText;
+    public Button DescendButton;
     
     // Maps the button name to the corresponding companion
     private readonly Dictionary<string, Constants.Companion> _companionMapping = new Dictionary<string, Constants.Companion>()
@@ -45,6 +47,9 @@ public class CompanionSelectController : MonoBehaviour
         var companionInfo = GameManager.Instance.GetCompanionInfo(companion);
         companionNameText.SetText(companionInfo.companionName);
         companionQuoteText.SetText(companionInfo.companionQuote);
+
+        NotImplementedText.gameObject.SetActive(!companionInfo.complete);
+        DescendButton.enabled = companionInfo.complete;
     }
 
     public void Descend()
