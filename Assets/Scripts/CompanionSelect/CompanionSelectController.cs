@@ -55,6 +55,7 @@ public class CompanionSelectController : MonoBehaviour
 
         NotImplementedText.gameObject.SetActive(!companionInfo.complete);
         DescendButton.interactable = companionInfo.complete;
+        DescendButton.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, companionInfo.complete ? 1 : 0.5f);
 
         if (companionInfo.introSoundClip != null)
         {
