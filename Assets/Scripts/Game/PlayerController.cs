@@ -297,19 +297,12 @@ public class PlayerController : MonoBehaviour
         if (!healthAura)
             return;
 
-        Color maxHealthColor = new Color(1f, 1f, 0.5f);
+        Color maxHealthColor = new Color(0.5f, 1f, 0.5f);
         Color medHealthColor = new Color(0.8f, 1f, 0.5f);
         Color lowHealthColor = new Color(1f, 0.5f, 0.5f);
 
         float healthPercent = (float) life / (float) maxLife;
-        /*if (healthPercent > 0.5f)
-        {
-            healthAura.color = Color.Lerp(maxHealthColor, medHealthColor, (1f - healthPercent) / 0.5f);
-        }
-        else if (healthPercent <= 0.5f)
-        {
-            healthAura.color = Color.Lerp(medHealthColor, lowHealthColor, (0.5f - healthPercent) / 0.5f);
-        }*/
+        
         if (healthPercent > 0.99f)
         {
             healthAura.color = maxHealthColor;
@@ -330,22 +323,6 @@ public class PlayerController : MonoBehaviour
             healthAura.color = lowHealthColor;
             GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
         }
-        
-        /*if (life <= 1)
-        {
-            healthAura.color = new Color(1f, 0.5f, 0.5f);
-            GetComponent<SpriteRenderer>().sprite = lowHealthSprite;
-        }
-        else if (life == 2)
-        {
-            healthAura.color = new Color(0.8f, 1f, 0.5f);
-            GetComponent<SpriteRenderer>().sprite = mediumHealthSprite;
-        }
-        else if (life >= 3)
-        {
-            healthAura.color = new Color(1f, 1f, 0.5f);
-            GetComponent<SpriteRenderer>().sprite = maxHealthSprite;
-        }*/
     }
 
     private IEnumerator ReturnToMainMenu()
