@@ -553,12 +553,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f63db8c54b643fcb7b3cda04916f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inBubbleTransition: 0
+  introPlayed: 0
+  _currHeartsCollected: 0
   canvas: {fileID: 1760311546}
   companions:
   - {fileID: 11400000, guid: 34d508cdea78e4eecaaa2ad858deaa73, type: 2}
   - {fileID: 11400000, guid: e644a13f9a3564975a7413bd5c036728, type: 2}
   - {fileID: 11400000, guid: e7581f1c9d7de4c6aaf1fa1b8eb28025, type: 2}
   - {fileID: 11400000, guid: aef504f9977ac444ba9eccedd68e1489, type: 2}
+  heartsGoodResponse: 0
+  heartsBadResponse: 0
+  maxStageHearts: 
+  refillLifeRequirements: 
+  maxLifeRequirements: 
+  totalMaxHearts: 
+  goodEndingHeartRequirement: 0
 --- !u!4 &1142944625
 Transform:
   m_ObjectHideFlags: 0
@@ -840,6 +850,7 @@ MonoBehaviour:
   - sceneName: Stage3
     maxTime: 10
     maxHearts: 5
+  mainCamera: {fileID: 121979192}
 --- !u!4 &1547141339
 Transform:
   m_ObjectHideFlags: 0

@@ -19,5 +19,6 @@ MonoBehaviour:
   angryImage: {fileID: 21300000, guid: 6bec56224d2c74956ae3ef45706c1658, type: 3}
   sadImage: {fileID: 21300000, guid: 39b077db0cf474f0984b14c6a97d3f0f, type: 3}
   happyImage: {fileID: 21300000, guid: 4bafe1f3a7501410b9fff70d55d7fdad, type: 3}
-  dateDialogueTexts:
-  - {fileID: 4900000, guid: 37126402fca814e52b39d25b782b2b9c, type: 3}
+  dialogueTexts:
+  - {fileID: 4900000, guid: 717f2d472fb074397909a6eca5fcf7f8, type: 3}
+  - {fileID: 4900000, guid: 4631ae01942c84edfbc8f9bb8c71b7e1, type: 3}

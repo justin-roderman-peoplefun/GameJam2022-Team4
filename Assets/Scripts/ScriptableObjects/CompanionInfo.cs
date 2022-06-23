@@ -13,6 +13,6 @@ namespace ScriptableObjects
         public Sprite angryImage;
         public Sprite sadImage;
         public Sprite happyImage;
-        public List<TextAsset> dateDialogueTexts;
+        public List<TextAsset> dialogueTexts;
     }
 }

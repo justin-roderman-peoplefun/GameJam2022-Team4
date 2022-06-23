@@ -6633,6 +6633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inBubbleTransition: 0
+  introPlayed: 0
+  _currHeartsCollected: 0
   canvas: {fileID: 1273031204}
   companions:
   - {fileID: 11400000, guid: 34d508cdea78e4eecaaa2ad858deaa73, type: 2}

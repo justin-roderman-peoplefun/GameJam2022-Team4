@@ -1129,7 +1129,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 811008350}
         m_TargetAssemblyTypeName: CompanionSelectController, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: Descend
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

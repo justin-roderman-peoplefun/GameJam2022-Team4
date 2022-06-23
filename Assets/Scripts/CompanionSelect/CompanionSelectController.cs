@@ -47,8 +47,8 @@ public class CompanionSelectController : MonoBehaviour
         companionQuoteText.SetText(companionInfo.companionQuote);
     }
 
-    public void StartGame()
+    public void Descend()
     {
-        GameManager.Instance.BubbleTransitionScene("GameScene");
+        GameManager.Instance.BubbleTransitionScene("DialogueScene");
     }
 }

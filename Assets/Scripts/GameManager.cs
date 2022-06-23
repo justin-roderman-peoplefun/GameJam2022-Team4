@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool inBubbleTransition;
+    [HideInInspector]
+    public bool introPlayed;
 
     [SerializeField]
     private int _currHeartsCollected;
@@ -64,6 +63,14 @@ public class GameManager : MonoBehaviour
         }
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad (gameObject);
+    }
+
+    public void ResetVariables()
+    {
+        introPlayed = false;
+        _currHeartsCollected = 0;
+        _totalHeartsCollected = 0;
+        _currStage = 0;
     }
 
     public CompanionInfo GetSelectedCompanionInfo()
@@ -128,6 +135,12 @@ public class GameManager : MonoBehaviour
             yield return null;
         } while (canvas.alpha > 0);
         canvas.gameObject.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        introPlayed = true;
+        BubbleTransitionScene("GameScene");
     }
 
     public void AdvanceStage()

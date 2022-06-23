@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using ScriptableObjects;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -37,8 +35,9 @@ namespace Dialogue
         private void InitializeDialogue()
         {
             _dialogueNodes = new Dictionary<string, DialogueNode>();
-    
-            var rootModel = JsonConvert.DeserializeObject<DialogueRootModel>(_companionInfo.dateDialogueTexts[0].text);
+
+            var dialogueIdx = GameManager.Instance.CurrStage + (GameManager.Instance.introPlayed ? 1 : 0);
+            var rootModel = JsonConvert.DeserializeObject<DialogueRootModel>(_companionInfo.dialogueTexts[dialogueIdx].text);
             Assert.IsNotNull(rootModel);
             foreach(var entry in rootModel.Data.Stitches)
             {
@@ -106,20 +105,35 @@ namespace Dialogue
         {
             if (_currNode.FinalNode && Input.GetMouseButtonDown(0) && !GameManager.Instance.inBubbleTransition)
             {
+                EndDialogue();
+            }
+        }
+
+        private void EndDialogue()
+        {
+            if (GameManager.Instance.introPlayed)
+            {
                 GameManager.Instance.BubbleTransitionScene("DialogueEndScene", GameManager.AsyncTransition.AsyncLoad);
+            }
+            else
+            {
+                GameManager.Instance.StartGame();
             }
         }
 
         public void ChooseResponse(int responseIndex)
         {
             var response = _currNode.Responses[responseIndex];
-            if (response.Sentiment == DialogueResponse.ResponseSentiment.Good)
+            if (GameManager.Instance.introPlayed)
             {
-                GameManager.Instance.EarnHearts(GameManager.Instance.heartsGoodResponse);
-            }
-            else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
-            {
-                GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse);
+                if (response.Sentiment == DialogueResponse.ResponseSentiment.Good)
+                {
+                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsGoodResponse);
+                }
+                else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
+                {
+                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse);
+                }
             }
             _currNode = _dialogueNodes[response.Destination];
             UpdateDialogueUI();
