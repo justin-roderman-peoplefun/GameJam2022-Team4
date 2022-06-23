@@ -54,7 +54,11 @@ public class TutorialController : MonoBehaviour
         collectHeartText.color = Color.clear;
         if(tutorialHeart) tutorialHeart.color = Color.clear;
         collectHeartText.gameObject.SetActive(true);
-        if(tutorialHeart) tutorialHeart.gameObject.SetActive(true);
+        if (tutorialHeart)
+        {
+            tutorialHeart.gameObject.SetActive(true);
+            tutorialHeart.GetComponent<CircleCollider2D>().enabled = false;
+        }
         
         while (timer < 1f)
         {
@@ -66,6 +70,13 @@ public class TutorialController : MonoBehaviour
         
         collectHeartText.color = Color.white;
         if(tutorialHeart) tutorialHeart.color = Color.white;
+
+        yield return new WaitForSeconds(1f);
+        
+        if (tutorialHeart)
+        {
+            tutorialHeart.GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
     
     public void HideHeartTutorial()
@@ -102,6 +113,7 @@ public class TutorialController : MonoBehaviour
     public void HideGoalTutorial()
     {
         StartCoroutine(HideGoalTutorialRoutine());
+        StartCoroutine(HideGoalTutorialTextRoutine());
     }
 
     public IEnumerator HideGoalTutorialRoutine()
@@ -109,8 +121,6 @@ public class TutorialController : MonoBehaviour
         float timer = 0f;
         TextMeshPro text = GetComponent<TextMeshPro>();
         
-        goalTutorialText.color = Color.white;
-        goalTutorialText.gameObject.SetActive(true);
         foreach (SpriteRenderer spr in goalTutorialSprites)
         {
             if(spr) spr.color = Color.white;
@@ -122,7 +132,6 @@ public class TutorialController : MonoBehaviour
         while (timer < 1f)
         {
             timer += Time.deltaTime;
-            goalTutorialText.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
             foreach (SpriteRenderer spr in goalTutorialSprites)
             {
                 if(spr) spr.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
@@ -130,11 +139,33 @@ public class TutorialController : MonoBehaviour
             yield return null;
         }
         
-        goalTutorialText.gameObject.SetActive(false);
         foreach (SpriteRenderer spr in goalTutorialSprites)
         {
             if(spr) spr.gameObject.SetActive(false);
         }
+    }
+    
+    public IEnumerator HideGoalTutorialTextRoutine()
+    {
+        float timer = 0f;
+        TextMeshPro text = GetComponent<TextMeshPro>();
+        
+        goalTutorialText.color = Color.white;
+        goalTutorialText.gameObject.SetActive(true);
+
+        while (goalTutorialText.transform.position.y < 0)
+        {
+            yield return null;
+        }
+        
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            goalTutorialText.color = Color.Lerp(Color.white, Color.clear, timer / 1f);
+            yield return null;
+        }
+        
+        goalTutorialText.gameObject.SetActive(false);
 
         CompleteTutorial();
     }
