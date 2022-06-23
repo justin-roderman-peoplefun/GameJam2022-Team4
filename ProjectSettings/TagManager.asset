@@ -49,9 +49,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 2093206583
-    locked: 0
   - name: LevelForeground
     uniqueID: 584253017
+    locked: 0
+  - name: UI
+    uniqueID: 2093206583
     locked: 0

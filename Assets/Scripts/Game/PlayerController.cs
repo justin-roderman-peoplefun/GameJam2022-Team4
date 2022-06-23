@@ -240,8 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player has died! <color=red>Game Over</color>");
             StartCoroutine(DeathAnimation());
-            // TODO Replace with death screen
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(StageManager.Instance.GameOver());
         }
         else
         {

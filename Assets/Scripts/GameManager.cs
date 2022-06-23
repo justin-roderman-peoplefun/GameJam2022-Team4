@@ -65,12 +65,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
-    public void ResetVariables()
+    public void SetSelectedCompanion(Constants.Companion companion)
     {
-        introPlayed = false;
-        _currHeartsCollected = 0;
-        _totalHeartsCollected = 0;
-        _currStage = 0;
+        _companion = companion;
     }
 
     public CompanionInfo GetSelectedCompanionInfo()
@@ -141,6 +138,23 @@ public class GameManager : MonoBehaviour
     {
         introPlayed = true;
         BubbleTransitionScene("GameScene");
+    }
+
+    public void RetryStage()
+    {
+        _currHeartsCollected = 0;
+        StageManager.Instance.gameOverUI.alpha = 0;
+        StageManager.Instance.gameOverUI.gameObject.SetActive(false);
+        StartCoroutine(StageManager.Instance.LoadStage(_currStage));
+    }
+
+    public void BackToMainMenu()
+    {
+        introPlayed = false;
+        _currHeartsCollected = 0;
+        _totalHeartsCollected = 0;
+        _currStage = 0;
+        TransitionScene("MainMenuScene");
     }
 
     public void AdvanceStage()
