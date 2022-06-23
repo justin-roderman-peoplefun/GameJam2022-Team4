@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _boost = true;
                     _lastBoostTime = time;
+                    ActionOnDoubleTap.Instance.PerformAction();
                     //GetComponent<SpriteRenderer>().color = Color.red;
                 }
                 _lastTap = time;                
