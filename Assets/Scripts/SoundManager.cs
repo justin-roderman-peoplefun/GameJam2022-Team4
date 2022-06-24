@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicSource;
     public AudioSource EffectsSource;
 
-    public MusicSongs currMusic;
+    public MusicSongs currMusic = MusicSongs.Title;
 
     [SerializeField] AudioClip[] sfxClips;
     [SerializeField] AudioClip[] musicClips;
