@@ -30,8 +30,8 @@ MonoBehaviour:
   stageDialogues:
   - {fileID: 4900000, guid: 4631ae01942c84edfbc8f9bb8c71b7e1, type: 3}
   - {fileID: 4900000, guid: a325d0b57eba74c60ab9e980982d4b93, type: 3}
-  goodEndingDialogue: {fileID: 4900000, guid: f525cfcc734ac422eaa7ddffc4276f64, type: 3}
-  badEndingDialogue: {fileID: 4900000, guid: afccdf7b5e0cc40bd9accb9c3f9e09e1, type: 3}
+  goodEndingDialogue: {fileID: 4900000, guid: 1e3ba74a6c5c24c9397cce6660eab754, type: 3}
+  badEndingDialogue: {fileID: 4900000, guid: 874a73eb0e3614c2ab3e5d5a82d68050, type: 3}
   introSoundClip: {fileID: 8300000, guid: be309dbdc04ba40ea9bdc858ddd4ff61, type: 3}
   soundClips:
   - {fileID: 8300000, guid: 78d81f93edb984653b0a2a8fe786ad97, type: 3}

@@ -1,5 +1,5 @@
 {
-    "title": "Captain Octavian Tidebreaker",
+    "title": "Octavian Tidebreaker - Date 1",
     "data": {
         "stitches": {
             "onscreenfalseYou": {
@@ -280,9 +280,6 @@
         "allowCheckpoints": false,
         "editorData": {
             "playPoint": "soundarremotionn",
-        },
-        "editorData": {
-            "playPoint": "soundannoyedemot",
             "libraryVisible": false,
             "authorName": "sabrajusanicsta",
             "textSize": 1
