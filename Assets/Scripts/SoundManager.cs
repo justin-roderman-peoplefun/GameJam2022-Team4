@@ -94,5 +94,6 @@ public enum MusicSongs
     Title,
     Stage1,
     Stage2,
-    Stage3
+    Stage3,
+    Wellerman
 }
