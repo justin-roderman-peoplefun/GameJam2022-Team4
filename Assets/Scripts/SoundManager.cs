@@ -85,7 +85,8 @@ public enum SoundEffects
     ButtonPress,
     HeartCollect,
     ShieldBroken,
-    ShieldCollect
+    ShieldCollect,
+    PlayerHit
 }
 
 public enum MusicSongs

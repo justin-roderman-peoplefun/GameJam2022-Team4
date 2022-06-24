@@ -6552,6 +6552,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6d4e7d2145f74042b4883302d155aee, type: 3}
   - {fileID: 8300000, guid: 33513a5abb82048caa1adb75c97fd60b, type: 3}
   - {fileID: 8300000, guid: ca229f36619c44ef2937d0dbb12dafa8, type: 3}
+  - {fileID: 8300000, guid: f23ddc7e916b845ebb261aee6ca292ea, type: 3}
   musicClips:
   - {fileID: 8300000, guid: c2afe1f324a2a414fba9e55e0707328b, type: 3}
   - {fileID: 8300000, guid: 0d7a4ae5daebf46c4a2178ae9b6aad44, type: 3}
