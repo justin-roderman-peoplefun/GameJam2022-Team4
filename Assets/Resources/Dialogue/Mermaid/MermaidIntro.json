@@ -2,18 +2,18 @@
     "title": "Cyrina - Intro",
     "data": {
         "stitches": {
-            "myHeartIsPierced": {
+            "soundwellhelloem": {
                 "content": [
-                    "My heart is pierced by cupid, I disdain all glittering gold, there is nothing can console me...",
+                    "[sound:wellhello|emotion:neutral]My heart is pierced by cupid, I disdain all glittering gold, there is nothing can console me...",
                     {
                         "option": "[good] \"...but my Jolly Sailor bold.\"",
-                        "linkPath": "emotionhappyNowT",
+                        "linkPath": "soundgiggleemoti",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
                     {
                         "option": "[bad] \"...but my Jolly Roger old\"",
-                        "linkPath": "soundgiggleemoti",
+                        "linkPath": "soundgiggleemoti1",
                         "ifConditions": null,
                         "notIfConditions": null
                     },
@@ -22,22 +22,22 @@
                     }
                 ]
             },
-            "emotionhappyNowT": {
-                "content": [
-                    "[emotion:happy] \"Now that's music to my ears, Diver.\" "
-                ]
-            },
             "soundgiggleemoti": {
                 "content": [
-                    "[sound:giggle|emotion:neutral] \"You sound quite parched darling, how about a dive?\""
+                    "[sound:giggle01|emotion:blush] \"Now that's music to my ears, Diver.\" "
+                ]
+            },
+            "soundgiggleemoti1": {
+                "content": [
+                    "[sound:giggle02|emotion:happy] \"You sound quite parched darling, how about a dive?\""
                 ]
             }
         },
-        "initial": "myHeartIsPierced",
+        "initial": "soundwellhelloem",
         "optionMirroring": true,
         "allowCheckpoints": false,
         "editorData": {
-            "playPoint": "soundgiggleemoti",
+            "playPoint": "soundwellhelloem",
             "libraryVisible": false,
             "authorName": "Anonymous",
             "textSize": 1

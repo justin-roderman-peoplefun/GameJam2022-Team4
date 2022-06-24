@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mermaid
   m_EditorClassIdentifier: 
   key: mermaid
-  complete: 0
+  complete: 1
   companionName: Cyrina
   companionQuote: I thought you might have been a sea-witch, as you've rendered me
     speechless
@@ -29,9 +29,17 @@ MonoBehaviour:
   badEndingImage: {fileID: 21300000, guid: ff0f22ea7e609400599093b624afbe03, type: 3}
   introDialogue: {fileID: 4900000, guid: 6a7cef38ea2144960bf921528b2440f6, type: 3}
   stageDialogues:
-  - {fileID: 4900000, guid: 173045e221a8d4d65a0824d15b2cfa7c, type: 3}
-  - {fileID: 4900000, guid: 65c9fc759fe52437faab8a2a7a1f08f8, type: 3}
+  - {fileID: 4900000, guid: b4be1006f0bb745039f7df63122b5952, type: 3}
+  - {fileID: 4900000, guid: 0dffe5017668d446894004c9fe99e8fb, type: 3}
   goodEndingDialogue: {fileID: 4900000, guid: a787da56b12a24c07978bd279ef6c6ed, type: 3}
   badEndingDialogue: {fileID: 4900000, guid: 81f2bc7d7e893450ebf054ca7f78477d, type: 3}
-  introSoundClip: {fileID: 0}
-  soundClips: []
+  introSoundClip: {fileID: 8300000, guid: 2bd2147ac2a15461faafca631c75e331, type: 3}
+  soundClips:
+  - {fileID: 8300000, guid: f97cae9b75ca142cda395910d4bc9103, type: 3}
+  - {fileID: 8300000, guid: de1378b533a33494a809a99fe18c3eb0, type: 3}
+  - {fileID: 8300000, guid: 8f4bcf4c9ce3241b1a8130e3eba8c22f, type: 3}
+  - {fileID: 8300000, guid: 74e4a2b6e57364ddfb4dc924dd84ea21, type: 3}
+  - {fileID: 8300000, guid: c4042ea28318f47e28d375d3dd6ba5d5, type: 3}
+  - {fileID: 8300000, guid: a4b4aec5326254d7d836fe5917843ba8, type: 3}
+  - {fileID: 8300000, guid: 7a546aef036bf4fb6af282c03a2058b5, type: 3}
+  - {fileID: 8300000, guid: 96f97f2b007e94e8588df8a95ac5a719, type: 3}

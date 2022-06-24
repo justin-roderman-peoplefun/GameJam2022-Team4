@@ -1,0 +1,190 @@
+{
+    "title": "Cyrina - Date 2",
+    "data": {
+        "stitches": {
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:false]Finally you caught up to her, you didn't even catch her name she had left so fast...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundwellhelloem",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "soundwellhelloem": {
+                "content": [
+                    "[sound:wellhello|emotion:happy|onscreen:true|shadow:false|zoomin:false]\"Wow! You were able to keep up!\" She giggles as she whirls around in the water to face you ...",
+                    {
+                        "option": "\"What's your name?\"",
+                        "linkPath": "emotionneutralon1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon1": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]She glances over her shoulder further into the cave, as if checking for something. \"It's Cyrina...\"",
+                    {
+                        "option": "\"It suits you!\"",
+                        "linkPath": "soundgiggleemoti",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti": {
+                "content": [
+                    "[sound:giggle02|emotion:blush|onscreen:true|shadow:false|zoomin:true]Her tail swishes through the water as if to brush off your compliment. \"So... Did you want to see where the music was coming from?\"",
+                    {
+                        "option": "[bad] \"Can't you just tell me?\"",
+                        "linkPath": "emotionangryonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] \"Yes, of course...\"",
+                        "linkPath": "emotionneutralon2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionangryonsc": {
+                "content": [
+                    "[emotion:angry|onscreen:true|shadow:false|zoomin:true]\"It's not that easy...\" She looks away from you, clearly annoyed.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionangryonsc1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon2": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]She places a hand to her chest, your answer . \"Just as a warning, it's going to be a little scary at first okay?...\"",
+                    {
+                        "option": "???",
+                        "linkPath": "emotionhappyonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionangryonsc1": {
+                "content": [
+                    "[emotion:angry|onscreen:true|shadow:false|zoomin:true]Before you can ask her more you hear a distant growl. The sound of it seems to make Cyrina uncomfortable.",
+                    {
+                        "option": "[bad] Swim away from the growl",
+                        "linkPath": "emotionsadonscre",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] \"Are you okay?\"",
+                        "linkPath": "emotionsadonscre1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionhappyonsc": {
+                "content": [
+                    "[emotion:happy|onscreen:true|shadow:false|zoomin:true]She sees your confused expression and smiles. \"Don't worry, I'll be there the whole time, okay?\" Her hand extends to you...",
+                    {
+                        "option": "Take her hand...",
+                        "linkPath": "soundgiggleemoti1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]\"No you can't!\" She reaches out, catching you by your hand. \"You've been hearing music right?\"",
+                    {
+                        "option": "Nod at her",
+                        "linkPath": "emotionneutralon3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre1": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]She looks at you with her teary expression, shaking her head. \"That's my mother, she's going to be so furious with me...\"",
+                    {
+                        "option": "\"What if I go with you?\"",
+                        "linkPath": "soundgiggleemoti2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti1": {
+                "content": [
+                    "[sound:giggle02|emotion:blush|onscreen:true|shadow:false|zoomin:true]With a switch of her tail she propels you both into the furthest reaches of the cave..."
+                ]
+            },
+            "emotionneutralon3": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]\"I can show you where it's coming from... I'll be with you the whole time, Diver. Trust me okay?\" She smiles at you, her voice and eyes enchanting enough to calm you... ",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti2": {
+                "content": [
+                    "[sound:giggle01|emotion:happy|onscreen:true|shadow:false|zoomin:true]Her expression lights up and she swims in a happy loop around you. \"Oh would you really?? Maybe if she sees how determined you are she will understand!\"",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon4": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You nod your head again and she leads you down into the furthest reaches of the caves..."
+                ]
+            },
+            "soundgiggleemoti3": {
+                "content": [
+                    "[sound:giggle03|emotion:happy|onscreen:true|shadow:false|zoomin:true]You nod at her. \"Oh thank you, Diver! Hurry this way! If we take too long she may get BIG mad!\" She giggles and takes your hand... ",
+                    {
+                        "option": "!!!",
+                        "linkPath": "emotionhappyonsc1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionhappyonsc1": {
+                "content": [
+                    "[emotion:happy|onscreen:true|shadow:false|zoomin:true]With a powerful swish of her tail she jets you both in a looping spiral into the darkest depths of the caves... "
+                ]
+            }
+        },
+        "initial": "emotionneutralon",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionhappyonsc",
+            "libraryVisible": true,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120121
+}

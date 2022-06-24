@@ -1,0 +1,256 @@
+{
+    "title": "Cyrina - Date 1",
+    "data": {
+        "stitches": {
+            "onscreenfalseYou": {
+                "content": [
+                    "[onscreen:false]You reach the entrance of a cave and begin to hear that beautiful melody from your dreams..",
+                    {
+                        "option": "“It’s coming from inside the cave...”",
+                        "linkPath": "emotionneutralon",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:false]You enter the cave and see a figure, she seems to be trapped, a fishing net tangled tightly around her tail and cutting into her scales...",
+                    {
+                        "option": "\"Are you okay?...\"",
+                        "linkPath": "emotionsadonscre",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]She looks at you, large sad eyes that somehow look as though she has been crying even under water.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionsadonscre1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre1": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]“P...please help me, diver... I cannot swim like this...”",
+                    {
+                        "option": "[bad] Cut her free with your dive knife",
+                        "linkPath": "emotionangryonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] Untangle the net with your hands",
+                        "linkPath": "emotionsadonscre2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionangryonsc": {
+                "content": [
+                    "[emotion:angry|onscreen:true|shadow:false|zoomin:true]You move quickly to cut her free of the net, but she lets out a terrified shriek at the sight of your knife, her tail lashing and knocking the blade from your hand...",
+                    {
+                        "option": "“I’m just trying to help free you!”",
+                        "linkPath": "soundannoyedemot",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre2": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]It takes a few minutes but you manage to free her without causing her any further injury...",
+                    {
+                        "option": "“There... all free!”",
+                        "linkPath": "soundgiggleemoti",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundannoyedemot": {
+                "content": [
+                    "[sound:annoyed02|emotion:angry|onscreen:true|shadow:false|zoomin:false]“Yeah right! You were going to cut me!” She glares at you, trying to move back and away...",
+                    {
+                        "option": "[bad] Pick up the knife and try again",
+                        "linkPath": "emotionbigmadons",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] Raise your hands to show they’re empty",
+                        "linkPath": "emotionsadonscre3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti": {
+                "content": [
+                    "[sound:giggle01|emotion:neutral|onscreen:true|shadow:false|zoomin:true]She giggles happily, swimming in a loop around you, enjoying her freedom. “Thank you so much, diver! I thought that was the end for me!”",
+                    {
+                        "option": "[bad] “How did you get caught?”",
+                        "linkPath": "emotionsadonscre4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "[good] “Did you hear that music?”",
+                        "linkPath": "emotionhappyonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionbigmadons": {
+                "content": [
+                    "[emotion:bigmad|onscreen:true|shadow:false|zoomin:true]A flash of red appears in her eyes and she growls. “Don’t come near me!” She whips her tail again just as you cut at the net, freeing her...",
+                    {
+                        "option": "\"You're free!\"",
+                        "linkPath": "emotionsadonscre5",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre3": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]She looks at both of your hands, then at the knife, sniffling lightly. “Okay... you can use it, just be careful!” She pouts, looking worried.",
+                    {
+                        "option": "“I’ll be careful, I promise.”",
+                        "linkPath": "emotionneutralon1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre4": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]She immediately stops swimming around the cave to look at you. “I... I went too close to the surface again. Mother used to warn me... I never did listen to her.”",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionsadonscre6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionhappyonsc": {
+                "content": [
+                    "[emotion:happy|onscreen:true|shadow:false|zoomin:true]“Yes I did!” She nods, swimming close to you, picking up both your hands, holding onto them. “It was quite a beautiful tune wasn’t it?”",
+                    {
+                        "option": "\"Y-yes, it was...\"",
+                        "linkPath": "soundgiggleemoti1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre5": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]She looks at you once more, wiping at her eyes before taking off further down into the cave...",
+                    {
+                        "option": "“Wait! I didn’t mean to scare you!”",
+                        "linkPath": "emotionsadonscre7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon1": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You smile at her reassuringly and she nods smiling back. You carefully cut away at the net until her tail is free...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre6": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]“I... I have to go! I shouldn’t be talking to you either!” She pouted, seeming as though she very much wanted to stay and talk to you...",
+                    {
+                        "option": "\"It's okay... I won't hurt you.\"",
+                        "linkPath": "emotionsadonscre8",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti1": {
+                "content": [
+                    "[sound:giggle02|emotion:blush|onscreen:true|shadow:false|zoomin:false]Before you can ask her if she was the one singing it, she squeezes your hands. “Follow me! I can show you where it’s coming from!”",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre7": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:true|zoomin:false]You follow her, she had to know something about the song that was coming from the cave before. Or maybe it was her..."
+                ]
+            },
+            "soundgiggleemoti2": {
+                "content": [
+                    "[sound:giggle03|emotion:happy|onscreen:true|shadow:false|zoomin:true]“Yay!” She giggles softly, swishing her tail one way and then the other, stretching it out. “Thank you, diver!”...",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre8": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]She shakes her head and before you can say more she is already swimming further into the cave..."
+                ]
+            },
+            "soundgiggleemoti3": {
+                "content": [
+                    "[sound:giggle03|emotion:neutral|onscreen:true|shadow:false|zoomin:false] Entranced, you nod at her and she giggles. “Good! This way!” In a flash of pink and blue scales she descends further into the cave for you to follow..."
+                ]
+            },
+            "soundgiggleemoti4": {
+                "content": [
+                    "[sound:giggle02|emotion:happy|onscreen:true|shadow:false|zoomin:false] Before you can ask her about the music she swims around you once, patting the top of your helmet with her hand. In a flash of colorful scales she then darts off into the cave, her giggles echoing in the current...",
+                    {
+                        "option": "\"Wait!\"",
+                        "linkPath": "emotionhappyonsc1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionhappyonsc1": {
+                "content": [
+                    "[emotion:happy|onscreen:true|shadow:true|zoomin:false]Quickly you return your dive knife to it’s clip and begin swimming after her..."
+                ]
+            }
+        },
+        "initial": "onscreenfalseYou",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionsadonscre6",
+            "libraryVisible": false,
+            "authorName": "Sabrajusanicsta",
+            "textSize": 1
+        }
+    },
+    "url_key": 120076
+}
