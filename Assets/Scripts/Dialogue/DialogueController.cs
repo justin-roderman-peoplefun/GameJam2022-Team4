@@ -10,6 +10,7 @@ namespace Dialogue
 {
     public class DialogueController : MonoBehaviour
     {
+        public Image companionBackground;
         public Image companionAvatar;
         public TMP_Text dialoguePrompt;
         public TMP_Text dialogueOption1;
@@ -30,6 +31,7 @@ namespace Dialogue
     
         private void InitializeDialogueUI()
         {
+            companionBackground.sprite = _companionInfo.backgroundImage;
             companionAvatar.sprite = _companionInfo.image;
             // Initialize zoomed in
             var pos = companionAvatar.transform.localPosition;
