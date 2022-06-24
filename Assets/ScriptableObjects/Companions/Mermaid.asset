@@ -23,6 +23,7 @@ MonoBehaviour:
   sadImage: {fileID: 21300000, guid: cf92e3f6e790a4287aa92da5fc2eb530, type: 3}
   happyImage: {fileID: 21300000, guid: 55058804f103647ef9d57290e139c5a2, type: 3}
   blushImage: {fileID: 21300000, guid: 0f2c56a1234f24f69948ecb5a6988aa6, type: 3}
+  bigMadImage: {fileID: 21300000, guid: a0631e43724254121b0aa7687dbf4b6f, type: 3}
   backgroundImage: {fileID: 21300000, guid: 91df21e660cca4a209058cc805685f72, type: 3}
   introDialogue: {fileID: 4900000, guid: 6a7cef38ea2144960bf921528b2440f6, type: 3}
   stageDialogues:

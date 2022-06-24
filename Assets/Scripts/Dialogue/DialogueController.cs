@@ -243,6 +243,9 @@ namespace Dialogue
                 case DialogueNode.DialogueEmotion.Blush:
                     companionAvatar.sprite = _companionInfo.blushImage;
                     break;
+                case DialogueNode.DialogueEmotion.BigMad:
+                    companionAvatar.sprite = _companionInfo.bigMadImage;
+                    break;
                 default:
                     companionAvatar.sprite = _companionInfo.image;
                     break;
