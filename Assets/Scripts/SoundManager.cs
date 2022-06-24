@@ -10,6 +10,8 @@ public class SoundManager : MonoBehaviour
     // Audio players components.
     public AudioSource MusicSource;
     public AudioSource EffectsSource;
+
+    [SerializeField] AudioClip[] sfxClips;
 	
     // Initialize the singleton instance.
     private void Awake()
@@ -41,4 +43,25 @@ public class SoundManager : MonoBehaviour
         EffectsSource.clip = clip;
         EffectsSource.Play();
     }
+    
+    public void Play(SoundEffects clip)
+    {
+        if (!sfxClips[(int)clip])
+        {
+            Debug.Log("Tried to play audio clip <color=blue>" + clip.ToString() + "</color> but index was out of range.");
+            return;
+        }
+
+        EffectsSource.clip = sfxClips[(int)clip];
+        EffectsSource.Play();
+    }
+}
+
+public enum SoundEffects
+{
+    Bubbles,
+    ButtonPress,
+    HeartCollect,
+    ShieldBroken,
+    ShieldCollect
 }

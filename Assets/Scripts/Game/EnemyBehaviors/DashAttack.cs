@@ -49,8 +49,7 @@ public class DashAttack : MonoBehaviour
         float maxSpeed = this.maxSpeed * dashSpeed;
 
         enemySprite.sprite = swimSprite;
-        
-        
+
         while (Vector2.Distance(_rb.position, _targetPos) > 0.05f)
         {
             // If we've hit the target position, move it up a bit so that we drift
@@ -71,11 +70,13 @@ public class DashAttack : MonoBehaviour
         {
             Vector2 targetPos = _targetPos + new Vector2(0.05f, 0);
             _rb.position = Vector2.SmoothDamp(_rb.position, targetPos, ref _playerVelocity, smoothTime, maxSpeed);
-            
-            Vector3 vectorToTarget = (Vector3)targetPos - transform.position;
-            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+
+            var playerPosition = PlayerController.Instance.transform.position;
+            Vector3 vectorToTarget = playerPosition - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + (_rb.position.x < playerPosition.x ? -70f : -90f);
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5f);
+            enemySprite.transform.localScale = new Vector3(Mathf.Sign(PlayerController.Instance.transform.position.x - _rb.position.x) * 1f, enemySprite.transform.localScale.y, 1f);
             
             yield return null;
             waitForNextDashTimer += Time.deltaTime;
