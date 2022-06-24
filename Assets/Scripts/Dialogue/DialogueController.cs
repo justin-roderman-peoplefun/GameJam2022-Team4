@@ -150,7 +150,7 @@ namespace Dialogue
             }
             else
             {
-                GameManager.Instance.BubbleTransitionScene("CreditsScene");
+                GameManager.Instance.BubbleTransitionScene("GameEndScene");
             }
         }
 

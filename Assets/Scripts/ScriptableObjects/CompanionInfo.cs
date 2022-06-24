@@ -19,6 +19,8 @@ namespace ScriptableObjects
         public Sprite blushImage;
         public Sprite bigMadImage;
         public Sprite backgroundImage;
+        public Sprite goodEndingImage;
+        public Sprite badEndingImage;
         public TextAsset introDialogue;
         public List<TextAsset> stageDialogues;
         public TextAsset goodEndingDialogue;
