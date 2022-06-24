@@ -68,7 +68,7 @@
             },
             "emotionneutralon2": {
                 "content": [
-                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]She places a hand to her chest, your answer . \"Just as a warning, it's going to be a little scary at first okay?...\"",
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]She places a hand to her chest, your answer. \"Just as a warning, it's going to be a little scary at first okay?...\"",
                     {
                         "option": "???",
                         "linkPath": "emotionhappyonsc",
@@ -129,7 +129,7 @@
             },
             "soundgiggleemoti1": {
                 "content": [
-                    "[sound:giggle02|emotion:blush|onscreen:true|shadow:false|zoomin:true]With a switch of her tail she propels you both into the furthest reaches of the cave..."
+                    "[sound:giggle02|emotion:blush|onscreen:true|shadow:false|zoomin:true]With a swish of her tail she propels you both into the furthest reaches of the cave..."
                 ]
             },
             "emotionneutralon3": {
