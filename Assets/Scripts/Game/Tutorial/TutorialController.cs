@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private SpriteRenderer[] enemyTutorialSprites;
 
     [SerializeField] private TextMeshPro finalWarningText;
+
+    [SerializeField] private Transform sceneryRoot;
     
     public static TutorialController Instance { get; private set; }
     private void Awake() 
@@ -47,6 +50,11 @@ public class TutorialController : MonoBehaviour
             go.SetActive(tutorialCompleted);
         foreach (GameObject go in activateForTutorial)
             go.SetActive(!tutorialCompleted);
+        List<ScrollUpwardsPlain> sceneryScroll = sceneryRoot.GetComponentsInChildren<ScrollUpwardsPlain>().ToList();
+        foreach (ScrollUpwardsPlain scr in sceneryScroll)
+        {
+            scr.enabled = tutorialCompleted;
+        }
     }
 
     public void ShowHeartTutorial()
@@ -324,7 +332,11 @@ public class TutorialController : MonoBehaviour
         tutorialCompleted = true;
         foreach (GameObject go in deactivateForTutorial)
             go.SetActive(tutorialCompleted);
-        
+        List<ScrollUpwardsPlain> sceneryScroll = sceneryRoot.GetComponentsInChildren<ScrollUpwardsPlain>().ToList();
+        foreach (ScrollUpwardsPlain scr in sceneryScroll)
+        {
+            scr.enabled = tutorialCompleted;
+        }
         Destroy(collectHeartText.gameObject);
         Destroy(goalTutorialText.gameObject);
     }
