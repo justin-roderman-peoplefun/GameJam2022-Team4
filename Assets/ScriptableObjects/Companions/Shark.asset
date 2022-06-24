@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shark
   m_EditorClassIdentifier: 
   key: shark
+  complete: 0
   companionName: Meg
   companionQuote: I have a row of sweet-teeth and you look like quite the snack
   zoomInXOffset: 0
@@ -21,7 +22,13 @@ MonoBehaviour:
   sadImage: {fileID: 0}
   happyImage: {fileID: 0}
   blushImage: {fileID: 0}
+  bigMadImage: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  goodEndingImage: {fileID: 0}
+  badEndingImage: {fileID: 0}
   introDialogue: {fileID: 0}
   stageDialogues: []
   goodEndingDialogue: {fileID: 0}
   badEndingDialogue: {fileID: 0}
+  introSoundClip: {fileID: 8300000, guid: ebc08461228a24dbd9a2ae8d8e962f61, type: 3}
+  soundClips: []
