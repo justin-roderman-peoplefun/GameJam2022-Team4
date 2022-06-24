@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class DialogueEndController : MonoBehaviour
 {
+    public Image background;
     public TMP_Text dialogueResult;
     public Image lifeResult;
     public Image maxLifeResult;
@@ -67,6 +68,8 @@ public class DialogueEndController : MonoBehaviour
             companionImage.sprite = companionInfo.sadImage;
             dialogueResult.text = badResultText;
         }
+
+        background.sprite = companionInfo.backgroundImage;
     }
 
     private void Update()
