@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ab2d8f7800487c9abcad389d49ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
+  background: {fileID: 1374667753}
   dialogueResult: {fileID: 909767615}
   lifeResult: {fileID: 1223051480}
   maxLifeResult: {fileID: 876997519}
