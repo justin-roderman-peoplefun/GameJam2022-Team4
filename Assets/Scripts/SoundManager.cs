@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicSource;
     public AudioSource EffectsSource;
 
+    public MusicSongs currMusic;
+
     [SerializeField] AudioClip[] sfxClips;
+    [SerializeField] AudioClip[] musicClips;
 	
     // Initialize the singleton instance.
     private void Awake()
@@ -30,10 +34,28 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
-    // Play a single clip through the music source.
-    public void PlayMusic(AudioClip clip)
+    private void Start()
     {
-        MusicSource.clip = clip;
+        PlayMusic(MusicSongs.Title);
+    }
+
+    // Play a single clip through the music source.
+    public void PlayMusic(MusicSongs song)
+    {
+        if (currMusic == song)
+        {
+            return;
+        }
+        currMusic = song;
+        MusicSource.clip = musicClips[(int)song];
+        if (song == MusicSongs.Title)
+        {
+            MusicSource.volume = 0.4f;
+        }
+        else
+        {
+            MusicSource.volume = 0.7f;
+        }
         MusicSource.Play();
     }
 
@@ -64,4 +86,12 @@ public enum SoundEffects
     HeartCollect,
     ShieldBroken,
     ShieldCollect
+}
+
+public enum MusicSongs
+{
+    Title,
+    Stage1,
+    Stage2,
+    Stage3
 }

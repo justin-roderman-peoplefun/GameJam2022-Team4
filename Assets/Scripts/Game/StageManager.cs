@@ -103,6 +103,7 @@ public class StageManager : MonoBehaviour
         m_heartsCollectedInCurrentStage = 0;
         m_currentStageTime = 0;
         PlayerController.Instance.RefreshHealthAuraColor();
+        SoundManager.Instance.PlayMusic(MusicSongs.Stage1 + currStageIndex);
         m_isStagePlaying = true;
         Debug.Log("Stage <color=green>[" + stages[currStageIndex].sceneName + "]</color> has begun.");
     }

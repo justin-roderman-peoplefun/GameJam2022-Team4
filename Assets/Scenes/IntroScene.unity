@@ -6545,12 +6545,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicSource: {fileID: 1795568466}
   EffectsSource: {fileID: 1795568465}
+  currMusic: 0
   sfxClips:
   - {fileID: 8300000, guid: 1c417ddd89acf45f8938bca04894fe1e, type: 3}
   - {fileID: 8300000, guid: af87494f2db1b4c8d8aa45ad643d75dd, type: 3}
   - {fileID: 8300000, guid: f6d4e7d2145f74042b4883302d155aee, type: 3}
   - {fileID: 8300000, guid: 33513a5abb82048caa1adb75c97fd60b, type: 3}
   - {fileID: 8300000, guid: ca229f36619c44ef2937d0dbb12dafa8, type: 3}
+  musicClips:
+  - {fileID: 8300000, guid: c2afe1f324a2a414fba9e55e0707328b, type: 3}
+  - {fileID: 8300000, guid: 0d7a4ae5daebf46c4a2178ae9b6aad44, type: 3}
+  - {fileID: 8300000, guid: bf4695e5c6feb4cc0afad6edd3b4a0ad, type: 3}
+  - {fileID: 8300000, guid: e7b4b3d1a8e8e482fb45da30cda2439a, type: 3}
 --- !u!82 &1795568465
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6657,12 +6663,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3accfba5c034948c793734d0fd6e053c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

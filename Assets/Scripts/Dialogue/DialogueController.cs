@@ -23,6 +23,7 @@ namespace Dialogue
     
         private void Start()
         {
+            SoundManager.Instance.PlayMusic(MusicSongs.Title);
             _companionInfo = GameManager.Instance.GetSelectedCompanionInfo();
             _dialogueNodes = new Dictionary<string, DialogueNode>();
             InitializeDialogueUI();
