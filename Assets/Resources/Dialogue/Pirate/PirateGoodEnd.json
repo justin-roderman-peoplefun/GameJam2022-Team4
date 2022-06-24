@@ -40,7 +40,7 @@
             },
             "soundchuckleemot1": {
                 "content": [
-                    "[sound:chuckle01emotion:happy|onscreen:true|shadow:false|zoomin:true]You feel yourself blush, thankful for your oversized helmet. ",
+                    "[sound:chuckle01|emotion:happy|onscreen:true|shadow:false|zoomin:true]You feel yourself blush, thankful for your oversized helmet. ",
                     {
                         "option": "\"Octavian...\"",
                         "linkPath": "soundyarremotion1",
