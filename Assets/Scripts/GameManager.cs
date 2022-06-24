@@ -159,6 +159,11 @@ public class GameManager : MonoBehaviour
         heartsCollectedGameplay = 0;
         timesHeartsCollectedDialogue = 0;
         currHeartsCollected = 0;
+        _totalHeartsCollected -= 3;
+        if (_totalHeartsCollected < 0)
+        {
+            _totalHeartsCollected = 0;
+        }
         StageManager.Instance.gameOverUI.alpha = 0;
         StageManager.Instance.gameOverUI.gameObject.SetActive(false);
         PlayerController.Instance.TruePlayerReset();
