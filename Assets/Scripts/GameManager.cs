@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         inBubbleTransition = true;
         GetComponentInChildren<ParticleSystem>().Stop();
         GetComponentInChildren<ParticleSystem>().Play();
+        SoundManager.Instance.Play(SoundEffects.Bubbles);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeScreen(sceneTo, async));
         yield return new WaitForSeconds(1);

@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             if(GameManager.Instance != null)
                 GameManager.Instance.EarnHearts(1, true);
-
+            SoundManager.Instance.Play(SoundEffects.HeartCollect);
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("StageEnd") && life > 0)
@@ -105,13 +105,13 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("ShieldResource") && life > 0)
         {
             ShieldPlayer();
-            
+            SoundManager.Instance.Play(SoundEffects.ShieldCollect);
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("TutorialHeart") && life > 0)
         {
             TutorialController.Instance.HideHeartTutorial();
-
+            SoundManager.Instance.Play(SoundEffects.HeartCollect);
             other.enabled = false;
             other.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             ShieldPlayer();
             TutorialController.Instance.HideShieldTutorial();
-
+            SoundManager.Instance.Play(SoundEffects.ShieldCollect);
             other.enabled = false;
             other.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -259,6 +259,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player was hit, but had a shield! Life remaining: <color=red>" + life + "</color>");
             isShielded = false;
             shieldAura.enabled = false;
+            SoundManager.Instance.Play(SoundEffects.ShieldBroken);
             return;
         }
         
