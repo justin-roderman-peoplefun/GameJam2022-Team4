@@ -7164,14 +7164,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aef504f9977ac444ba9eccedd68e1489, type: 2}
   numStages: 3
   maxHeartsGameplay: 090000000f00000014000000
-  maxDialogueHeartsTimes: 030000000300000000000000
+  maxDialogueHeartsTimes: 020000000100000000000000
   heartsGoodResponse: 5
-  heartsBadResponse: 1
-  maxStageHearts: 180000001e00000023000000
-  refillLifeRequirements: 0c0000000f00000012000000
-  maxLifeRequirements: 110000001500000018000000
-  totalMaxHearts: 180000003600000059000000
-  goodEndingHeartRequirement: 37
+  heartsBadResponses: 000000000000000001000000
+  maxStageHearts: 130000001400000014000000
+  refillLifeRequirements: 0a0000000a00000000000000
+  maxLifeRequirements: 0d0000000e00000000000000
+  totalMaxHearts: 13000000270000003b000000
+  goodEndingHeartRequirement: 40
 --- !u!4 &2100606442
 Transform:
   m_ObjectHideFlags: 0

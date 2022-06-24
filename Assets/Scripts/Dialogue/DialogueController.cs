@@ -166,7 +166,7 @@ namespace Dialogue
                 }
                 else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
                 {
-                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse, false);
+                    GameManager.Instance.EarnHearts(GameManager.Instance.HeartsBadResponses, false);
                 }
             }
             _currNode = _dialogueNodes[response.Destination];

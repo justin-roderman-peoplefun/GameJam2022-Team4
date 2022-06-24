@@ -41,7 +41,9 @@ public class GameManager : MonoBehaviour
     private List<int> maxDialogueHeartsTimes;
     public int MaxDialogueHeartsTimes => maxDialogueHeartsTimes[_currStage];
     public int heartsGoodResponse;
-    public int heartsBadResponse;
+    [SerializeField]
+    private List<int> heartsBadResponses;
+    public int HeartsBadResponses => heartsBadResponses[_currStage];
     [SerializeField]
     private List<int> maxStageHearts;
     public int MaxStageHeart => maxStageHearts[_currStage];
