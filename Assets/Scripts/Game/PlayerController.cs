@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("HeartResource") && life > 0)
         {
             if(GameManager.Instance != null)
-                GameManager.Instance.EarnHearts(1);
+                GameManager.Instance.EarnHearts(1, true);
 
             Destroy(other.gameObject);
         }

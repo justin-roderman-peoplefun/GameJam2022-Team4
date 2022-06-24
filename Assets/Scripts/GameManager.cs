@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool introPlayed;
 
+    private int heartsCollectedGameplay;
+    private int timesHeartsCollectedDialogue;
     [SerializeField]
-    private int _currHeartsCollected;
+    private int currHeartsCollected;
     private int _totalHeartsCollected;
     private int _currStage;
     private Constants.Companion? _companion;
@@ -32,6 +34,12 @@ public class GameManager : MonoBehaviour
     public List<CompanionInfo> companions;
 
     public int numStages;
+    [SerializeField]
+    private List<int> maxHeartsGameplay;
+    public int MaxHeartsGameplay => maxHeartsGameplay[_currStage];
+    [SerializeField]
+    private List<int> maxDialogueHeartsTimes;
+    public int MaxDialogueHeartsTimes => maxDialogueHeartsTimes[_currStage];
     public int heartsGoodResponse;
     public int heartsBadResponse;
     [SerializeField]
@@ -48,7 +56,7 @@ public class GameManager : MonoBehaviour
     public int TotalMaxHeart => totalMaxHearts[_currStage];
     public int goodEndingHeartRequirement;
 
-    public int CurrHeartsCollected => _currHeartsCollected;
+    public int CurrHeartsCollected => currHeartsCollected;
     public int TotalHeartsCollected => _totalHeartsCollected;
     public int CurrStage => _currStage;
 
@@ -145,7 +153,9 @@ public class GameManager : MonoBehaviour
 
     public void RetryStage()
     {
-        _currHeartsCollected = 0;
+        heartsCollectedGameplay = 0;
+        timesHeartsCollectedDialogue = 0;
+        currHeartsCollected = 0;
         StageManager.Instance.gameOverUI.alpha = 0;
         StageManager.Instance.gameOverUI.gameObject.SetActive(false);
         PlayerController.Instance.TruePlayerReset();
@@ -156,7 +166,9 @@ public class GameManager : MonoBehaviour
     {
         _companion = null;
         introPlayed = false;
-        _currHeartsCollected = 0;
+        heartsCollectedGameplay = 0;
+        timesHeartsCollectedDialogue = 0;
+        currHeartsCollected = 0;
         _totalHeartsCollected = 0;
         _currStage = 0;
         BubbleTransitionScene("MainMenuScene");
@@ -164,19 +176,44 @@ public class GameManager : MonoBehaviour
 
     public void AdvanceStage()
     {
-        _totalHeartsCollected += _currHeartsCollected;
+        _totalHeartsCollected += currHeartsCollected;
         StageManager.Instance.AdvanceStage();
-        _currHeartsCollected = 0;
+        heartsCollectedGameplay = 0;
+        timesHeartsCollectedDialogue = 0;
+        currHeartsCollected = 0;
         _currStage++;
     }
 
-    public void EarnHearts(int numHearts)
+    public void EarnHearts(int numHearts, bool gameplay)
     {
-        _currHeartsCollected += numHearts;
-        if (_currHeartsCollected > MaxStageHeart)
+        if (gameplay && heartsCollectedGameplay + numHearts > MaxHeartsGameplay)
         {
-            _currHeartsCollected = MaxStageHeart;
+            numHearts = MaxHeartsGameplay - heartsCollectedGameplay;
         }
-        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + _currHeartsCollected + "</color>");
+        else if (!gameplay && timesHeartsCollectedDialogue + 1 > MaxDialogueHeartsTimes)
+        {
+            numHearts = 0;
+        }
+        if (currHeartsCollected + numHearts > MaxStageHeart)
+        {
+            numHearts = MaxStageHeart - currHeartsCollected;
+        }
+
+        if (numHearts <= 0)
+        {
+            Debug.Log("Player could not collect <color=red>hearts</color> because hit limit");
+            return;
+        }
+
+        if (gameplay)
+        {
+            heartsCollectedGameplay += numHearts;
+        }
+        else
+        {
+            timesHeartsCollectedDialogue++;
+        }
+        currHeartsCollected += numHearts;
+        Debug.Log("Player collected <color=red>" + numHearts + "</color> hearts! New total: <color=red>" + currHeartsCollected + "</color> (out of max <color=blue>" + MaxStageHeart + "</color>)");
     }
 }

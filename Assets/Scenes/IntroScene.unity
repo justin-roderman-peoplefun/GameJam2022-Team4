@@ -6831,7 +6831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inBubbleTransition: 0
   introPlayed: 0
-  _currHeartsCollected: 0
+  currHeartsCollected: 0
   canvas: {fileID: 1273031204}
   companions:
   - {fileID: 11400000, guid: 34d508cdea78e4eecaaa2ad858deaa73, type: 2}
@@ -6839,6 +6839,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7581f1c9d7de4c6aaf1fa1b8eb28025, type: 2}
   - {fileID: 11400000, guid: aef504f9977ac444ba9eccedd68e1489, type: 2}
   numStages: 3
+  maxHeartsGameplay: 090000000f00000014000000
+  maxDialogueHeartsTimes: 030000000300000000000000
   heartsGoodResponse: 5
   heartsBadResponse: 1
   maxStageHearts: 180000001e00000023000000

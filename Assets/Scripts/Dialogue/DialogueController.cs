@@ -159,11 +159,11 @@ namespace Dialogue
             {
                 if (response.Sentiment == DialogueResponse.ResponseSentiment.Good)
                 {
-                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsGoodResponse);
+                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsGoodResponse, false);
                 }
                 else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
                 {
-                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse);
+                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse, false);
                 }
             }
             _currNode = _dialogueNodes[response.Destination];
