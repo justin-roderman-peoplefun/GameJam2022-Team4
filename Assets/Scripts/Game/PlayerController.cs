@@ -263,6 +263,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
+        SoundManager.Instance.Play(SoundEffects.PlayerHit);
         life--;
         RefreshHealthAuraColor();
         Debug.Log("Player has taken damage! Life remaining: <color=red>" + life + "</color>");

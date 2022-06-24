@@ -23,6 +23,7 @@ namespace Dialogue
     
         private void Start()
         {
+            SoundManager.Instance.PlayMusic(MusicSongs.Title);
             _companionInfo = GameManager.Instance.GetSelectedCompanionInfo();
             _dialogueNodes = new Dictionary<string, DialogueNode>();
             InitializeDialogueUI();
@@ -165,7 +166,7 @@ namespace Dialogue
                 }
                 else if (response.Sentiment == DialogueResponse.ResponseSentiment.Bad)
                 {
-                    GameManager.Instance.EarnHearts(GameManager.Instance.heartsBadResponse, false);
+                    GameManager.Instance.EarnHearts(GameManager.Instance.HeartsBadResponses, false);
                 }
             }
             _currNode = _dialogueNodes[response.Destination];

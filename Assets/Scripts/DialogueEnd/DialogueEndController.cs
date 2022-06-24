@@ -15,9 +15,7 @@ public class DialogueEndController : MonoBehaviour
     public Image companionImage;
 
     public Color rewardColor; // = new Color(146, 196, 125);
-    public Color rewardTextColor; // = Color.black;
     public Color noRewardColor; // = new Color(204, 204, 204);
-    public Color noRewardTextColor; // = new Color(153, 153, 153);
 
     public string goodResultText;
     public string okayResultText;
@@ -44,13 +42,11 @@ public class DialogueEndController : MonoBehaviour
         lifeResult.color = lifeRefilled ? rewardColor : noRewardColor;
         var lifeResultText = lifeResult.gameObject.GetComponentInChildren<TMP_Text>();
         lifeResultText.text = lifeRefilled ? lifeRefilledText : lifeNotRefilledText;
-        lifeResultText.color = lifeRefilled ? rewardTextColor : noRewardTextColor;
 
         var maxLifeIncreased = GameManager.Instance.CurrHeartsCollected >= GameManager.Instance.MaxLifeRequirement;
         maxLifeResult.color = maxLifeIncreased ? rewardColor : noRewardColor;
         var maxLifeText = maxLifeResult.gameObject.GetComponentInChildren<TMP_Text>();
         maxLifeText.text = "+" + (maxLifeIncreased ? 1 : 0) + " " + maxLifeIncreaseText;
-        maxLifeText.color = maxLifeIncreased ? rewardTextColor : noRewardTextColor;
 
         var companionInfo = GameManager.Instance.GetSelectedCompanionInfo();
         if (maxLifeIncreased)

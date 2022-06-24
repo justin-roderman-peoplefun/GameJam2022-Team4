@@ -474,15 +474,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ab2d8f7800487c9abcad389d49ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
+  background: {fileID: 1374667753}
   dialogueResult: {fileID: 909767615}
   lifeResult: {fileID: 1223051480}
   maxLifeResult: {fileID: 876997519}
   companionImage: {fileID: 602045579}
-  rewardColor: {r: 0.57254905, g: 0.76862746, b: 0.49019608, a: 1}
-  rewardTextColor: {r: 0, g: 0, b: 0, a: 1}
+  rewardColor: {r: 1, g: 1, b: 1, a: 1}
   noRewardColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  noRewardTextColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
   goodResultText: Perfect!
   okayResultText: Not Bad!
   badResultText: Awkward...
@@ -889,8 +887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.06, y: 3}
-  m_SizeDelta: {x: 217.1, y: 120}
+  m_AnchoredPosition: {x: -2.77, y: 3}
+  m_SizeDelta: {x: 173.22, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221696762
 MonoBehaviour:

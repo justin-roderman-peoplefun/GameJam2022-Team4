@@ -25,14 +25,14 @@ MonoBehaviour:
   blushImage: {fileID: 21300000, guid: 0f2c56a1234f24f69948ecb5a6988aa6, type: 3}
   bigMadImage: {fileID: 21300000, guid: a0631e43724254121b0aa7687dbf4b6f, type: 3}
   backgroundImage: {fileID: 21300000, guid: 91df21e660cca4a209058cc805685f72, type: 3}
-  goodEndingImage: {fileID: 21300000, guid: abdd9c406058b43249700d62aa6f6ecd, type: 3}
+  goodEndingImage: {fileID: 21300000, guid: 6ab7fb24968a44982a789710f95a9e79, type: 3}
   badEndingImage: {fileID: 21300000, guid: ff0f22ea7e609400599093b624afbe03, type: 3}
   introDialogue: {fileID: 4900000, guid: 6a7cef38ea2144960bf921528b2440f6, type: 3}
   stageDialogues:
   - {fileID: 4900000, guid: b4be1006f0bb745039f7df63122b5952, type: 3}
   - {fileID: 4900000, guid: 0dffe5017668d446894004c9fe99e8fb, type: 3}
-  goodEndingDialogue: {fileID: 4900000, guid: a787da56b12a24c07978bd279ef6c6ed, type: 3}
-  badEndingDialogue: {fileID: 4900000, guid: 81f2bc7d7e893450ebf054ca7f78477d, type: 3}
+  goodEndingDialogue: {fileID: 4900000, guid: ad63a65589ac94c6ca7488ff1a45f2e2, type: 3}
+  badEndingDialogue: {fileID: 4900000, guid: 850eb1f944c1c4b449a428cd1b4e1403, type: 3}
   introSoundClip: {fileID: 8300000, guid: 2bd2147ac2a15461faafca631c75e331, type: 3}
   soundClips:
   - {fileID: 8300000, guid: f97cae9b75ca142cda395910d4bc9103, type: 3}

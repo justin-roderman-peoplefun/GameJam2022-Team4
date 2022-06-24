@@ -1,0 +1,113 @@
+{
+    "title": "Cyrina - Good Ending",
+    "data": {
+        "stitches": {
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You reach an enormous open area in the caves, the walls illuminated by sea-flora. Cyrina stops swimming to gracefully float in the water next to you... ",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "soundgiggleemoti": {
+                "content": [
+                    "[sound:giggle02|emotion:neutral|onscreen:true|shadow:false|zoomin:true]“This is where mother and I live! Let me go get her!” She gives your hand a squeeze before darting off into one of the passageways.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon1": {
+                "content": [
+                    "[emotion:neutral|onscreen:false]You feel your heart rate quicken, a sinking feeling in your stomach.",
+                    {
+                        "option": "“Cyrina?...”",
+                        "linkPath": "emotionneutralon2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon2": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:false]Just when you thought the worst was going to happen. The soft and comforting tune began to fill the cave. Cyrina swims back holding something in her hands.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon3": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]She places the shimmering tear-shaped gem into your hand. “My mother’s final tear drop before the sea-witch transformed her into…”",
+                    {
+                        "option": "\"Into what?\"",
+                        "linkPath": "emotionblushonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionblushonsc": {
+                "content": [
+                    "[emotion:blush|onscreen:true|shadow:false|zoomin:true]The entire cave rumbles as massive tentacles move through the passageways, reaching out for both of you.",
+                    {
+                        "option": "!!!",
+                        "linkPath": "soundgiggleemoti1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti1": {
+                "content": [
+                    "[sound:giggle03|emotion:neutral|onscreen:true|shadow:false|zoomin:true]The end of one tentacle gives Cyrina a motherly embrace, while another pats you on the top of your head.",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti2": {
+                "content": [
+                    "[sound:giggle01|emotion:happy|onscreen:true|shadow:false|zoomin:true] “She likes you! I’m so happy!” She swims in a playful loop around you. She then stops in front of you and places a kiss onto your visor..",
+                    {
+                        "option": "\"Me too!\"",
+                        "linkPath": "emotionneutralon4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon4": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You laugh nervously. Cyrina takes your hand. “Come on! We have so much more to explore together!”"
+                ]
+            }
+        },
+        "initial": "emotionneutralon",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionneutralon4",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120122
+}

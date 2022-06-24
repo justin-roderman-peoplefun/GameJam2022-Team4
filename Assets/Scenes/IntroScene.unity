@@ -5443,7 +5443,7 @@ RectTransform:
   m_Children:
   - {fileID: 252003581}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5485,7 +5485,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 54
 --- !u!114 &488079180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5526,7 +5526,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 2147483647
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5539,16 +5539,16 @@ RectTransform:
   m_GameObject: {fileID: 488079177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0043945312, y: 0.0043945312, z: 0.0043945312}
+  m_LocalScale: {x: 0.00390625, y: 0.00390625, z: 0.00390625}
   m_Children:
   - {fileID: 621087143}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280, y: 2275.5554}
+  m_SizeDelta: {x: 1280, y: 2560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &548069339
 GameObject:
@@ -5659,7 +5659,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621087141}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -6545,12 +6545,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicSource: {fileID: 1795568466}
   EffectsSource: {fileID: 1795568465}
+  currMusic: 0
   sfxClips:
   - {fileID: 8300000, guid: 1c417ddd89acf45f8938bca04894fe1e, type: 3}
   - {fileID: 8300000, guid: af87494f2db1b4c8d8aa45ad643d75dd, type: 3}
   - {fileID: 8300000, guid: f6d4e7d2145f74042b4883302d155aee, type: 3}
   - {fileID: 8300000, guid: 33513a5abb82048caa1adb75c97fd60b, type: 3}
   - {fileID: 8300000, guid: ca229f36619c44ef2937d0dbb12dafa8, type: 3}
+  - {fileID: 8300000, guid: f23ddc7e916b845ebb261aee6ca292ea, type: 3}
+  musicClips:
+  - {fileID: 8300000, guid: c2afe1f324a2a414fba9e55e0707328b, type: 3}
+  - {fileID: 8300000, guid: 0d7a4ae5daebf46c4a2178ae9b6aad44, type: 3}
+  - {fileID: 8300000, guid: bf4695e5c6feb4cc0afad6edd3b4a0ad, type: 3}
+  - {fileID: 8300000, guid: e7b4b3d1a8e8e482fb45da30cda2439a, type: 3}
 --- !u!82 &1795568465
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6657,12 +6664,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3accfba5c034948c793734d0fd6e053c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c2afe1f324a2a414fba9e55e0707328b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -7158,14 +7165,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aef504f9977ac444ba9eccedd68e1489, type: 2}
   numStages: 3
   maxHeartsGameplay: 090000000f00000014000000
-  maxDialogueHeartsTimes: 030000000300000000000000
+  maxDialogueHeartsTimes: 020000000100000000000000
   heartsGoodResponse: 5
-  heartsBadResponse: 1
-  maxStageHearts: 180000001e00000023000000
-  refillLifeRequirements: 0c0000000f00000012000000
-  maxLifeRequirements: 110000001500000018000000
-  totalMaxHearts: 180000003600000059000000
-  goodEndingHeartRequirement: 37
+  heartsBadResponses: 000000000000000001000000
+  maxStageHearts: 130000001400000014000000
+  refillLifeRequirements: 0a0000000a0000000a000000
+  maxLifeRequirements: 0d0000000e0000000e000000
+  totalMaxHearts: 13000000270000003b000000
+  goodEndingHeartRequirement: 40
 --- !u!4 &2100606442
 Transform:
   m_ObjectHideFlags: 0
