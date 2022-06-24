@@ -1,0 +1,91 @@
+{
+    "title": "Cyrina - Bad Ending",
+    "data": {
+        "stitches": {
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You reach an enormous open area in the caves. The walls are all illuminated by sea-flora. Cyrina stops swimming to gracefully float in the water next to you.",
+                    {
+                        "option": "...",
+                        "linkPath": "soundgiggleemoti",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "soundgiggleemoti": {
+                "content": [
+                    "[sound:giggle02|emotion:neutral|onscreen:true|shadow:false|zoomin:true]“This is where mother and I live! Let me go get her!” She gives your hand a squeeze before she darts off into one of the passageways.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon1": {
+                "content": [
+                    "[emotion:neutral|onscreen:false]You feel your heart rate quicken followed by a sinking feeling in your stomach...",
+                    {
+                        "option": "“Cyrina?...”",
+                        "linkPath": "emotionneutralon2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon2": {
+                "content": [
+                    "[emotion:neutral|onscreen:false]Suddenly a deafening growl shakes the entire cave. Even the flora lining the walls begin to close and hide away…",
+                    {
+                        "option": "“Cyrina, where did you go?”",
+                        "linkPath": "soundgiggleemoti1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundgiggleemoti1": {
+                "content": [
+                    "[sound:giggle01|emotion:neutral|onscreen:true|shadow:true|zoomin:true]Out of desperation you pull your diver flare, the red light bouncing off every surface until you see her again…",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionbigmadons",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionbigmadons": {
+                "content": [
+                    "[emotion:bigmad|onscreen:true|shadow:false|zoomin:true]“Well… hello there… diver…” Her toothy smile quickly turns your relief into dread as you scramble to find the exit…",
+                    {
+                        "option": "!!!",
+                        "linkPath": "emotionbigmadons1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionbigmadons1": {
+                "content": [
+                    "[emotion:bigmad|onscreen:true|shadow:false|zoomin:true] “Oh, I don’t think so… My mother is hungry…” She cackles and you feel a constricting force around your waist as the giant tentacle drags you further and further down into the abyss…"
+                ]
+            }
+        },
+        "initial": "emotionneutralon",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionbigmadons1",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120123
+}
