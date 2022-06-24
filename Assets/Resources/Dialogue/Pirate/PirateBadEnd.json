@@ -1,0 +1,80 @@
+{
+    "title": "Octavian Tidebreaker - Bad Ending",
+    "data": {
+        "stitches": {
+            "soundannoyedemot": {
+                "content": [
+                    "[sound:annoyed03|emotion:sad|onscreen:true|shadow:false|zoomin:true]There is a deep sadness in Octavian’s eyes as he looks at you. The song of your dreams slowly begins to fade.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionsadonscre",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "emotionsadonscre": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]“Come with me, Abysswalker…” He turns to walk across the deck of the ship. You follow closely, wondering just what this truth could be. ",
+                    {
+                        "option": "“Have I done something wrong, Captain Tidebreaker?”",
+                        "linkPath": "soundarremotions",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundarremotions": {
+                "content": [
+                    "[sound:arr03|emotion:sad|onscreen:true|shadow:false|zoomin:true]“No, no, nothin’ wrong… ye followed yer heart and it led ye here…” He stops walking when you reach the great hatch in the center of the deck. ",
+                    {
+                        "option": "“Then why do you look so disappointed?” ",
+                        "linkPath": "emotionsadonscre1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre1": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]Octavian removes a large iron lock and throws the hatch open. “Aye… Because of the duty I ‘ave sworn me eternal soul to, and the love I fear I will never see again…” ",
+                    {
+                        "option": "“What’s down there?”",
+                        "linkPath": "emotionsadonscre2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre2": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:true]You peer over the edge “The truth. That duty is the death of love.” Suddenly you are shoved by Octavian. ",
+                    {
+                        "option": "!!!",
+                        "linkPath": "emotionsadonscre3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionsadonscre3": {
+                "content": [
+                    "[emotion:sad|onscreen:true|shadow:false|zoomin:false]A massive tentacle wraps around your waist, dragging you down through the open hatch. Screams and cries of a thousand souls surround you as you watch the saddened Octavian slowly closing the hatch above you…"
+                ]
+            }
+        },
+        "initial": "soundannoyedemot",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionsadonscre3",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120120
+}

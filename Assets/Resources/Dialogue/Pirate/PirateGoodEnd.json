@@ -1,0 +1,124 @@
+{
+    "title": "Octavian Tidebreaker - Good Ending",
+    "data": {
+        "stitches": {
+            "emotionneutralon": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]Captain Octavian Tidebreaker picks up a lantern with a flickering ghostly blue flame. ",
+                    {
+                        "option": "...",
+                        "linkPath": "soundchuckleemot",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "soundchuckleemot": {
+                "content": [
+                    "[sound:chuckle03|emotion:happy|onscreen:true|shadow:false|zoomin:true]“I ‘ave sailed these seas for centuries.. And ner there been someone that ‘as ‘eard me song.” He chuckles and takes your hand in his.",
+                    {
+                        "option": "...",
+                        "linkPath": "soundyarremotion",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundyarremotion": {
+                "content": [
+                    "[sound:yarr03|emotion:blush|onscreen:true|shadow:false|zoomin:true]He walks with you up to the helm of the ship.. “I ‘ave many a secrets, but I would want nothing more than ta share ‘em with ye, Abysswalker.”",
+                    {
+                        "option": "...",
+                        "linkPath": "soundchuckleemot1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundchuckleemot1": {
+                "content": [
+                    "[sound:chuckle01|emotion:happy|onscreen:true|shadow:false|zoomin:true]You feel yourself blush, thankful for your oversized helmet. ",
+                    {
+                        "option": "\"Octavian...\"",
+                        "linkPath": "soundyarremotion1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundyarremotion1": {
+                "content": [
+                    "[sound:yarr01|emotion:happy|onscreen:true|shadow:false|zoomin:true]“What say, ye love? Ye want ta join me? Join me crew? Sail with me in the open waters fer an eternity?” He smiles at you, hopeful. ",
+                    {
+                        "option": "\"Eternity?...\"",
+                        "linkPath": "emotionneutralon1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon1": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]He raises his lantern towards the front of the ship. The song of your dreams plays as if carried by the currents filling the sails.",
+                    {
+                        "option": "Close your eyes and listen...",
+                        "linkPath": "emotionneutralon2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon2": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]You open your eyes. The lantern light shines out over the deck. Instead of an abandoned and worn down ship, it was bustling with a crew of various humanoid sea creatures.",
+                    {
+                        "option": "...",
+                        "linkPath": "emotionneutralon3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionneutralon3": {
+                "content": [
+                    "[emotion:neutral|onscreen:true|shadow:false|zoomin:true]A quartermaster that looked very seal-like was barking orders to the crew until a loud rumbling drowned him out...",
+                    {
+                        "option": "!!!",
+                        "linkPath": "emotionhappyonsc",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "emotionhappyonsc": {
+                "content": [
+                    "[emotion:happy|onscreen:true|shadow:false|zoomin:true]Enormous tentacles move out from under the ship. They begin to wrap and embrace parts of the hull and mast, seeming almost playful and affectionate...",
+                    {
+                        "option": "\"Tis a pirate's life for me!\"",
+                        "linkPath": "soundchuckleemot2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "soundchuckleemot2": {
+                "content": [
+                    "[sound:chuckle02|emotion:blush|onscreen:true|shadow:false|zoomin:true]The crew lets out a roaring cheer and Captain Octavian gives the helm a spin. He then reels you in close, and raises your hand to kiss the back of it. “Welcome aboard, Abysswalker…”"
+                ]
+            }
+        },
+        "initial": "emotionneutralon",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "emotionhappyonsc",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 1
+        }
+    },
+    "url_key": 120090
+}
