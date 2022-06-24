@@ -33,6 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueEndScene.unity
     guid: 9a3615e2647db4e4c9a771be9f90845d
   - enabled: 1
+    path: Assets/Scenes/GameEndScene.unity
+    guid: 893bd422cf9b745389e744cecc4eb63f
+  - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: 7d27ff9201903480ba3efc92811e4b44
   m_configObjects: {}
