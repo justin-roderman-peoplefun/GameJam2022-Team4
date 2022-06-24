@@ -50,6 +50,9 @@ MonoBehaviour:
   maxSpeed: 2
   overshootAmount: 1
   maxRotationAngle: 15
+  enemySprite: {fileID: 8934564488741457067}
+  idleSprite: {fileID: 21300000, guid: 381e7488fd74941748263cf06827d7cb, type: 3}
+  swimSprite: {fileID: 21300000, guid: 19b1be98782c4482a9bc93e470dbb9e1, type: 3}
 --- !u!50 &3317204769487463664
 Rigidbody2D:
   serializedVersion: 4
@@ -145,12 +148,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44724a0bb1d9447378c36ec1d1b7a4a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 381e7488fd74941748263cf06827d7cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -168,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5812025904ffd46679fb2bfbca5842eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!58 &1150201814559741107
 CircleCollider2D:
   m_ObjectHideFlags: 0

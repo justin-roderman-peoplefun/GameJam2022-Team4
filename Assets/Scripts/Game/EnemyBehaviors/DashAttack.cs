@@ -18,6 +18,10 @@ public class DashAttack : MonoBehaviour
     public float maxSpeed = 2f;
     public float overshootAmount = 1f;
     public float maxRotationAngle = 15f;
+
+    [SerializeField] private SpriteRenderer enemySprite;
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private Sprite swimSprite;
     
     Vector2 PlayerPosition => (Vector2)playerToTarget.transform.position;
 
@@ -44,24 +48,35 @@ public class DashAttack : MonoBehaviour
         float smoothTime = (1 / dashSpeed);
         float maxSpeed = this.maxSpeed * dashSpeed;
 
+        enemySprite.sprite = swimSprite;
+        
+        
         while (Vector2.Distance(_rb.position, _targetPos) > 0.05f)
         {
             // If we've hit the target position, move it up a bit so that we drift
             Vector2 targetPos = _targetPos;
             _rb.position = Vector2.SmoothDamp(_rb.position, targetPos, ref _playerVelocity, smoothTime, maxSpeed);
-            float rot = maxRotationAngle * Mathf.Clamp(_playerVelocity.x, -1, 1);
-            transform.rotation = Quaternion.Euler(0, 0, rot);
+
+            if(Vector2.Distance(_rb.position, _targetPos) < 0.5f)
+                enemySprite.sprite = idleSprite;
+            
             yield return null;
         }
 
+        enemySprite.sprite = idleSprite;
+        
         float waitForNextDashTimer = 0f;
-        //GetComponentInChildren<SpriteRenderer>().color = new Color(240, 250, 152);
+        
         while (waitForNextDashTimer < timeBetweenDashes)
         {
             Vector2 targetPos = _targetPos + new Vector2(0.05f, 0);
             _rb.position = Vector2.SmoothDamp(_rb.position, targetPos, ref _playerVelocity, smoothTime, maxSpeed);
-            float rot = maxRotationAngle * Mathf.Clamp(_playerVelocity.x, -1, 1);
-            transform.rotation = Quaternion.Euler(0, 0, rot);
+            
+            Vector3 vectorToTarget = (Vector3)targetPos - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5f);
+            
             yield return null;
             waitForNextDashTimer += Time.deltaTime;
         }
