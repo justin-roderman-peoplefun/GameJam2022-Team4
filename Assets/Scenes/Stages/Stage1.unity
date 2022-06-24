@@ -1497,9 +1497,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Collect hearts to raise the \n<b><color=yellow>Companionship Level</b></color>
-    \nof your companion.\n\n\n\n\nRaise your \n<b><color=yellow>Companionship Level</b></color>
-    \nhigh enough to unlock end-of-level rewards and alternate endings!"
+  m_text: "Collect hearts to raise the \n<b><color=yellow>Affection</b></color> \nof
+    your muse.\n\n\n\n\nRaise your \n<b><color=yellow>Affection</b></color> \nhigh
+    enough to unlock end-of-level rewards and alternate endings!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3038,7 +3038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Make it to the <b><color=yellow>level goal</color></b> to find the voice!
+  m_text: Make it to the <b><color=yellow>level goal</color></b> to find your muse!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

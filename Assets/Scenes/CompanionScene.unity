@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This companion is not finished yet
+  m_text: This muse is not finished yet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c9959678e6040a9985783a936d06c3, type: 2}
   m_sharedMaterial: {fileID: 7006063672293675711, guid: b7c9959678e6040a9985783a936d06c3, type: 2}
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap a companion above!
+  m_text: Tap a muse above!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae2e53c43528a4d87bc9e4eab5ec458d, type: 2}
   m_sharedMaterial: {fileID: -2066750513014548481, guid: ae2e53c43528a4d87bc9e4eab5ec458d, type: 2}
@@ -1668,7 +1668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 276, y: -57.05}
+  m_AnchoredPosition: {x: 225, y: 0}
   m_SizeDelta: {x: 450, y: 114.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438047325
